@@ -18,10 +18,12 @@ public class PlayerController : MonoBehaviour
     [Header("Dash")] 
     [SerializeField] private float dashVelocity;
     [SerializeField] private float dashTime;
+    [SerializeField] private float dashOxygenCost;
     private float dashTimer;
     private bool isDashing;
     
     private Rigidbody2D rb;
+    private PlayerStats pStats;
     private InputAction moveAction;
     private Vector2 moveValue;
     private InputAction dashAction;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        pStats = GetComponent<PlayerStats>();
         rb.gravityScale = gravity;
         canMove = true;
         moveAction = InputSystem.actions.FindAction("Move");
@@ -61,7 +64,7 @@ public class PlayerController : MonoBehaviour
         }
             
             
-        if (dashAction.WasPressedThisFrame() && dashTimer <= 0)
+        if (dashAction.WasPressedThisFrame() && dashTimer <= 0 && pStats.CurrentOxygenLevel > dashOxygenCost)
         {
             Dash();
         }
@@ -153,6 +156,7 @@ public class PlayerController : MonoBehaviour
 
     private void Dash()
     {
+        pStats.AddOxygen(-dashOxygenCost);
         isDashing = true;
         rb.gravityScale = 0;
         dashTimer = dashTime;

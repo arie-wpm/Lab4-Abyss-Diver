@@ -11,7 +11,8 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField]
     private float currentOxygenLevel;
-
+    public float CurrentOxygenLevel { get => currentOxygenLevel; }
+    
     [SerializeField]
     private float oxygenDrainRate;
 
