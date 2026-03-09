@@ -5,6 +5,9 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats GlobalPlayerStats { get; private set; }
 
+    [Header("DebugTool.Log")]
+    [SerializeField] private bool enableDebug = false;
+
     [Header("Oxygen")]
     [SerializeField]
     private float maxOxygenLevel;
@@ -37,6 +40,7 @@ public class PlayerStats : MonoBehaviour
         {
             GlobalPlayerStats = this;
         }
+        DebugTool.EnableLogging(nameof(PlayerStats), enableDebug);
     }
 
     void Start()
@@ -79,6 +83,6 @@ public class PlayerStats : MonoBehaviour
     public void AddScore(float value)
     {
         score += value;
-        Debug.Log($"Added: {value} score. Current Score: {score}");
+        DebugTool.Log($"Added: {value} score. Current Score: {score}");
     }
 }
