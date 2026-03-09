@@ -1,0 +1,123 @@
+using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerController : MonoBehaviour
+{
+    [Header("Movement")]
+    [SerializeField] private float gravity;
+    [SerializeField] private float ascendAcceleration;
+    [SerializeField] private float descendAcceleration;
+    [SerializeField] private float horizontalAcceleration;
+    [SerializeField] private float maxHorizontalVelocity;
+    [SerializeField] private float maxAscendVelocity;
+    [SerializeField] private float maxDescendVelocity;
+    [SerializeField] private float maxGravityVelocity;
+    [SerializeField] private float postDescendSlowDownRate;
+    
+
+    private Rigidbody2D rb;
+    private InputAction moveAction;
+    private Vector2 moveValue;
+    
+    private Vector2 currentDirection;
+    public Vector2 CurrentDirection
+    {
+        get => currentDirection; 
+        set => currentDirection = value; 
+        
+    }
+    
+    private bool canMove;
+    public bool CanMove
+    {
+        get => canMove;
+        set =>  canMove = value;
+    }
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = gravity;
+        canMove = true;
+        moveAction = InputSystem.actions.FindAction("Move");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        moveValue = moveAction.ReadValue<Vector2>();
+        
+    }
+
+    private void FixedUpdate()
+    {
+        //Force Application 
+        if (moveValue != Vector2.zero && CanMove)
+        {
+            if (Mathf.Abs(moveValue.x) > 0)
+            {
+                rb.AddForceX(moveValue.x * horizontalAcceleration, ForceMode2D.Force);
+            }
+
+            if (moveValue.y > 0)
+            {
+                Debug.Log(moveValue.y);
+                rb.AddForceY(moveValue.y * ascendAcceleration, ForceMode2D.Force);
+            }
+            else if (moveValue.y < 0)
+            {
+                rb.AddForceY(moveValue.y * descendAcceleration, ForceMode2D.Force);
+            }
+        }
+        
+        //Direction
+       
+        if (rb.linearVelocityX > 0)
+        {
+            currentDirection.x = 1;
+        }
+        else if (rb.linearVelocityX < 0)
+        {
+            currentDirection.x = -1;
+        }
+
+        if (rb.linearVelocityY > 0)
+        {
+            currentDirection.y = 1;
+        }
+        else if (rb.linearVelocityY < 0)
+        {
+            currentDirection.y = -1;
+        }
+        
+        
+        //Limits
+        if (Mathf.Abs(rb.linearVelocityX) >= maxHorizontalVelocity)
+        {
+            rb.linearVelocityX = maxHorizontalVelocity * currentDirection.x;
+        }
+
+        if (rb.linearVelocityY >= maxAscendVelocity)
+        {
+            rb.linearVelocityY = maxAscendVelocity;
+        } 
+        
+        if (moveValue.y < 0 && rb.linearVelocityY <= -maxDescendVelocity)
+        {
+            rb.linearVelocityY = -maxDescendVelocity;
+        }
+        else if (moveValue.y >= 0 && rb.linearVelocityY < -maxGravityVelocity)
+        {
+            if (Mathf.Abs(rb.linearVelocityY) - maxGravityVelocity > 0.1)
+            {
+                rb.linearVelocityY *= postDescendSlowDownRate;
+            }
+            else
+            {
+                rb.linearVelocityY = -maxGravityVelocity;
+            }
+        }
+    }
+}
