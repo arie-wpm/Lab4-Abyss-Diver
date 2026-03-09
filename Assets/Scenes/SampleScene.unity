@@ -1052,6 +1052,8 @@ MonoBehaviour:
   maxDescendVelocity: 6.7
   maxGravityVelocity: 3.2
   postDescendSlowDownRate: 0.97
+  dashVelocity: 5
+  dashTime: 0.3
 --- !u!1 &2010419574
 GameObject:
   m_ObjectHideFlags: 0
