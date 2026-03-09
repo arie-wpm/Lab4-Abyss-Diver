@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 111532176}
   - component: {fileID: 111532177}
   - component: {fileID: 111532178}
+  - component: {fileID: 111532179}
+  - component: {fileID: 111532180}
   m_Layer: 0
   m_Name: DummyPlayer
   m_TagString: Untagged
@@ -166,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7dfd76f845fdc4c86080f3a3fab237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  enableDebug: 0
   maxOxygenLevel: 10
   currentOxygenLevel: 0
   oxygenDrainRate: 2
@@ -289,6 +292,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8eae2a06394a08469b4e76b43d28936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  enableDebug: 0
+--- !u!50 &111532179
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111532173}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &111532180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111532173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73790c22395f8149b941bbb6d92291a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  enableDebug: 0
+  gravity: 0
+  ascendAcceleration: 10
+  descendAcceleration: 10
+  horizontalAcceleration: 10
+  maxHorizontalVelocity: 10
+  maxAscendVelocity: 10
+  maxDescendVelocity: 10
+  maxGravityVelocity: 10
+  postDescendSlowDownRate: 10
+  dashVelocity: 0
+  dashTime: 0
+  dashOxygenCost: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +453,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.8125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -441,6 +497,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   enableDebug: 0
+  pTrans: {fileID: 111532174}
+  followSpeed: 5
+  minBounds: {x: -5, y: -3}
+  maxBounds: {x: 5, y: 3}
+  threshold: {x: 0, y: 0}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
