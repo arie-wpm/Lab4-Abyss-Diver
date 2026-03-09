@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
+    [Header("Debug")]
+    [SerializeField] private bool enableDebug = false;
     private PlayerStats pStats;
+
+    void Awake() {
+        DebugTool.EnableLogging(nameof(PlayerCollisionHandler), enableDebug);
+    }
 
     void Start()
     {
@@ -14,11 +20,11 @@ public class PlayerCollisionHandler : MonoBehaviour
         switch (collision.tag)
         {
             case "Pickup":
-                Debug.Log("Touched Bubble");
+                DebugTool.Log("Touched Bubble");
                 collision.GetComponent<IPickup>().PlayerContact(pStats);
                 break;
             default:
-                Debug.Log($"No case set for tag: {collision.tag}.");
+                DebugTool.Log($"No case set for tag: {collision.tag}.");
                 break;
         }
     }

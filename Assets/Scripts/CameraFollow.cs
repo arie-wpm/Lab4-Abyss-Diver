@@ -13,6 +13,9 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector2 minBounds;
     [SerializeField] private Vector2 maxBounds;
 
+    [Header("Deadzone / Threshold")]
+    [SerializeField] private Vector2 threshold;
+
     private Vector3 targetPos;
     private Rigidbody2D pRb;
 
@@ -35,14 +38,24 @@ public class CameraFollow : MonoBehaviour
     }
 
     void ClampCamera() {
-        targetPos = pRb.position;
+        targetPos = transform.position;
+
+        if (pRb.position.x > transform.position.x + threshold.x)
+            targetPos.x = pRb.position.x - threshold.x;
+        else if (pRb.position.x < transform.position.x - threshold.x)
+            targetPos.x = pRb.position.x + threshold.x;
+
+        if (pRb.position.y > transform.position.y + threshold.y)
+            targetPos.y = pRb.position.y - threshold.y;
+        else if (pRb.position.y < transform.position.y - threshold.y)
+            targetPos.y = pRb.position.y + threshold.y;
+
         targetPos.z = transform.position.z;
 
         targetPos.x = Mathf.Clamp(targetPos.x, minBounds.x, maxBounds.x);
         targetPos.y = Mathf.Clamp(targetPos.y, minBounds.y, maxBounds.y);
 
-        Vector3 newPos = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
-        transform.position = newPos;
+        transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
     }
 
     void ClampPlayer() {

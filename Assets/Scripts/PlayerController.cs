@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Debug")]
+    [SerializeField] private bool enableDebug = false;
+
     [Header("Movement")]
     [SerializeField] private float gravity;
     [SerializeField] private float ascendAcceleration;
@@ -41,6 +44,11 @@ public class PlayerController : MonoBehaviour
     {
         get => canMove;
         set =>  canMove = value;
+    }
+
+    void Awake()
+    {
+        DebugTool.EnableLogging(nameof(PlayerController), enableDebug);
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -92,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
             if (moveValue.y > 0)
             {
-                Debug.Log(moveValue.y);
+                DebugTool.Log(moveValue.y);
                 rb.AddForceY(moveValue.y * ascendAcceleration, ForceMode2D.Force);
             }
             else if (moveValue.y < 0)
