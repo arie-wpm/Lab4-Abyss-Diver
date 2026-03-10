@@ -8,11 +8,13 @@ public class PlayerAnimation : MonoBehaviour {
     [Header("Settings")]
     [SerializeField] private float horizontalDeadzone = 0.1f;
     [SerializeField] private float verticalHoldThreshold = 0.25f;
+    [SerializeField] private float noInputThreshold = 0.5f;
     private Rigidbody2D rb;
     private Animator animator;
     private InputAction moveAction;
     private Vector2 lastMoveValue;
-    private float verticalHoldTimer;    
+    private float verticalHoldTimer;
+    private float noInputTimer;
 
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -30,8 +32,8 @@ public class PlayerAnimation : MonoBehaviour {
                 lastMoveValue.x = moveInput.x;
                 verticalHoldTimer = 0f;
             }
-
             if (moveInput.x == 0 && moveInput.y != 0) lastMoveValue.y = moveInput.y;
+            noInputTimer = 0f;
         }
 
         bool isRight = false;
@@ -44,7 +46,10 @@ public class PlayerAnimation : MonoBehaviour {
 
         bool verticalActive = verticalHoldTimer >= verticalHoldThreshold;
 
-        if (verticalActive) {
+        noInputTimer += Time.deltaTime;
+        bool noInputActive = noInputTimer >= noInputThreshold;
+
+        if (verticalActive || noInputActive) {
             isUp = moveInput.y > 0;
             isDown = moveInput.y < 0;
             lastMoveValue = moveInput;
