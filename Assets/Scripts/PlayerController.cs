@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Limits
-        if (!isDashing)
+        if (!isDashing && canMove)
         {
             if (Mathf.Abs(rb.linearVelocityX) >= maxHorizontalVelocity)
             {
