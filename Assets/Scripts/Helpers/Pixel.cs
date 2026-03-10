@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Pixel {
 
-    public static float pixelsPerUnit = 16f;
+    public static float pixelsPerUnit = 32f;
 
     public static Vector3 Snap(Vector3 pos) {
         
