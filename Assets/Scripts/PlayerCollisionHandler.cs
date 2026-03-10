@@ -6,6 +6,8 @@ public class PlayerCollisionHandler : MonoBehaviour
     [SerializeField]
     private bool enableDebug = false;
     private PlayerStats pStats;
+    private PlayerController pController;
+    private Rigidbody2D pRigidBody;
 
     void Awake()
     {
@@ -14,7 +16,9 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     void Start()
     {
-        pStats = GetComponent<PlayerStats>();
+        pStats = PlayerStats.GlobalPlayerStats;
+        pController = GetComponent<PlayerController>();
+        pRigidBody = GetComponent<Rigidbody2D>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -25,15 +29,48 @@ public class PlayerCollisionHandler : MonoBehaviour
                 DebugTool.Log("Touched Bubble");
                 collision.GetComponent<IPickup>().PlayerContact(pStats);
                 break;
+            case "Current":
+                //Activates the Water Current Movement.
+                collision.GetComponent<CurrentScript>().StartMoveObject(pRigidBody);
+                break;
             default:
                 DebugTool.Log($"No case set for tag: {collision.tag}.");
                 break;
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision) { }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "Pickup":
+                break;
+            case "Current":
+                //Stops the Water Current Movement.
+                collision.GetComponent<CurrentScript>().StopMoveObject(pRigidBody);
+                pController.CanMove = true;
+                break;
+            default:
+                DebugTool.Log($"No case set for tag: {collision.tag}.");
+                break;
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D collision) { }
 
     void OnCollisionExit2D(Collision2D collision) { }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "Current":
+                //Stops player moving while in the current; in stay to avoid player clipping the current and losing control.
+                pController.CanMove = false;
+                break;
+            default:
+                DebugTool.Log($"No stay case set for tag: {collision.tag}.");
+                break;
+        }
+    }
 }
