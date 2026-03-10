@@ -9,6 +9,7 @@ public class BubbleScript : MonoBehaviour, IPickup
     public void PlayerContact(PlayerStats player)
     {
         player.AddOxygen(oxygenGiven);
+        Destroy(gameObject);
     }
 
     public void SetOxygenValue(float value)

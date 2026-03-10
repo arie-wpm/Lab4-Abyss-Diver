@@ -5,26 +5,49 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Debug")]
-    [SerializeField] private bool enableDebug = false;
+    [SerializeField]
+    private bool enableDebug = false;
 
     [Header("Movement")]
-    [SerializeField] private float gravity;
-    [SerializeField] private float ascendAcceleration;
-    [SerializeField] private float descendAcceleration;
-    [SerializeField] private float horizontalAcceleration;
-    [SerializeField] private float maxHorizontalVelocity;
-    [SerializeField] private float maxAscendVelocity;
-    [SerializeField] private float maxDescendVelocity;
-    [SerializeField] private float maxGravityVelocity;
-    [SerializeField] private float postDescendSlowDownRate;
+    [SerializeField]
+    private float gravity;
 
-    [Header("Dash")] 
-    [SerializeField] private float dashVelocity;
-    [SerializeField] private float dashTime;
-    [SerializeField] private float dashOxygenCost;
+    [SerializeField]
+    private float ascendAcceleration;
+
+    [SerializeField]
+    private float descendAcceleration;
+
+    [SerializeField]
+    private float horizontalAcceleration;
+
+    [SerializeField]
+    private float maxHorizontalVelocity;
+
+    [SerializeField]
+    private float maxAscendVelocity;
+
+    [SerializeField]
+    private float maxDescendVelocity;
+
+    [SerializeField]
+    private float maxGravityVelocity;
+
+    [SerializeField]
+    private float postDescendSlowDownRate;
+
+    [Header("Dash")]
+    [SerializeField]
+    private float dashVelocity;
+
+    [SerializeField]
+    private float dashTime;
+
+    [SerializeField]
+    private float dashOxygenCost;
     private float dashTimer;
     private bool isDashing;
-    
+
     private Rigidbody2D rb;
     private PlayerStats pStats;
     private InputAction moveAction;
@@ -34,28 +57,27 @@ public class PlayerController : MonoBehaviour
     private Vector2 lastMoveValue;
     public Vector2 CurrentDirection
     {
-        get => currentDirection; 
-        set => currentDirection = value; 
-        
+        get => currentDirection;
+        set => currentDirection = value;
     }
-    
+
     private bool canMove;
     public bool CanMove
     {
         get => canMove;
-        set =>  canMove = value;
+        set => canMove = value;
     }
 
     void Awake()
     {
         DebugTool.EnableLogging(nameof(PlayerController), enableDebug);
     }
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        pStats = GetComponent<PlayerStats>();
+        pStats = PlayerStats.GlobalPlayerStats;
         rb.gravityScale = gravity;
         canMove = true;
         moveAction = InputSystem.actions.FindAction("Move");
@@ -70,9 +92,12 @@ public class PlayerController : MonoBehaviour
         {
             lastMoveValue = moveValue;
         }
-            
-            
-        if (dashAction.WasPressedThisFrame() && dashTimer <= 0 && pStats.CurrentOxygenLevel > dashOxygenCost)
+
+        if (
+            dashAction.WasPressedThisFrame()
+            && dashTimer <= 0
+            && pStats.CurrentOxygenLevel > dashOxygenCost
+        )
         {
             Dash();
         }
@@ -90,7 +115,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Force Application 
+        //Force Application
         if (moveValue != Vector2.zero && CanMove)
         {
             if (Mathf.Abs(moveValue.x) > 0)
@@ -108,9 +133,9 @@ public class PlayerController : MonoBehaviour
                 rb.AddForceY(moveValue.y * descendAcceleration, ForceMode2D.Force);
             }
         }
-        
+
         //Direction
-       
+
         if (rb.linearVelocityX > 0)
         {
             currentDirection.x = 1;
@@ -128,8 +153,7 @@ public class PlayerController : MonoBehaviour
         {
             currentDirection.y = -1;
         }
-        
-        
+
         //Limits
         if (!isDashing)
         {
@@ -141,8 +165,8 @@ public class PlayerController : MonoBehaviour
             if (rb.linearVelocityY >= maxAscendVelocity)
             {
                 rb.linearVelocityY = maxAscendVelocity;
-            } 
-            
+            }
+
             if (moveValue.y < 0 && rb.linearVelocityY <= -maxDescendVelocity)
             {
                 rb.linearVelocityY = -maxDescendVelocity;
@@ -158,7 +182,6 @@ public class PlayerController : MonoBehaviour
                     rb.linearVelocityY = -maxGravityVelocity;
                 }
             }
-            
         }
     }
 

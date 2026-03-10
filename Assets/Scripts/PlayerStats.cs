@@ -6,7 +6,8 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats GlobalPlayerStats { get; private set; }
 
     [Header("DebugTool.Log")]
-    [SerializeField] private bool enableDebug = false;
+    [SerializeField]
+    private bool enableDebug = false;
 
     [Header("Oxygen")]
     [SerializeField]
@@ -14,8 +15,11 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField]
     private float currentOxygenLevel;
-    public float CurrentOxygenLevel { get => currentOxygenLevel; }
-    
+    public float CurrentOxygenLevel
+    {
+        get => currentOxygenLevel;
+    }
+
     [SerializeField]
     private float oxygenDrainRate;
 
@@ -47,26 +51,13 @@ public class PlayerStats : MonoBehaviour
     {
         currentOxygenLevel = maxOxygenLevel;
         oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
-        oxygenBarGraphic.color = Color.lightBlue;
+        oxygenBarGraphic.color = Color.turquoise;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentOxygenLevel = Mathf.MoveTowards(
-            currentOxygenLevel,
-            0,
-            oxygenDrainRate * Time.deltaTime
-        );
-        oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
-        if (GetCurrentOxygenPercent() >= 0.2f)
-        {
-            oxygenBarGraphic.color = Color.lightBlue;
-        }
-        if (GetCurrentOxygenPercent() < 0.2f)
-        {
-            oxygenBarGraphic.color = Color.red;
-        }
+        HandleOxygenDrain();
     }
 
     private float GetCurrentOxygenPercent()
@@ -84,5 +75,23 @@ public class PlayerStats : MonoBehaviour
     {
         score += value;
         DebugTool.Log($"Added: {value} score. Current Score: {score}");
+    }
+
+    private void HandleOxygenDrain()
+    {
+        currentOxygenLevel = Mathf.MoveTowards(
+            currentOxygenLevel,
+            0,
+            oxygenDrainRate * Time.deltaTime
+        );
+        oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
+        if (GetCurrentOxygenPercent() >= 0.2f)
+        {
+            oxygenBarGraphic.color = Color.turquoise;
+        }
+        if (GetCurrentOxygenPercent() < 0.2f)
+        {
+            oxygenBarGraphic.color = Color.red;
+        }
     }
 }
