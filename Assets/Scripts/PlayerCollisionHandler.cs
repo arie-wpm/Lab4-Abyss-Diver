@@ -3,10 +3,12 @@ using UnityEngine;
 public class PlayerCollisionHandler : MonoBehaviour
 {
     [Header("Debug")]
-    [SerializeField] private bool enableDebug = false;
+    [SerializeField]
+    private bool enableDebug = false;
     private PlayerStats pStats;
 
-    void Awake() {
+    void Awake()
+    {
         DebugTool.EnableLogging(nameof(PlayerCollisionHandler), enableDebug);
     }
 

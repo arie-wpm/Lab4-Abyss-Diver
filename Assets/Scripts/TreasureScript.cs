@@ -8,6 +8,7 @@ public class TreasureScript : MonoBehaviour, IPickup
     public void PlayerContact(PlayerStats player)
     {
         player.AddScore(scoreGiven);
+        Destroy(gameObject);
     }
 
     public void SetOxygenValue(float value)
