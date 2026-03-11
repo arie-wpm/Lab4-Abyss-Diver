@@ -103,7 +103,7 @@ public class PlayerAnimation : MonoBehaviour {
             bubbleFX.Play();
             float playDuration = Random.Range(1f, 1.5f);
             yield return new WaitForSeconds(playDuration);
-            bubbleFX.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            bubbleFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
     }
 
@@ -112,7 +112,7 @@ public class PlayerAnimation : MonoBehaviour {
             StopCoroutine(playerBubbleRoutine);
             playerBubbleRoutine = null;
         }
-        if (bubbleFX.isPlaying) bubbleFX.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        if (bubbleFX.isPlaying) bubbleFX.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     public void StartRandomBubbles() {
