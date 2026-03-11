@@ -221,9 +221,9 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 4319998379254567391, guid: a85c99a09f56546958459962027e0cf2, type: 3}
+  m_Sprite: {fileID: 6462662926100363830, guid: fc3ca3afe6034054fa024918b511b226, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1.04}
@@ -923,6 +923,7 @@ GameObject:
   - component: {fileID: 943138435}
   - component: {fileID: 943138434}
   - component: {fileID: 943138433}
+  - component: {fileID: 943138436}
   m_Layer: 0
   m_Name: Jellyfish
   m_TagString: Untagged
@@ -948,8 +949,8 @@ MonoBehaviour:
   pointB: {fileID: 868409191}
   speed: 2
   reachDistance: 0.05
-  waveAmplitude: 0.5
-  waveFrequency: 3
+  waveAmplitude: 0.2
+  waveFrequency: 4
 --- !u!212 &943138434
 SpriteRenderer:
   serializedVersion: 2
@@ -999,7 +1000,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5922668162627270425, guid: 3455425a318b440aebc25ffee9fbebad, type: 3}
+  m_Sprite: {fileID: 3623410282045198164, guid: 08bc1545ee1f7d047be00b0b402ffe51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1024,6 +1025,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2025453386}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &943138436
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943138432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d7bf37570fa24b94871fb6224be4252, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1176809767
 PrefabInstance:
   m_ObjectHideFlags: 0
