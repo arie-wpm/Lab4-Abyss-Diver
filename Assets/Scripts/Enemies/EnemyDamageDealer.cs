@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DamageDealer : MonoBehaviour
+public class EnemyDamageDealer : MonoBehaviour
 {
     public enum DamageSourceType
     {
@@ -20,9 +20,11 @@ public class DamageDealer : MonoBehaviour
 
         int damage = GetDamageFromType(damageSourceType);
 
-        PlayerStats.GlobalPlayerStats.LoseHealth(damage);
+        // player health reduction
+        // iframes
+        // temporary collision ignoring?
 
-        Debug.Log($"{damageSourceType} dealt {damage} damage");
+        PlayerStats.GlobalPlayerStats.TakeDamage(damage);
     }
 
     private int GetDamageFromType(DamageSourceType type)
@@ -30,16 +32,22 @@ public class DamageDealer : MonoBehaviour
         switch (type)
         {
             case DamageSourceType.Jellyfish:
+                return 1;
+
             case DamageSourceType.LanternFish:
-            case DamageSourceType.SeaUrchin:
-            case DamageSourceType.Volcano:
                 return 1;
 
             case DamageSourceType.ElectricEel:
                 return 2;
 
+            case DamageSourceType.SeaUrchin:
+                return 1;
+
+            case DamageSourceType.Volcano:
+                return 1;
+
             case DamageSourceType.DeepSeaFissure:
-                return 999; //instant death?
+                return 999;
 
             default:
                 return 1;

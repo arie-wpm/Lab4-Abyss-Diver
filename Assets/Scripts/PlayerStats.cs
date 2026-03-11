@@ -115,6 +115,24 @@ public class PlayerStats : MonoBehaviour
             healthBarGraphic.fillAmount -= .33f;
         }
     }
+    public void TakeDamage(int amount)
+    {
+        // if (isInvincible) return;
+
+        if (currentHearts <= 0) return;
+
+        currentHearts -= amount;
+        Debug.Log("Lost Health. Current Hearts: " + currentHearts);
+
+        if (currentHearts <= 0)
+        {
+            currentHearts = 0;
+            DebugTool.Log($"Died. Current Hearts: {currentHearts}");
+            return;
+        }
+    
+        // iframe?
+    }
 
     public void AddHealth(int healthToAdd)
     {
