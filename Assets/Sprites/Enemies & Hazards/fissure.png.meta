@@ -1,22 +1,49 @@
 fileFormatVersion: 2
-guid: 9684a1d947d0c014290960e5d12ffa08
+guid: 07af07f32164fc8419f103160a485283
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7477461516166879398
-    second: Oxygen + HP bars_0
+      213: 7450129226475530389
+    second: fissure_0
   - first:
-      213: -8000700801515032721
-    second: Oxygen + HP bars_1
+      213: 4545713075234220689
+    second: fissure_1
   - first:
-      213: 286265104585004188
-    second: Oxygen + HP bars_2
+      213: 5900504771748099032
+    second: fissure_2
   - first:
-      213: 6270848005840854337
-    second: Oxygen + HP bars_3
+      213: -8577345887521794594
+    second: fissure_3
   - first:
-      213: -111701943741885395
-    second: Oxygen + HP bars_4
+      213: 7319601284436336333
+    second: fissure_4
+  - first:
+      213: 4421156914154973951
+    second: fissure_5
+  - first:
+      213: -4253007575666519786
+    second: fissure_6
+  - first:
+      213: -6130443133766911955
+    second: fissure_7
+  - first:
+      213: 7240026851577127950
+    second: fissure_8
+  - first:
+      213: 1466093404260105438
+    second: fissure_9
+  - first:
+      213: -4217814790080411533
+    second: fissure_10
+  - first:
+      213: -4687083829260662015
+    second: fissure_11
+  - first:
+      213: -507832053495389298
+    second: fissure_12
+  - first:
+      213: -8091547267267861793
+    second: fissure_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,89 +139,117 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Oxygen UI bar
+      name: fissure_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 288
-        width: 96
-        height: 32
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 31, y: -19}
+        - {x: 31, y: 4}
+        - {x: 21, y: 5}
+        - {x: -26, y: 5}
+        - {x: -26, y: -13}
+        - {x: -17, y: -25}
+        - {x: 11, y: -25}
+      tessellationDetail: 0
       bones: []
-      spriteID: a57283b4e58ba3890800000000000000
-      internalID: -7477461516166879398
+      spriteID: 59864da1f0d246760800000000000000
+      internalID: 7450129226475530389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HP UI bar
+      name: fissure_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 288
-        width: 96
-        height: 32
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 31, y: -19}
+        - {x: 31, y: 4}
+        - {x: 21, y: 5}
+        - {x: -26, y: 5}
+        - {x: -26, y: -13}
+        - {x: -17, y: -25}
+        - {x: 11, y: -25}
+      tessellationDetail: 0
       bones: []
-      spriteID: f6f6383b20dc7f090800000000000000
-      internalID: -8000700801515032721
+      spriteID: 19a2f2c25fd951f30800000000000000
+      internalID: 4545713075234220689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Oxygen bar
+      name: fissure_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 96
-        height: 32
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 31, y: -19}
+        - {x: 31, y: 4}
+        - {x: 21, y: 5}
+        - {x: -26, y: 5}
+        - {x: -26, y: -13}
+        - {x: -17, y: -25}
+        - {x: 11, y: -25}
+      tessellationDetail: 0
       bones: []
-      spriteID: c94116e889409f300800000000000000
-      internalID: 286265104585004188
+      spriteID: 8d3fa83e3ddc2e150800000000000000
+      internalID: 5900504771748099032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HP bar
+      name: fissure_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 256
-        width: 96
-        height: 32
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 31, y: -19}
+        - {x: 31, y: 4}
+        - {x: 21, y: 5}
+        - {x: -26, y: 5}
+        - {x: -26, y: -13}
+        - {x: -17, y: -25}
+        - {x: 11, y: -25}
+      tessellationDetail: 0
       bones: []
-      spriteID: 14d5c947907860750800000000000000
-      internalID: 6270848005840854337
+      spriteID: ed51b9a2c5527f880800000000000000
+      internalID: -8577345887521794594
       vertices: []
       indices: 
       edges: []
@@ -203,7 +258,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7381294bd79d1cd4594dfcea429854c6
+    spriteID: c837749f5c4a08b41905bc47bbe426fb
     internalID: 0
     vertices: []
     indices: 
@@ -213,12 +268,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      HP UI bar: -8000700801515032721
-      HP bar: 6270848005840854337
-      Oxygen UI bar: -7477461516166879398
-      Oxygen bar: 286265104585004188
+      fissure_0: 7450129226475530389
+      fissure_1: 4545713075234220689
+      fissure_2: 5900504771748099032
+      fissure_3: -8577345887521794594
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
