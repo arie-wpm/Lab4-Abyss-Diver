@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,17 +10,24 @@ public class PlayerAnimation : MonoBehaviour {
     [SerializeField] private float horizontalDeadzone = 0.1f;
     [SerializeField] private float verticalHoldThreshold = 0.25f;
     [SerializeField] private float noInputThreshold = 0.5f;
+    [SerializeField] private Transform particlePos;
+    [SerializeField] private ParticleSystem bubbleFXPrefab;
+    private ParticleSystem bubbleFX;
     private Rigidbody2D rb;
     private Animator animator;
     private InputAction moveAction;
     private Vector2 lastMoveValue;
     private float verticalHoldTimer;
     private float noInputTimer;
+    private bool wasDown = false;
+    private Coroutine playerBubbleRoutine;
 
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         moveAction = InputSystem.actions.FindAction("Move");
+        bubbleFX = Instantiate(bubbleFXPrefab, particlePos.position, Quaternion.identity, particlePos);
+        playerBubbleRoutine = StartCoroutine(PlayerBubbleRoutine());
     }
 
     void Update()
@@ -70,6 +78,14 @@ public class PlayerAnimation : MonoBehaviour {
 
         if (velocity == Vector2.zero) lastMoveValue = Vector2.zero;
         SetAnimParams(isRight, isLeft, isUp, isDown);
+
+        if (isDown && !wasDown) {
+            bubbleFX.Play();
+        } else if (!isDown && wasDown) {
+            bubbleFX.Stop();
+        }
+
+        wasDown = isDown;
     }
 
     void SetAnimParams(bool isRight, bool isLeft, bool isUp, bool isDown) {
@@ -77,5 +93,29 @@ public class PlayerAnimation : MonoBehaviour {
         animator.SetBool("isLeft", isLeft);
         animator.SetBool("isUp", isUp);
         animator.SetBool("isDown", isDown);
+    }
+
+    IEnumerator PlayerBubbleRoutine() {
+        while (true) {
+            yield return new WaitForSeconds(1f);
+            float waitTime = Random.Range(2f, 4f);
+            yield return new WaitForSeconds(waitTime);
+            bubbleFX.Play();
+            float playDuration = Random.Range(1f, 1.5f);
+            yield return new WaitForSeconds(playDuration);
+            bubbleFX.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+    }
+
+    public void StopRandomBubbles() {
+        if (playerBubbleRoutine != null) {
+            StopCoroutine(playerBubbleRoutine);
+            playerBubbleRoutine = null;
+        }
+        if (bubbleFX.isPlaying) bubbleFX.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+    }
+
+    public void StartRandomBubbles() {
+        if (playerBubbleRoutine == null) playerBubbleRoutine = StartCoroutine(PlayerBubbleRoutine());
     }
 }
