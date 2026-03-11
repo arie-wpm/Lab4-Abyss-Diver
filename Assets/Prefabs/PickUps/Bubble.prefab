@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 835699430028900050, guid: 58a33f2d8683059459e5d7f2ee038c5f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.11372549
+      objectReference: {fileID: 0}
     - target: {fileID: 4223450304615479347, guid: 58a33f2d8683059459e5d7f2ee038c5f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.015
