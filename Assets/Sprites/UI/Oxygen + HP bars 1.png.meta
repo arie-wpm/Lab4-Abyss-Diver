@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 9684a1d947d0c014290960e5d12ffa08
+guid: 5c148c52c9d5f0d47b8f21bbe7ef0ac9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7477461516166879398
-    second: Oxygen + HP bars_0
+      213: -6344961186411330452
+    second: Oxygen + HP bars 1_0
   - first:
-      213: -8000700801515032721
-    second: Oxygen + HP bars_1
+      213: 212575480995409848
+    second: Oxygen + HP bars 1_1
   - first:
-      213: 286265104585004188
-    second: Oxygen + HP bars_2
+      213: -5520773479042544897
+    second: Oxygen + HP bars 1_2
   - first:
-      213: 6270848005840854337
-    second: Oxygen + HP bars_3
+      213: -4127314236853660658
+    second: Oxygen + HP bars 1_3
   - first:
-      213: -111701943741885395
-    second: Oxygen + HP bars_4
+      213: 2063882178866453879
+    second: Oxygen + HP bars 1_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Oxygen UI bar
+      name: Oxygen Bar
       rect:
         serializedVersion: 2
         x: 0
@@ -127,14 +127,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a57283b4e58ba3890800000000000000
-      internalID: -7477461516166879398
+      spriteID: c64cf420b6b22f7a0800000000000000
+      internalID: -6344961186411330452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HP UI bar
+      name: HP Bar
       rect:
         serializedVersion: 2
         x: 96
@@ -149,14 +149,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6f6383b20dc7f090800000000000000
-      internalID: -8000700801515032721
+      spriteID: 8bf60b0164833f200800000000000000
+      internalID: 212575480995409848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Oxygen bar
+      name: Oxygen Bar Fill
       rect:
         serializedVersion: 2
         x: 0
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c94116e889409f300800000000000000
-      internalID: 286265104585004188
+      spriteID: ffa854865c54263b0800000000000000
+      internalID: -5520773479042544897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HP bar
+      name: HP Bar Fill
       rect:
         serializedVersion: 2
         x: 96
@@ -193,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14d5c947907860750800000000000000
-      internalID: 6270848005840854337
+      spriteID: e04dceba195d8b6c0800000000000000
+      internalID: -4127314236853660658
       vertices: []
       indices: 
       edges: []
@@ -203,7 +203,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7381294bd79d1cd4594dfcea429854c6
+    spriteID: 4e30c0ca1ea58db4e96526430d9ef35b
     internalID: 0
     vertices: []
     indices: 
@@ -215,10 +215,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      HP UI bar: -8000700801515032721
-      HP bar: 6270848005840854337
-      Oxygen UI bar: -7477461516166879398
-      Oxygen bar: 286265104585004188
+      HP Bar: 212575480995409848
+      HP Bar Fill: -4127314236853660658
+      Oxygen Bar: -6344961186411330452
+      Oxygen Bar Fill: -5520773479042544897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
