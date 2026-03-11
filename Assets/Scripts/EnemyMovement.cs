@@ -1,5 +1,16 @@
 using UnityEngine;
 
+/*
+FISH
+    Moving > JellyFish, LanternFish 
+    Stationary > ElectricEel
+HAZARDS
+    Stationary > Sea Urchins
+    Volcano
+    Minecraft Magma Block thingy - Deep Sea crack?
+    Ocean Currents?
+*/
+
 public class EnemyMovement : MonoBehaviour
 {
     public enum EnemyType
