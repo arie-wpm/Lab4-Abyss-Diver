@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4434281102454081508}
   - component: {fileID: 5765170492707335806}
   - component: {fileID: 7440737523501960113}
+  - component: {fileID: 8460379551134416695}
   m_Layer: 0
   m_Name: LanternFish
   m_TagString: Untagged
@@ -226,6 +227,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8460379551134416695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946032681167269259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b7fc33a73084a8aae9574055bbc0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damageSourceType: 1
 --- !u!1 &1982484325850332781
 GameObject:
   m_ObjectHideFlags: 0

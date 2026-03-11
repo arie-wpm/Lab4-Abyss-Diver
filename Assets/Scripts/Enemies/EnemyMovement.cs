@@ -2,7 +2,7 @@ using UnityEngine;
 
 /*
 FISH
-    Moving > JellyFish, LanternFish /done/
+    Moving > JellyFish, LanternFish
     Stationary > ElectricEel 
 HAZARDS
     Stationary > Sea Urchins
@@ -17,14 +17,12 @@ public class EnemyMovement : MonoBehaviour
     {
         Jellyfish,
         LanternFish,
-        ElectricEel
     }
 
     public enum MovementType
     {
         StraightPatrol,
         WavyPatrol,
-        Static
     }
 
     public EnemyType enemyType;
@@ -69,8 +67,6 @@ public class EnemyMovement : MonoBehaviour
                 PatrolWavy();
                 break;
 
-            case MovementType.Static:
-                break;
         }
     }
 
