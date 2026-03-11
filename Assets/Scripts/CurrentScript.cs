@@ -71,6 +71,7 @@ public class CurrentScript : MonoBehaviour
             rb.MovePosition(new Vector2(rb.position.x, front.position.y));
         }
         rb.linearVelocity = Vector2.zero;
+        targetRigidBody = rb;
         movingObject = true;
     }
 
