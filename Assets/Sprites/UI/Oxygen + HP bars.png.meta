@@ -112,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Oxygen + HP bars_0
+      name: Oxygen UI bar
       rect:
         serializedVersion: 2
         x: 0
@@ -134,7 +134,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Oxygen + HP bars_1
+      name: HP UI bar
       rect:
         serializedVersion: 2
         x: 96
@@ -156,7 +156,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Oxygen + HP bars_2
+      name: Oxygen bar
       rect:
         serializedVersion: 2
         x: 0
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Oxygen + HP bars_3
+      name: HP bar
       rect:
         serializedVersion: 2
         x: 96
@@ -215,10 +215,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Oxygen + HP bars_0: -7477461516166879398
-      Oxygen + HP bars_1: -8000700801515032721
-      Oxygen + HP bars_2: 286265104585004188
-      Oxygen + HP bars_3: 6270848005840854337
+      HP UI bar: -8000700801515032721
+      HP bar: 6270848005840854337
+      Oxygen UI bar: -7477461516166879398
+      Oxygen bar: 286265104585004188
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
