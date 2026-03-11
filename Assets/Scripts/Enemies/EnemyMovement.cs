@@ -2,8 +2,8 @@ using UnityEngine;
 
 /*
 FISH
-    Moving > JellyFish, LanternFish 
-    Stationary > ElectricEel
+    Moving > JellyFish, LanternFish /done/
+    Stationary > ElectricEel 
 HAZARDS
     Stationary > Sea Urchins
     Volcano
