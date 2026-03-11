@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +15,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private float maxOxygenLevel;
 
-    [SerializeField]
     private float currentOxygenLevel;
+
+    [HideInInspector]
     public float CurrentOxygenLevel
     {
         get => currentOxygenLevel;
@@ -29,6 +32,30 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField]
     public float baseOxygenToAdd;
+
+    [Header("Health")]
+    [SerializeField]
+    private int maxHearts = 3;
+    private bool isDrowning = false;
+
+    private int currentHearts;
+
+    [HideInInspector]
+    public float CurrentHearts
+    {
+        get => currentHearts;
+    }
+
+    [SerializeField]
+    private Image healthBarGraphic;
+
+    //Before losing the first heart while drowning, waits slighly longer (additive to the regular timebetweenheartloss).
+    [SerializeField]
+    private float gracePeriod;
+
+    //Time between losing a heart while drowning.
+    [SerializeField]
+    private float timeBetweenHeartLoss;
 
     [Header("Score")]
     [HideInInspector]
@@ -50,14 +77,53 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         currentOxygenLevel = maxOxygenLevel;
+        currentHearts = maxHearts;
         oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
-        oxygenBarGraphic.color = Color.turquoise;
+        oxygenBarGraphic.color = Color.white;
     }
 
     // Update is called once per frame
     void Update()
     {
         HandleOxygenDrain();
+        if (currentOxygenLevel <= 0 && !isDrowning)
+        {
+            isDrowning = true;
+            StartCoroutine(HandleLoseHealth());
+            HandleLoseHealth();
+        }
+    }
+
+    private IEnumerator HandleLoseHealth()
+    {
+        yield return new WaitForSeconds(gracePeriod);
+        while (currentHearts > 0)
+        {
+            yield return new WaitForSeconds(timeBetweenHeartLoss);
+            LoseHealth(1);
+            DebugTool.Log($"Lost Health. Current Hearts: {currentHearts}");
+        }
+        DebugTool.Log($"Died. Current Hearts: {currentHearts}");
+    }
+
+    public void LoseHealth(int healthToLose)
+    {
+        healthToLose = Mathf.Min(3, healthToLose);
+        for (int i = 0; i < healthToLose; i++)
+        {
+            currentHearts--;
+            healthBarGraphic.fillAmount -= .33f;
+        }
+    }
+
+    public void AddHealth(int healthToAdd)
+    {
+        healthToAdd = Mathf.Min(3 - currentHearts, healthToAdd);
+        for (int i = 0; i < healthToAdd; i++)
+        {
+            currentHearts++;
+            healthBarGraphic.fillAmount += .33f;
+        }
     }
 
     private float GetCurrentOxygenPercent()
@@ -69,6 +135,7 @@ public class PlayerStats : MonoBehaviour
     {
         currentOxygenLevel = Mathf.Min(maxOxygenLevel, currentOxygenLevel += value);
         oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
+        isDrowning = false;
     }
 
     public void AddScore(float value)
@@ -79,15 +146,14 @@ public class PlayerStats : MonoBehaviour
 
     private void HandleOxygenDrain()
     {
-        currentOxygenLevel = Mathf.MoveTowards(
-            currentOxygenLevel,
+        currentOxygenLevel = Mathf.Max(
             0,
-            oxygenDrainRate * Time.deltaTime
+            Mathf.MoveTowards(currentOxygenLevel, 0, oxygenDrainRate * Time.deltaTime)
         );
         oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
         if (GetCurrentOxygenPercent() >= 0.2f)
         {
-            oxygenBarGraphic.color = Color.turquoise;
+            oxygenBarGraphic.color = Color.white;
         }
         if (GetCurrentOxygenPercent() < 0.2f)
         {
