@@ -9,7 +9,8 @@ public class EnemyDamageDealer : MonoBehaviour
         ElectricEel,
         SeaUrchin,
         Volcano,
-        DeepSeaFissure
+        DeepSeaFissure,
+        Spike
     }
 
     public DamageSourceType damageSourceType;
@@ -38,7 +39,7 @@ public class EnemyDamageDealer : MonoBehaviour
                 return 1;
 
             case DamageSourceType.ElectricEel:
-                return 2;
+                return 2; // TODO: eel calm state - safe, eel electrified state - lose heart
 
             case DamageSourceType.SeaUrchin:
                 return 1;
@@ -46,9 +47,11 @@ public class EnemyDamageDealer : MonoBehaviour
             case DamageSourceType.Volcano:
                 return 1;
 
-            case DamageSourceType.DeepSeaFissure:
-                return 999;
+            case DamageSourceType.Spike:
+                return 1;
 
+            case DamageSourceType.DeepSeaFissure:
+                return 999; // TODO: Later change so the player gets sucked in and dies instantly when hitting a fissure.
             default:
                 return 1;
         }
