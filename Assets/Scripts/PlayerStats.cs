@@ -115,13 +115,15 @@ public class PlayerStats : MonoBehaviour
             healthBarGraphic.fillAmount -= .33f;
         }
     }
+
     public void TakeDamage(int amount)
     {
         // if (isInvincible) return;
 
-        if (currentHearts <= 0) return;
+        if (currentHearts <= 0)
+            return;
 
-        currentHearts -= amount;
+        LoseHealth(amount);
         Debug.Log("Lost Health. Current Hearts: " + currentHearts);
 
         if (currentHearts <= 0)
@@ -130,7 +132,7 @@ public class PlayerStats : MonoBehaviour
             DebugTool.Log($"Died. Current Hearts: {currentHearts}");
             return;
         }
-    
+
         // iframe?
     }
 
