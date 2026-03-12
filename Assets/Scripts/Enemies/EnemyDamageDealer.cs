@@ -6,7 +6,6 @@ public class EnemyDamageDealer : MonoBehaviour
     {
         Jellyfish,
         LanternFish,
-        ElectricEel,
         SeaUrchin,
         Volcano,
         DeepSeaFissure,
@@ -21,10 +20,6 @@ public class EnemyDamageDealer : MonoBehaviour
 
         int damage = GetDamageFromType(damageSourceType);
 
-        // player health reduction
-        // iframes
-        // temporary collision ignoring?
-
         PlayerStats.GlobalPlayerStats.TakeDamage(damage);
     }
 
@@ -37,9 +32,6 @@ public class EnemyDamageDealer : MonoBehaviour
 
             case DamageSourceType.LanternFish:
                 return 1;
-
-            case DamageSourceType.ElectricEel:
-                return 2; // TODO: eel calm state - safe, eel electrified state - lose heart
 
             case DamageSourceType.SeaUrchin:
                 return 1;

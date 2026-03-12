@@ -3,7 +3,7 @@ using UnityEngine;
 /*
 FISH
     Moving > JellyFish, LanternFish
-    Stationary > ElectricEel 
+    Non moving > jellyfish?
 HAZARDS
     Stationary > Sea Urchins
     Volcano
