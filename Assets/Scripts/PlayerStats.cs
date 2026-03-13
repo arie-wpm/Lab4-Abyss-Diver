@@ -211,4 +211,13 @@ public class PlayerStats : MonoBehaviour {
             oxygenBarGraphic.color = Color.red;
         }
     }
+
+    public void ResetPlayerStats() {
+        isDrowning = false;
+        currentOxygenLevel = maxOxygenLevel;
+        currentHearts = maxHearts;
+        oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
+        oxygenBarGraphic.color = Color.white;
+        healthBarGraphic.fillAmount = 1f;
+    }
 }

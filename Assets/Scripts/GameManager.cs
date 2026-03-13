@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static string currentScene;
     public static string previousScene;
 
+    public Transform currentSpawnPoint;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -30,7 +32,12 @@ public class GameManager : MonoBehaviour
         // test reset to title
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Opening");
+            RestartToTitle();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RestartCurrentLevel();
         }
     }
     
@@ -49,5 +56,18 @@ public class GameManager : MonoBehaviour
             case GameState.Win:
                 break;
         }
+    }
+
+    void RestartToTitle() {
+        SceneManager.LoadScene("Opening");
+    }
+
+    void RestartCurrentLevel() {
+        // reset enemy positions, player stats
+
+        GameObject player = GameObject.Find("Player");
+        PlayerStats pStats = player.GetComponent<PlayerStats>();
+        pStats.ResetPlayerStats();
+        player.transform.position = currentSpawnPoint.position;
     }
 }
