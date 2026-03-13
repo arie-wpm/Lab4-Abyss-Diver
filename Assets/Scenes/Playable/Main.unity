@@ -479,12 +479,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb58c21fba992cb4691f3668dfcb3907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  enableDebug: 0
   pTrans: {fileID: 912180143}
   followSpeed: 5
-  minBounds: {x: -9, y: -5}
-  maxBounds: {x: 9, y: 5}
-  threshold: {x: 0, y: 0}
+  deadzoneSize: {x: 2, y: 1}
+  minBounds: {x: -7, y: -4}
+  maxBounds: {x: 7, y: 4}
 --- !u!114 &1981795382
 MonoBehaviour:
   m_ObjectHideFlags: 0
