@@ -266,6 +266,7 @@ MonoBehaviour:
   canvas: {fileID: 1043689787}
   healthFill: {fileID: 1043689790}
   oxygenFill: {fileID: 1043689789}
+  score: {fileID: 2003716952}
 --- !u!114 &1043689789 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9013277128451609461, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
@@ -416,6 +417,17 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &2003716952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2081380366059106949, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
+  m_PrefabInstance: {fileID: 1043689785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
