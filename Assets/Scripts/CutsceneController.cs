@@ -8,6 +8,9 @@ public class CutsceneController : MonoBehaviour
 
     [SerializeField]
     private float skipToOnStart;
+
+    [SerializeField]
+    private float resetPoint = 0;
     private PlayableDirector director;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,7 +23,7 @@ public class CutsceneController : MonoBehaviour
     {
         if (loopCutscene)
         {
-            director.time = 0;
+            director.time = resetPoint;
         }
     }
 
