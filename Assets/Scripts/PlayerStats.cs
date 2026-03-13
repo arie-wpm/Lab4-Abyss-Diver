@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour {
     public static PlayerStats GlobalPlayerStats { get; private set; }
     private PlayerController playerController;
+    private DamageFlash damageFlash;
     
     [Header("DebugTool.Log")]
     [SerializeField] private bool enableDebug = false;
@@ -86,6 +87,7 @@ public class PlayerStats : MonoBehaviour {
         DebugTool.EnableLogging(nameof(PlayerStats), enableDebug);
 
         playerController = GetComponent<PlayerController>();
+        damageFlash = GetComponent<DamageFlash>();
     }
 
     void Start()
@@ -142,6 +144,7 @@ public class PlayerStats : MonoBehaviour {
         }
 
         LoseHealth(amount);
+        damageFlash.CallDamageFlash();
         Debug.Log("Lost Health. Current Hearts: " + currentHearts);
         playerController.Knockback(dir);
 
