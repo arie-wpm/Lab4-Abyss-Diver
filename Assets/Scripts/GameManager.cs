@@ -85,9 +85,18 @@ public class GameManager : MonoBehaviour
         // reset enemy positions, player stats
         // pickups should not reset since we're not resetting score
 
+        //player
         GameObject player = GameObject.Find("Player");
         PlayerStats pStats = player.GetComponent<PlayerStats>();
         pStats.ResetPlayerStats();
         player.transform.position = currentSpawnPoint.position;
+
+        //music
+        GameObject[] Triggers = GameObject.FindGameObjectsWithTag("Trigger");
+        foreach (GameObject trigger in Triggers) {
+            LevelBGMchanger o = trigger.GetComponent<LevelBGMchanger>();
+            if (o != null) o.Reset();
+        }
+
     }
 }

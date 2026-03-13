@@ -29,6 +29,7 @@ public class CutsceneController : MonoBehaviour
 
     public void ContinueGame()
     {
+        AudioManager.Play(SoundID.TitleSelect);
         loopCutscene = false;
         director.time = skipToOnStart;
     }

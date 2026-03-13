@@ -7,7 +7,15 @@ public enum SoundID {
     PlayerDash,
     Pickup,
     LevelTheme,
-    EnemyMove
+    Level2Theme,
+    Level3Theme,
+    RestTheme,
+    TitleScreen,
+    TitleSelect,
+    EnemyMove,
+    Death,
+    GameOver,
+
 }
 
 [System.Serializable]
@@ -58,9 +66,14 @@ public class AudioManager : MonoBehaviour {
         }
 
         musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.loop = true;
         uiSource = gameObject.AddComponent<AudioSource>();
 
         CreateSFXPool();
+    }
+
+    void Start() {
+        PlayMusic(SoundID.TitleScreen);
     }
 
     void CreateSFXPool() {
@@ -110,21 +123,25 @@ public class AudioManager : MonoBehaviour {
     }
 
     IEnumerator CrossFadeMusic(AudioClip newClip, float fadeTime) {
+        float t = 0f;
         float startVolume = musicSource.volume;
 
-        while (musicSource.volume > 0) {
-            musicSource.volume -= startVolume * Time.deltaTime / fadeTime;
+        while (t < fadeTime) {
+            t += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, t / fadeTime);
             yield return null;
         }
 
+        musicSource.volume = 0f;
         musicSource.clip = newClip;
         musicSource.Play();
 
-        while (musicSource.volume < musicVolume) {
-            musicSource.volume += musicVolume * Time.deltaTime / fadeTime;
+        t = 0f;
+        while (t < fadeTime) {
+            t += Time.deltaTime;
+            musicSource.volume = Mathf.Lerp(0f, musicVolume, t / fadeTime);
             yield return null;
         }
-
         musicSource.volume = musicVolume;
     }
 
@@ -142,5 +159,15 @@ public class AudioManager : MonoBehaviour {
     public static void StopMusic() {
         if (instance == null) return;
         instance.musicSource.Stop();
+    }
+
+    public static void PauseMusic() {
+        if (instance == null) return;
+        instance.musicSource.Pause();
+    }
+
+    public static void ResumeMusic() {
+        if (instance == null) return;
+        instance.musicSource.UnPause();
     }
 }
