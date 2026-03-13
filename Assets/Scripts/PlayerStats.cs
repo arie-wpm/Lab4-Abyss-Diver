@@ -50,6 +50,8 @@ public class PlayerStats : MonoBehaviour {
     private bool isUILinked = false;
     private bool hasOxyLowPlayed = false;
 
+    public bool isSafeZone = false;
+
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -103,7 +105,7 @@ public class PlayerStats : MonoBehaviour {
     void Update()
     {
         if (isUILinked) {
-            HandleOxygenDrain();
+            if (!isSafeZone) HandleOxygenDrain();
             if (currentOxygenLevel <= 0 && !isDrowning)
             {
                 isDrowning = true;
