@@ -483,7 +483,7 @@ MonoBehaviour:
   followSpeed: 5
   deadzoneSize: {x: 2, y: 1}
   minBounds: {x: -7, y: -4}
-  maxBounds: {x: 7, y: 4}
+  maxBounds: {x: 7, y: 5}
 --- !u!114 &1981795382
 MonoBehaviour:
   m_ObjectHideFlags: 0
