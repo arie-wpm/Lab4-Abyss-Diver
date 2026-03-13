@@ -31,6 +31,7 @@ public class SceneAligner : MonoBehaviour {
         Rest.SceneName = "Rest";
 
         sceneToLoad = Rest;
+        GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
 
         if (GameManager.currentScene == "Rest") {
             switch (GameManager.previousScene)
@@ -103,5 +104,8 @@ public class SceneAligner : MonoBehaviour {
 
         Vector3 offset = previousSceneAnchor.position - newSceneAnchor.transform.position;
         foreach (GameObject rootObj in loadedScene.GetRootGameObjects()) rootObj.transform.position += offset;
+
+        // set spawn
+        GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
     }
 }
