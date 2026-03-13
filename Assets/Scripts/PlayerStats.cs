@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerStats : MonoBehaviour
-{
+public class PlayerStats : MonoBehaviour {
     public static PlayerStats GlobalPlayerStats { get; private set; }
 
     [Header("DebugTool.Log")]
@@ -82,6 +81,7 @@ public class PlayerStats : MonoBehaviour
             if (canvasObj != null) {
                 healthBarGraphic = canvasObj.GetComponentInChildren<UICameraSetter>().healthFill;
                 oxygenBarGraphic = canvasObj.GetComponentInChildren<UICameraSetter>().oxygenFill;
+                scoreboard = canvasObj.GetComponentInChildren<UICameraSetter>().score;
             }
             currentOxygenLevel = maxOxygenLevel;
             currentHearts = maxHearts;
@@ -115,19 +115,12 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleOxygenDrain();
-        if (currentOxygenLevel <= 0 && !isDrowning)
-        {
-            isDrowning = true;
-            StartCoroutine(HandleDrown());
-            HandleDrown();
         if (isUILinked) {
             HandleOxygenDrain();
             if (currentOxygenLevel <= 0 && !isDrowning)
             {
                 isDrowning = true;
-                StartCoroutine(HandleLoseHealth());
-                HandleLoseHealth();
+                StartCoroutine(HandleDrown());
             }
         }
     }

@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UICameraSetter : MonoBehaviour
 {
     public Canvas canvas;
     public Image healthFill, oxygenFill;
+    public TMP_Text score;
 
     void Start() {
         if (canvas == null) canvas = GetComponent<Canvas>();
