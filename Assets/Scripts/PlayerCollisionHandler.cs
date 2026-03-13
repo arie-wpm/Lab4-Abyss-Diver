@@ -34,8 +34,6 @@ public class PlayerCollisionHandler : MonoBehaviour
                 //Activates the Water Current Movement.
                 collision.GetComponent<CurrentScript>().StartMoveObject(pRigidBody);
                 break;
-<<<<<<< Updated upstream
-=======
             case "Enemy":
                 //Ememy collisions
                 PlaySoundBasedOnEnemyType(collision);
@@ -43,7 +41,6 @@ public class PlayerCollisionHandler : MonoBehaviour
                 Vector2 heading = transform.position - collision.transform.position;
                 pStats.TakeDamage(collision.GetComponent<EnemyDamageDealer>().GetDamageFromType(), heading.normalized);
                 break;
->>>>>>> Stashed changes
             default:
                 DebugTool.Log($"No case set for tag: {collision.tag}.");
                 break;
@@ -67,21 +64,17 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
     }
 
-<<<<<<< Updated upstream
-    void OnCollisionEnter2D(Collision2D collision) { }
-=======
     void OnCollisionEnter2D(Collision2D collision)
     {
         switch (collision.gameObject.tag)
         {
             case "Hazard":
+                PlaySoundBasedOnEnemyType(collision.collider);
                 Vector2 heading = transform.position - collision.transform.position;
                 pStats.TakeDamage(1, heading.normalized);
-                PlaySoundBasedOnEnemyType(collision.collider);
                 break;
         }
     }
->>>>>>> Stashed changes
 
     void OnCollisionExit2D(Collision2D collision) { }
 
