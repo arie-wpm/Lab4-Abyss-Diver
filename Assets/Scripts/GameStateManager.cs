@@ -1,18 +1,18 @@
 using System;
 using UnityEngine;
 
+public enum GameState
+{
+    Null,
+    StartMenu,
+    Play,
+    Pause,
+    Fail,
+    Win
+}
+
 public class GameStateManager : MonoBehaviour
 {
-    public enum GameState
-    {
-        Null,
-        StartMenu,
-        Play,
-        Pause,
-        Fail,
-        Win
-    }
-
     public static GameStateManager Instance;
     public GameState CurrentGameState { get; private set; }
     public event Action<GameState> OnStateChange;
@@ -26,28 +26,6 @@ public class GameStateManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-    }
-    
-    void Start()
-    {
-        GameStateManager.Instance.OnStateChange += HandleOnOnStateChange;
-    }
-    
-    void HandleOnOnStateChange(GameState state)
-    {
-        switch (state)
-        {
-            case GameState.StartMenu:
-                break;
-            case GameState.Play:
-                break;
-            case GameState.Pause:
-                break;
-            case GameState.Fail:
-                break;
-            case GameState.Win:
-                break;
         }
     }
 
