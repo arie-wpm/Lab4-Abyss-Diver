@@ -43,5 +43,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hazards
+    uniqueID: 380933411
+    locked: 0
   m_RenderingLayers:
   - Default

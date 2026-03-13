@@ -131,10 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyFish
       objectReference: {fileID: 0}
-    - target: {fileID: 1868833577226775152, guid: 82b64bd3f5d9345f4b1535150b8c9acb, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3003200038132172080, guid: 82b64bd3f5d9345f4b1535150b8c9acb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.81
@@ -918,7 +914,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000002395b416
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -4195,11 +4191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8184281914719647622, guid: 208bb9a4e227b42f0b1bff864d791692, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.15
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: 8184281914719647622, guid: 208bb9a4e227b42f0b1bff864d791692, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.91
+      value: -3.04
       objectReference: {fileID: 0}
     - target: {fileID: 8184281914719647622, guid: 208bb9a4e227b42f0b1bff864d791692, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4252,11 +4248,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4998635981291155540, guid: 931e029a7232b448c9960357f30cfa62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.14
+      value: -6.5299997
       objectReference: {fileID: 0}
     - target: {fileID: 4998635981291155540, guid: 931e029a7232b448c9960357f30cfa62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.83
+      value: -0.009999871
       objectReference: {fileID: 0}
     - target: {fileID: 4998635981291155540, guid: 931e029a7232b448c9960357f30cfa62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4380,7 +4376,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 108bd8855d6e648f19e5c51290619597, type: 3}
---- !u!1001 &3737420858705935772
+--- !u!1001 &7240943753914565450
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -4388,47 +4384,104 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3379447154024313592, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
-      propertyPath: m_Name
-      value: JellyFishStatic
-      objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.81
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.18
+      value: -4
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5490154742771996449, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+    - target: {fileID: 5726193000119021446, guid: acf188ff6accc4676944960cecb90f98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100666521150501738, guid: acf188ff6accc4676944960cecb90f98, type: 3}
+      propertyPath: m_Name
+      value: Fissure
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: acf188ff6accc4676944960cecb90f98, type: 3}
+--- !u!1001 &7725708029176609748
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 91555343463095768, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_Name
+      value: JellyfishStatic
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -4504,9 +4557,10 @@ SceneRoots:
   - {fileID: 1660291245}
   - {fileID: 2030613122}
   - {fileID: 19075141}
-  - {fileID: 3737420858705935772}
+  - {fileID: 7725708029176609748}
   - {fileID: 2566621752962585799}
   - {fileID: 753430514}
   - {fileID: 339383064}
   - {fileID: 2176570237322110211}
   - {fileID: 2355256698641730038}
+  - {fileID: 7240943753914565450}
