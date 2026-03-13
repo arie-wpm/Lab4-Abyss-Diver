@@ -12,13 +12,7 @@ public class MenuScore : MonoBehaviour
         }
         
         var textBox = gameObject.GetComponent<TMP_Text>();
-        if (highscore > 0)
-        {
-            textBox.text = "HighScore:\n" + highscore;
-        }
-        else
-        {
-            textBox.text = "HighScore:\n00000";
-        }
+        textBox.text = "HighScore:\n" + highscore.ToString("00000");
+
     }
 }
