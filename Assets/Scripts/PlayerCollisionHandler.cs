@@ -34,12 +34,16 @@ public class PlayerCollisionHandler : MonoBehaviour
                 //Activates the Water Current Movement.
                 collision.GetComponent<CurrentScript>().StartMoveObject(pRigidBody);
                 break;
+<<<<<<< Updated upstream
+=======
             case "Enemy":
                 //Ememy collisions
+                PlaySoundBasedOnEnemyType(collision);
                 Debug.Log("Enemy Collided: " + collision.GetComponent<EnemyDamageDealer>().damageSourceType);
                 Vector2 heading = transform.position - collision.transform.position;
                 pStats.TakeDamage(collision.GetComponent<EnemyDamageDealer>().GetDamageFromType(), heading.normalized);
                 break;
+>>>>>>> Stashed changes
             default:
                 DebugTool.Log($"No case set for tag: {collision.tag}.");
                 break;
@@ -63,6 +67,9 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
+    void OnCollisionEnter2D(Collision2D collision) { }
+=======
     void OnCollisionEnter2D(Collision2D collision)
     {
         switch (collision.gameObject.tag)
@@ -70,9 +77,11 @@ public class PlayerCollisionHandler : MonoBehaviour
             case "Hazard":
                 Vector2 heading = transform.position - collision.transform.position;
                 pStats.TakeDamage(1, heading.normalized);
+                PlaySoundBasedOnEnemyType(collision.collider);
                 break;
         }
     }
+>>>>>>> Stashed changes
 
     void OnCollisionExit2D(Collision2D collision) { }
 
@@ -88,5 +97,13 @@ public class PlayerCollisionHandler : MonoBehaviour
                 DebugTool.Log($"No stay case set for tag: {collision.tag}.");
                 break;
         }
+    }
+
+    void PlaySoundBasedOnEnemyType(Collider2D collision)
+    {
+        if (collision.name.ToLower().Contains("lantern")) AudioManager.Play(SoundID.LanternHit);
+        if (collision.name.ToLower().Contains("seaurchin")) AudioManager.Play(SoundID.SpikeHit);
+        if (collision.name.ToLower().Contains("spike")) AudioManager.Play(SoundID.SpikeHit);
+        if (collision.name.ToLower().Contains("jelly")) AudioManager.Play(SoundID.JellyHit);
     }
 }

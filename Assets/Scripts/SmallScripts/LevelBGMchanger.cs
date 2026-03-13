@@ -25,6 +25,11 @@ public class LevelBGMchanger : MonoBehaviour
                     break;
             }
         }
+
+        // not happy but setting spawn here for consistency
+        if (other.gameObject.tag == "Player") {
+            GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
+        }
     }
 
     public void Reset()

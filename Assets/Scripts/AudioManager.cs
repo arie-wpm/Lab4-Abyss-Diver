@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public enum SoundID {
     PlayerMove,
@@ -17,7 +16,10 @@ public enum SoundID {
     Death,
     GameOver,
     Hurt,
-    OxyWarning
+    OxyWarning,
+    LanternHit,
+    SpikeHit,
+    JellyHit
 }
 
 [System.Serializable]
