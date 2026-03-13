@@ -209,8 +209,21 @@ MonoBehaviour:
     volume: 1
     randomPitch: 1
     pitch: 1
+  - id: 13
+    clips:
+    - {fileID: 8300000, guid: 57dc1b94ed1522d498a716b368976479, type: 3}
+    volume: 1
+    randomPitch: 0
+    pitch: 1
+  - id: 0
+    clips:
+    - {fileID: 8300000, guid: 2621e201886d27d43bd26e9ab65b5c69, type: 3}
+    volume: 0.5
+    randomPitch: 1
+    pitch: 1
   musicSource: {fileID: 0}
   uiSource: {fileID: 0}
+  swimSource: {fileID: 0}
   sfxPoolSize: 10
 --- !u!4 &230334569
 Transform:
