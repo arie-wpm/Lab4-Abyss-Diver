@@ -1139,12 +1139,27 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 6ca737561f8c8114ebfe77199ee6ef30, type: 2}
+    - {fileID: 11400000, guid: 5312e20b3e8659b49b71d9bfa47f1d97, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1206152035}
           m_TargetAssemblyTypeName: CutsceneController, Assembly-CSharp
           m_MethodName: CheckLoop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1206152035}
+          m_TargetAssemblyTypeName: CutsceneController, Assembly-CSharp
+          m_MethodName: SwitchtoMainScene
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

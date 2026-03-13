@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class CutsceneController : MonoBehaviour
 {
@@ -27,5 +28,10 @@ public class CutsceneController : MonoBehaviour
     {
         loopCutscene = false;
         director.time = skipToOnStart;
+    }
+
+    public void SwitchtoMainScene()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
