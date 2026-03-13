@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,9 +58,12 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private float timeBetweenHeartLoss;
 
-    [Header("Score")]
     [HideInInspector]
     public float score = 0f;
+
+    [Header("Score")]
+    [SerializeField]
+    private TMP_Text scoreboard;
 
     void Awake()
     {
@@ -89,12 +93,12 @@ public class PlayerStats : MonoBehaviour
         if (currentOxygenLevel <= 0 && !isDrowning)
         {
             isDrowning = true;
-            StartCoroutine(HandleLoseHealth());
-            HandleLoseHealth();
+            StartCoroutine(HandleDrown());
+            HandleDrown();
         }
     }
 
-    private IEnumerator HandleLoseHealth()
+    private IEnumerator HandleDrown()
     {
         yield return new WaitForSeconds(gracePeriod);
         while (currentHearts > 0)
@@ -161,7 +165,7 @@ public class PlayerStats : MonoBehaviour
     public void AddScore(float value)
     {
         score += value;
-        DebugTool.Log($"Added: {value} score. Current Score: {score}");
+        scoreboard.SetText(score.ToString("00000"));
     }
 
     private void HandleOxygenDrain()
