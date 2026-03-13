@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    [Header("Test Flags")]
+    public bool enableGodMode = false;
+
 
     // Scene check
     public static string currentScene;
@@ -25,6 +30,12 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         GameStateManager.Instance.OnStateChange -= HandleOnStateChange;
+    }
+
+    void Start()
+    {
+        // temp set to Play
+        GameStateManager.Instance.SetGameState(GameState.Play);
     }
 
     void Update()
@@ -52,6 +63,7 @@ public class GameManager : MonoBehaviour
             case GameState.Pause:
                 break;
             case GameState.Fail:
+                if (!enableGodMode) StartCoroutine(FailLoop());
                 break;
             case GameState.Win:
                 break;
@@ -62,8 +74,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Opening");
     }
 
+    IEnumerator FailLoop() {
+        // play animation via coroutine etc etc
+        yield return new WaitForSeconds(1f);
+        RestartCurrentLevel();
+
+    }
+
     void RestartCurrentLevel() {
         // reset enemy positions, player stats
+        // pickups should not reset since we're not resetting score
 
         GameObject player = GameObject.Find("Player");
         PlayerStats pStats = player.GetComponent<PlayerStats>();
