@@ -6,38 +6,29 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour {
     public static PlayerStats GlobalPlayerStats { get; private set; }
-
+    private PlayerController playerController;
+    
     [Header("DebugTool.Log")]
-    [SerializeField]
-    private bool enableDebug = false;
+    [SerializeField] private bool enableDebug = false;
 
     [Header("Oxygen")]
-    [SerializeField]
-    private float maxOxygenLevel;
-
+    [SerializeField] private float maxOxygenLevel;
     private float currentOxygenLevel;
 
-    [HideInInspector]
-    public float CurrentOxygenLevel
+    [HideInInspector] public float CurrentOxygenLevel
     {
         get => currentOxygenLevel;
     }
 
-    [SerializeField]
-    private float oxygenDrainRate;
+    [SerializeField] private float oxygenDrainRate;
 
     //Just for testing Purposes can be changed later
-    [SerializeField]
-    private Image oxygenBarGraphic;
-
-    [SerializeField]
-    public float baseOxygenToAdd;
+    [SerializeField] private Image oxygenBarGraphic;
+    [SerializeField] public float baseOxygenToAdd;
 
     [Header("Health")]
-    [SerializeField]
-    private int maxHearts = 3;
+    [SerializeField] private int maxHearts = 3;
     private bool isDrowning = false;
-
     private int currentHearts;
 
     [HideInInspector]
@@ -46,24 +37,15 @@ public class PlayerStats : MonoBehaviour {
         get => currentHearts;
     }
 
-    [SerializeField]
-    private Image healthBarGraphic;
-
+    [SerializeField] private Image healthBarGraphic;
     //Before losing the first heart while drowning, waits slighly longer (additive to the regular timebetweenheartloss).
-    [SerializeField]
-    private float gracePeriod;
-
+    [SerializeField] private float gracePeriod;
     //Time between losing a heart while drowning.
-    [SerializeField]
-    private float timeBetweenHeartLoss;
-
-    [HideInInspector]
-    public float score = 0f;
+    [SerializeField] private float timeBetweenHeartLoss;
+    [HideInInspector] public float score = 0f;
 
     [Header("Score")]
-    [SerializeField]
-    private TMP_Text scoreboard;
-
+    [SerializeField] private TMP_Text scoreboard;
     private bool isUILinked = false;
 
     void OnEnable() {
@@ -102,6 +84,8 @@ public class PlayerStats : MonoBehaviour {
             GlobalPlayerStats = this;
         }
         DebugTool.EnableLogging(nameof(PlayerStats), enableDebug);
+
+        playerController = GetComponent<PlayerController>();
     }
 
     void Start()
@@ -147,22 +131,25 @@ public class PlayerStats : MonoBehaviour {
         }
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, Vector2 dir)
     {
         // if (isInvincible) return;
-
         if (currentHearts <= 0)
             return;
 
         LoseHealth(amount);
         Debug.Log("Lost Health. Current Hearts: " + currentHearts);
+        playerController.Knockback(dir);
 
         if (currentHearts <= 0)
         {
             currentHearts = 0;
+            playerController.CanMove = false;
             DebugTool.Log($"Died. Current Hearts: {currentHearts}");
             return;
         }
+        
+        
 
         // iframe?
     }

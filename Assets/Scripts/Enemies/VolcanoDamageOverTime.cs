@@ -15,7 +15,7 @@ public class VolcanoDamageOverTime : MonoBehaviour
 
         if (timer >= damageInterval)
         {
-            PlayerStats.GlobalPlayerStats.TakeDamage(damageAmount);
+            PlayerStats.GlobalPlayerStats.TakeDamage(damageAmount, Vector2.zero);
             timer = 0f;
         }
     }

@@ -124,6 +124,8 @@ MonoBehaviour:
   dashVelocity: 5
   dashTime: 0.3
   dashOxygenCost: 2
+  knockbackForce: 2
+  stunTime: 0.1
 --- !u!50 &8011095419885254214
 Rigidbody2D:
   serializedVersion: 5

@@ -33,6 +33,12 @@ public class PlayerCollisionHandler : MonoBehaviour
                 //Activates the Water Current Movement.
                 collision.GetComponent<CurrentScript>().StartMoveObject(pRigidBody);
                 break;
+            case "Enemy":
+                //Ememy collisions
+                Debug.Log("Enemy Collided: " + collision.GetComponent<EnemyDamageDealer>().damageSourceType);
+                Vector2 heading = transform.position - collision.transform.position;
+                pStats.TakeDamage(collision.GetComponent<EnemyDamageDealer>().GetDamageFromType(), heading.normalized);
+                break;
             default:
                 DebugTool.Log($"No case set for tag: {collision.tag}.");
                 break;
@@ -56,7 +62,7 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) { }
+    void OnCollisionEnter2D(Collision2D collision) {}
 
     void OnCollisionExit2D(Collision2D collision) { }
 

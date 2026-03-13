@@ -14,18 +14,20 @@ public class EnemyDamageDealer : MonoBehaviour
 
     public DamageSourceType damageSourceType;
 
+    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
         int damage = GetDamageFromType(damageSourceType);
 
-        PlayerStats.GlobalPlayerStats.TakeDamage(damage);
-    }
+        PlayerStats.GlobalPlayerStats.LoseHealth(damage);
+    } 
+    */
 
-    private int GetDamageFromType(DamageSourceType type)
+    public int GetDamageFromType()
     {
-        switch (type)
+        switch (damageSourceType)
         {
             case DamageSourceType.Jellyfish:
                 return 1;

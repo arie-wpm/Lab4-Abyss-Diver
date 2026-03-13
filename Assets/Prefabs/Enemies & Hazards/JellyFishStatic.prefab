@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1650537620706337749}
   - component: {fileID: 781731593241332315}
   - component: {fileID: 3282657779770313140}
+  - component: {fileID: 6652529738632734499}
   m_Layer: 0
-  m_Name: JellyfishStatic
-  m_TagString: Untagged
+  m_Name: JellyFishStatic
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91555343463095768}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.0727425, y: 1.8269999, z: 0}
   m_LocalScale: {x: 0.81, y: 0.81, z: 1}
   m_ConstrainProportionsScale: 0
@@ -175,3 +176,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4, y: 0.8}
   m_EdgeRadius: 0
+--- !u!114 &6652529738632734499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91555343463095768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b04a1b22674298b03a30d67bf5d92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JellyfishAttackTrigger
+  animator: {fileID: 1650537620706337749}

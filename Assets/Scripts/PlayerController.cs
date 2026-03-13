@@ -5,49 +5,31 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Debug")]
-    [SerializeField]
-    private bool enableDebug = false;
+    [SerializeField] private bool enableDebug = false;
 
     [Header("Movement")]
-    [SerializeField]
-    private float gravity;
-
-    [SerializeField]
-    private float ascendAcceleration;
-
-    [SerializeField]
-    private float descendAcceleration;
-
-    [SerializeField]
-    private float horizontalAcceleration;
-
-    [SerializeField]
-    private float maxHorizontalVelocity;
-
-    [SerializeField]
-    private float maxAscendVelocity;
-
-    [SerializeField]
-    private float maxDescendVelocity;
-
-    [SerializeField]
-    private float maxGravityVelocity;
-
-    [SerializeField]
-    private float postDescendSlowDownRate;
+    [SerializeField] private float gravity;
+    [SerializeField] private float ascendAcceleration;
+    [SerializeField] private float descendAcceleration;
+    [SerializeField] private float horizontalAcceleration;
+    [SerializeField] private float maxHorizontalVelocity;
+    [SerializeField] private float maxAscendVelocity;
+    [SerializeField] private float maxDescendVelocity;
+    [SerializeField] private float maxGravityVelocity;
+    [SerializeField] private float postDescendSlowDownRate;
 
     [Header("Dash")]
-    [SerializeField]
-    private float dashVelocity;
-
-    [SerializeField]
-    private float dashTime;
-
-    [SerializeField]
-    private float dashOxygenCost;
+    [SerializeField] private float dashVelocity;
+    [SerializeField] private float dashTime;
+    [SerializeField] private float dashOxygenCost;
     private float dashTimer;
     private bool isDashing;
 
+    [Header("Knockback")] 
+    [SerializeField] private float knockbackForce;
+    [SerializeField] private float stunTime;
+    private float stunTimer;
+    
     private Rigidbody2D rb;
     private PlayerStats pStats;
     private InputAction moveAction;
@@ -97,6 +79,7 @@ public class PlayerController : MonoBehaviour
             dashAction.WasPressedThisFrame()
             && dashTimer <= 0
             && pStats.CurrentOxygenLevel > dashOxygenCost
+            && canMove
         )
         {
             Dash();
@@ -111,12 +94,21 @@ public class PlayerController : MonoBehaviour
                 rb.gravityScale = gravity;
             }
         }
+
+        if (!canMove)
+        {
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0 && pStats.CurrentHearts > 0)
+            {
+                canMove = true;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         //Force Application
-        if (moveValue != Vector2.zero && CanMove)
+        if (moveValue != Vector2.zero && canMove)
         {
             if (Mathf.Abs(moveValue.x) > 0)
             {
@@ -192,5 +184,12 @@ public class PlayerController : MonoBehaviour
         rb.gravityScale = 0;
         dashTimer = dashTime;
         rb.linearVelocity = lastMoveValue * dashVelocity;
+    }
+
+    public void Knockback(Vector2 dir)
+    {
+        canMove = false;
+        stunTimer = stunTime;
+        rb.AddForce(dir * knockbackForce, ForceMode2D.Impulse);
     }
 }
