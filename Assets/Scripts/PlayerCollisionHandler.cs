@@ -63,7 +63,16 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {}
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Hazard":
+                Vector2 heading = transform.position - collision.transform.position;
+                pStats.TakeDamage(1, heading.normalized);
+                break;
+        }
+    }
 
     void OnCollisionExit2D(Collision2D collision) { }
 
