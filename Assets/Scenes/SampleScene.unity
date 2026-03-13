@@ -1418,18 +1418,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.84
       objectReference: {fileID: 0}
@@ -1474,14 +1462,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1508785287}
     - target: {fileID: 290871859948552811, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
-      propertyPath: enableDebug
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 290871859948552811, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
-      propertyPath: gracePeriod
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 290871859948552811, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: healthBarGraphic
       value: 
       objectReference: {fileID: 1642717845}
@@ -1489,10 +1469,6 @@ PrefabInstance:
       propertyPath: oxygenBarGraphic
       value: 
       objectReference: {fileID: 1977810724}
-    - target: {fileID: 290871859948552811, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
-      propertyPath: timeBetweenHeartLoss
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1579030564492050867, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: m_Name
       value: Player

@@ -200,13 +200,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7dfd76f845fdc4c86080f3a3fab237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  enableDebug: 0
+  enableDebug: 1
   maxOxygenLevel: 10
-  currentOxygenLevel: 10
   oxygenDrainRate: 1
   oxygenBarGraphic: {fileID: 0}
   baseOxygenToAdd: 5
+  maxHearts: 3
+  healthBarGraphic: {fileID: 0}
+  gracePeriod: 0.75
+  timeBetweenHeartLoss: 2
   score: 0
+  scoreboard: {fileID: 0}
 --- !u!114 &420163220769066722
 MonoBehaviour:
   m_ObjectHideFlags: 0
