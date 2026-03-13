@@ -17,10 +17,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    void Start()
-    {
-        GameStateManager.Instance.OnStateChange += HandleOnStateChange;
-    }
     void OnEnable()
     {
         GameStateManager.Instance.OnStateChange += HandleOnStateChange;
