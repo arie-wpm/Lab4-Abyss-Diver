@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class SceneAligner : MonoBehaviour {
     private SceneReference sceneToLoad;
@@ -31,6 +30,7 @@ public class SceneAligner : MonoBehaviour {
         Rest.SceneName = "Rest";
 
         sceneToLoad = Rest;
+        GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
 
         if (GameManager.currentScene == "Rest") {
             switch (GameManager.previousScene)
@@ -103,5 +103,8 @@ public class SceneAligner : MonoBehaviour {
 
         Vector3 offset = previousSceneAnchor.position - newSceneAnchor.transform.position;
         foreach (GameObject rootObj in loadedScene.GetRootGameObjects()) rootObj.transform.position += offset;
+
+        // set spawn
+        GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
     }
 }

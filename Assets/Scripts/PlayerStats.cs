@@ -119,10 +119,12 @@ public class PlayerStats : MonoBehaviour {
             DebugTool.Log($"Lost Health. Current Hearts: {currentHearts}");
         }
         DebugTool.Log($"Died. Current Hearts: {currentHearts}");
+        GameStateManager.Instance.SetGameState(GameState.Fail);
     }
 
     public void LoseHealth(int healthToLose)
     {
+        AudioManager.Play(SoundID.Hurt);
         healthToLose = Mathf.Min(3, healthToLose);
         for (int i = 0; i < healthToLose; i++)
         {
@@ -134,8 +136,10 @@ public class PlayerStats : MonoBehaviour {
     public void TakeDamage(int amount, Vector2 dir)
     {
         // if (isInvincible) return;
-        if (currentHearts <= 0)
+
+        if (currentHearts <= 0) {
             return;
+        }
 
         LoseHealth(amount);
         Debug.Log("Lost Health. Current Hearts: " + currentHearts);
@@ -150,6 +154,13 @@ public class PlayerStats : MonoBehaviour {
         }
         
         
+        // commenting out this will never run
+        // if (currentHearts <= 0)
+        // {
+        //     currentHearts = 0;
+        //     DebugTool.Log($"Died. Current Hearts: {currentHearts}");      
+        //     return;
+        // }
 
         // iframe?
     }
@@ -197,5 +208,14 @@ public class PlayerStats : MonoBehaviour {
         {
             oxygenBarGraphic.color = Color.red;
         }
+    }
+
+    public void ResetPlayerStats() {
+        isDrowning = false;
+        currentOxygenLevel = maxOxygenLevel;
+        currentHearts = maxHearts;
+        oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
+        oxygenBarGraphic.color = Color.white;
+        healthBarGraphic.fillAmount = 1f;
     }
 }

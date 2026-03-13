@@ -226,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -318,6 +318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a0b52aedccdaa45abbb3e2ba9b8455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  enableGodMode: 1
+  currentSpawnPoint: {fileID: 0}
 --- !u!114 &1516163145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +345,7 @@ GameObject:
   - component: {fileID: 1981795377}
   - component: {fileID: 1981795380}
   - component: {fileID: 1981795381}
+  - component: {fileID: 1981795382}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -393,7 +396,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 2.8125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -480,12 +483,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb58c21fba992cb4691f3668dfcb3907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  enableDebug: 0
   pTrans: {fileID: 912180143}
   followSpeed: 5
-  minBounds: {x: -9, y: -5}
-  maxBounds: {x: 9, y: 5}
-  threshold: {x: 0, y: 0}
+  deadzoneSize: {x: 2, y: 1}
+  minBounds: {x: -7, y: -4}
+  maxBounds: {x: 7, y: 5}
+--- !u!114 &1981795382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981795376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
+  m_ComponentVersion: 1
+  m_AssetsPPU: 64
+  m_RefResolutionX: 640
+  m_RefResolutionY: 360
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

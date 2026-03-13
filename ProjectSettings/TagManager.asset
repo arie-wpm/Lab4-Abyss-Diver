@@ -9,6 +9,7 @@ TagManager:
   - Hazard
   - Enemy
   - Volcano
+  - Trigger
   layers:
   - Default
   - TransparentFX

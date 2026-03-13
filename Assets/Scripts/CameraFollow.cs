@@ -2,73 +2,59 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [Header("Debug")]
-    [SerializeField] private bool enableDebug = false;
-
     [Header("Player Reference")]
     [SerializeField] private Transform pTrans;
 
     [Header("Camera Settings")]
     [SerializeField] private float followSpeed = 5f;
+
+    [Header("Deadzone / Bounds")]
+    [SerializeField] private Vector2 deadzoneSize = new Vector2(2f, 2f);
+
+    [Header("World Bounds")]
     [SerializeField] private Vector2 minBounds;
     [SerializeField] private Vector2 maxBounds;
 
-    [Header("Deadzone / Threshold")]
-    [SerializeField] private Vector2 threshold;
-
-    private Vector3 targetPos;
     private Rigidbody2D pRb;
 
-    void Awake() {
-        DebugTool.EnableLogging(nameof(CameraFollow), enableDebug);
-    }
-
     void Start() {
-        pRb = pTrans.GetComponent<Rigidbody2D>();
-    }
-
-    void FixedUpdate() {
-        if (pTrans == null) return;
-        ClampPlayer();
+        if (pTrans != null)
+            pRb = pTrans.GetComponent<Rigidbody2D>();
     }
 
     void LateUpdate() {
         if (pTrans == null) return;
-        ClampCamera();
+        FollowPlayer();
     }
 
-    void ClampCamera() {
-        targetPos = transform.position;
+    void FollowPlayer() {
+        Vector3 camPos = transform.position;
 
-        if (pRb.position.x > transform.position.x + threshold.x)
-            targetPos.x = pRb.position.x - threshold.x;
-        else if (pRb.position.x < transform.position.x - threshold.x)
-            targetPos.x = pRb.position.x + threshold.x;
+        float left = camPos.x - deadzoneSize.x / 2;
+        float right = camPos.x + deadzoneSize.x / 2;
 
-        if (pRb.position.y > transform.position.y + threshold.y)
-            targetPos.y = pRb.position.y - threshold.y;
-        else if (pRb.position.y < transform.position.y - threshold.y)
-            targetPos.y = pRb.position.y + threshold.y;
+        if (pRb.position.x > right)
+            camPos.x += pRb.position.x - right;
+        else if (pRb.position.x < left)
+            camPos.x += pRb.position.x - left;
 
-        targetPos.z = transform.position.z;
+        camPos.y = pRb.position.y;
+        camPos.x = Mathf.Clamp(camPos.x, minBounds.x, maxBounds.x);
 
-        targetPos.x = Mathf.Clamp(targetPos.x, minBounds.x, maxBounds.x);
-        // targetPos.y = Mathf.Clamp(targetPos.y, minBounds.y, maxBounds.y);
-
-        transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
-    }
-
-    void ClampPlayer() {
-        Vector3 playerPos = pRb.position;
-        playerPos.x = Mathf.Clamp(playerPos.x, minBounds.x, maxBounds.x);
-        // playerPos.y = Mathf.Clamp(playerPos.y, minBounds.y, maxBounds.y);
-        pRb.position = playerPos;
+        transform.position = Vector3.Lerp(transform.position, camPos, followSpeed * Time.deltaTime);
     }
 
     void OnDrawGizmos() {
+        if (pTrans == null) return;
+
         Gizmos.color = Color.yellow;
-        Vector3 center = new Vector3((minBounds.x + maxBounds.x) / 2, (minBounds.y + maxBounds.y) / 2, 0);
-        Vector3 size = new Vector3(maxBounds.x - minBounds.x, maxBounds.y - minBounds.y, 0);
-        Gizmos.DrawWireCube(center, size);
+        Vector3 worldCenter = new Vector3((minBounds.x + maxBounds.x) / 2, (minBounds.y + maxBounds.y) / 2, 0);
+        Vector3 worldSize = new Vector3(maxBounds.x - minBounds.x, maxBounds.y - minBounds.y, 0);
+        Gizmos.DrawWireCube(worldCenter, worldSize);
+
+        Gizmos.color = Color.cyan;
+        Vector3 deadzoneCenter = transform.position;
+        Vector3 deadzoneRect = new Vector3(deadzoneSize.x, deadzoneSize.y, 0);
+        Gizmos.DrawWireCube(deadzoneCenter, deadzoneRect);
     }
 }
