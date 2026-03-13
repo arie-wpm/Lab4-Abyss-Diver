@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 5934184452478649976}
   - component: {fileID: 3521396188417330003}
   - component: {fileID: 2123031055568994735}
-  - component: {fileID: 7949741901487176617}
+  - component: {fileID: 6657636294799968068}
   - component: {fileID: 7447337975327586899}
   m_Layer: 0
   m_Name: Volcano
@@ -277,7 +277,7 @@ MonoBehaviour:
   endEruptingTime: 0.4
   minColliderHeight: 0.1
   maxColliderHeight: 2.5
---- !u!114 &7949741901487176617
+--- !u!114 &6657636294799968068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,10 +286,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6934100785737052880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b7fc33a73084a8aae9574055bbc0bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 81c46ba0cf4654c2b9873f9ac8f1be21, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
-  damageSourceType: 3
+  m_EditorClassIdentifier: Assembly-CSharp::VolcanoDamageOverTime
+  damageInterval: 1
+  damageAmount: 1
 --- !u!61 &7447337975327586899
 BoxCollider2D:
   m_ObjectHideFlags: 0

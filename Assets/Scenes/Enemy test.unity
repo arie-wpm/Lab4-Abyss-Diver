@@ -182,7 +182,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 561051039462289139, guid: 82b64bd3f5d9345f4b1535150b8c9acb, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 1708183444}
   m_SourcePrefab: {fileID: 100100000, guid: 82b64bd3f5d9345f4b1535150b8c9acb, type: 3}
 --- !u!1 &71237744
 GameObject:
@@ -400,6 +403,10 @@ PrefabInstance:
     - target: {fileID: 5425523485951200158, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657636294799968068, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
+      propertyPath: damageInterval
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6934100785737052880, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: m_Name
@@ -1955,6 +1962,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea760cce99bfb8c43a102183e6953d92, type: 3}
+--- !u!1 &1445995163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 91555343463095768, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+  m_PrefabInstance: {fileID: 7725708029176609748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1445995166 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1650537620706337749, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+  m_PrefabInstance: {fileID: 7725708029176609748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1445995169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445995163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b04a1b22674298b03a30d67bf5d92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JellyfishAttackTrigger
+  animator: {fileID: 1445995166}
 --- !u!1001 &1481722716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2257,6 +2287,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8080159029756537516, guid: a25a09c5a92abeb41ab1f049e7d330ec, type: 3}
   m_PrefabInstance: {fileID: 2077340230}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1708183436 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 561051039462289139, guid: 82b64bd3f5d9345f4b1535150b8c9acb, type: 3}
+  m_PrefabInstance: {fileID: 19075141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1708183441 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5492671734352471067, guid: 82b64bd3f5d9345f4b1535150b8c9acb, type: 3}
+  m_PrefabInstance: {fileID: 19075141}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1708183444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708183436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b04a1b22674298b03a30d67bf5d92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JellyfishAttackTrigger
+  animator: {fileID: 1708183441}
 --- !u!1 &1795667951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4488,7 +4541,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 91555343463095768, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1445995169}
   m_SourcePrefab: {fileID: 100100000, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
 --- !u!1001 &8754234058390200124
 PrefabInstance:

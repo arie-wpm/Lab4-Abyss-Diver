@@ -7,7 +7,7 @@ public class EnemyDamageDealer : MonoBehaviour
         Jellyfish,
         LanternFish,
         SeaUrchin,
-        Volcano,
+        //Volcano,
         DeepSeaFissure,
         Spike
     }
@@ -36,14 +36,14 @@ public class EnemyDamageDealer : MonoBehaviour
             case DamageSourceType.SeaUrchin:
                 return 1;
 
-            case DamageSourceType.Volcano:
-                return 1;
+            // case DamageSourceType.Volcano:
+            //     return 1;
 
             case DamageSourceType.Spike:
                 return 1;
 
             case DamageSourceType.DeepSeaFissure:
-                return 999; // TODO: Later change so the player gets sucked in and dies instantly when hitting a fissure.
+                return 999;
             default:
                 return 1;
         }

@@ -33,12 +33,10 @@ public class FissurePullZone : MonoBehaviour
 
         Vector2 direction = toFissure.normalized;
 
-        // Pull is stronger when closer, weaker near the edge
+        // pull stronger when closer
         float scaledPull = pullForce / Mathf.Max(distance, 0.75f);
 
         playerRb.AddForce(direction * scaledPull, ForceMode2D.Force);
-
-        // Only limit ridiculous pull speed, not normal player movement
         Vector2 velocity = playerRb.linearVelocity;
         if (velocity.magnitude > maxExtraPullSpeed + 4f)
         {
