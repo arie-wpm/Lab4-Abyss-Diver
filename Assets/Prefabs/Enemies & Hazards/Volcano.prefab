@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5425523485951200158}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1309091486694266011, guid: 501f024f75da0174b967be0f2a33ba7c, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!61 &3196510406922844760
 BoxCollider2D:
@@ -136,7 +136,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8, y: 0.6}
+  m_Size: {x: 0.6, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1 &6934100785737052880
 GameObject:
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 5934184452478649976}
   - component: {fileID: 3521396188417330003}
   - component: {fileID: 2123031055568994735}
-  - component: {fileID: 7949741901487176617}
+  - component: {fileID: 6657636294799968068}
   - component: {fileID: 7447337975327586899}
   m_Layer: 0
   m_Name: Volcano
@@ -169,7 +169,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.9, y: -5.02, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3922904199731356294}
@@ -220,8 +220,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 380933411
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1309091486694266011, guid: 501f024f75da0174b967be0f2a33ba7c, type: 3}
@@ -277,7 +277,7 @@ MonoBehaviour:
   endEruptingTime: 0.4
   minColliderHeight: 0.1
   maxColliderHeight: 2.5
---- !u!114 &7949741901487176617
+--- !u!114 &6657636294799968068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,10 +286,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6934100785737052880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b7fc33a73084a8aae9574055bbc0bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 81c46ba0cf4654c2b9873f9ac8f1be21, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
-  damageSourceType: 4
+  m_EditorClassIdentifier: Assembly-CSharp::VolcanoDamageOverTime
+  damageInterval: 1
+  damageAmount: 1
 --- !u!61 &7447337975327586899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -334,5 +335,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.6, y: 1}
+  m_Size: {x: 0.6, y: 0.5}
   m_EdgeRadius: 0
