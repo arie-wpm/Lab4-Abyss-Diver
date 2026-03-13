@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   enableDebug: 1
-  musicVolume: 1
+  musicVolume: 0.5
   sfxVolume: 1
   uiVolume: 1
   sounds:
@@ -188,6 +188,26 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 545fc0138d54a9e489c8338f293a2c39, type: 3}
     volume: 1
     randomPitch: 0
+    pitch: 1
+  - id: 12
+    clips:
+    - {fileID: 8300000, guid: 2aa4f2b72f212bb4fa7623897ce1cf78, type: 3}
+    - {fileID: 8300000, guid: 21bb0ceb54ff77b4f963225ca34104d1, type: 3}
+    - {fileID: 8300000, guid: e1d06de60153e2841b43ab24af4ba5c3, type: 3}
+    - {fileID: 8300000, guid: 2555cd7113022754d89716810bc269c7, type: 3}
+    - {fileID: 8300000, guid: f14a34a7e24e9b14bb06832b287a734a, type: 3}
+    - {fileID: 8300000, guid: f6e51f0097380c34daf12166e0b8abf1, type: 3}
+    - {fileID: 8300000, guid: 3912eda660f187f4eac90d5c656bbc53, type: 3}
+    - {fileID: 8300000, guid: 931bab005e15d4e4d9085c864c35cdc1, type: 3}
+    - {fileID: 8300000, guid: c3aa7d52080bdad46bc54bc125c414c3, type: 3}
+    volume: 1
+    randomPitch: 1
+    pitch: 1
+  - id: 2
+    clips:
+    - {fileID: 8300000, guid: 6a178a801ec9d844797efd56501dd446, type: 3}
+    volume: 1
+    randomPitch: 1
     pitch: 1
   musicSource: {fileID: 0}
   uiSource: {fileID: 0}

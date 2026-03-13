@@ -140,6 +140,7 @@ public class PlayerStats : MonoBehaviour {
 
     public void LoseHealth(int healthToLose)
     {
+        AudioManager.Play(SoundID.Hurt);
         healthToLose = Mathf.Min(3, healthToLose);
         for (int i = 0; i < healthToLose; i++)
         {

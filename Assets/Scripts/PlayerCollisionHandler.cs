@@ -26,6 +26,7 @@ public class PlayerCollisionHandler : MonoBehaviour
         switch (collision.tag)
         {
             case "Pickup":
+                AudioManager.Play(SoundID.Pickup);
                 DebugTool.Log("Touched Bubble");
                 collision.GetComponent<IPickup>().PlayerContact(pStats);
                 break;

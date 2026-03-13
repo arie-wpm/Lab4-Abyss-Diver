@@ -15,7 +15,7 @@ public enum SoundID {
     EnemyMove,
     Death,
     GameOver,
-
+    Hurt
 }
 
 [System.Serializable]
