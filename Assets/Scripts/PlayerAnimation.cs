@@ -86,6 +86,14 @@ public class PlayerAnimation : MonoBehaviour {
         }
 
         wasDown = isDown;
+
+        //sfx hook
+        if (isRight || isLeft || isUp || isDown) {
+            if (!AudioManager.IsSwimPlaying()) AudioManager.PlaySwim(SoundID.PlayerMove);
+            else AudioManager.ResumeSwim();
+        } else {
+            if (AudioManager.IsSwimPlaying()) AudioManager.StopSwim(SoundID.PlayerMove);
+        }
     }
 
     void SetAnimParams(bool isRight, bool isLeft, bool isUp, bool isDown) {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public enum SoundID {
     PlayerMove,
@@ -15,7 +16,8 @@ public enum SoundID {
     EnemyMove,
     Death,
     GameOver,
-    Hurt
+    Hurt,
+    OxyWarning
 }
 
 [System.Serializable]
@@ -49,6 +51,7 @@ public class AudioManager : MonoBehaviour {
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource uiSource;
+    [SerializeField] private AudioSource swimSource;
     [SerializeField] int sfxPoolSize = 10;
 
     void Awake() {
@@ -68,6 +71,8 @@ public class AudioManager : MonoBehaviour {
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSource.loop = true;
         uiSource = gameObject.AddComponent<AudioSource>();
+        swimSource = gameObject.AddComponent<AudioSource>();
+        swimSource.loop = true;
 
         CreateSFXPool();
     }
@@ -122,6 +127,37 @@ public class AudioManager : MonoBehaviour {
         instance.StartCoroutine(instance.CrossFadeMusic(instance.GetRandomClip(sound), fadeTime));
     }
 
+    public static void PlaySwim(SoundID id, float fadeTime = 0.25f) {
+        if (instance == null) return;
+
+        if (!instance.soundMap.TryGetValue(id, out Sound sound)) {
+            DebugTool.LogError($"Could not find sound with id: {id}.");
+            return;
+        }
+        instance.swimSource.clip = instance.GetRandomClip(sound);
+        float pitch = sound.pitch;
+        if (sound.randomPitch) pitch = Random.Range(0.8f, 1.2f);
+        instance.swimSource.pitch = pitch;
+        instance.swimSource.volume = sound.volume * instance.sfxVolume;
+        instance.swimSource.Play();
+    }
+
+    IEnumerator FadeSwim(AudioClip newClip, float fadeTime) {
+        float t = 0f;
+        float startVolume = swimSource.volume;
+
+        while (t < fadeTime) {
+            t += Time.deltaTime;
+            swimSource.volume = Mathf.Lerp(startVolume, 0f, t / fadeTime);
+            yield return null;
+        }
+
+        swimSource.volume = 0f;
+        swimSource.clip = newClip;
+        swimSource.volume = musicVolume;
+        swimSource.Stop();
+    }
+
     IEnumerator CrossFadeMusic(AudioClip newClip, float fadeTime) {
         float t = 0f;
         float startVolume = musicSource.volume;
@@ -169,5 +205,35 @@ public class AudioManager : MonoBehaviour {
     public static void ResumeMusic() {
         if (instance == null) return;
         instance.musicSource.UnPause();
+    }
+
+    public static bool IsMusicPlaying() {
+        if (instance == null) return false;
+        return instance.musicSource.isPlaying;
+    }
+
+    public static void StopSwim(SoundID id) {
+        if (instance == null) return;
+        if (!instance.soundMap.TryGetValue(id, out Sound sound)) {
+            DebugTool.LogError($"Could not find sound with id: {id}.");
+            return;
+        }
+        instance.swimSource.clip = instance.GetRandomClip(sound);
+        instance.StartCoroutine(instance.FadeSwim(instance.GetRandomClip(sound), 1.0f));
+    }
+
+    public static void PauseSwim() {
+        if (instance == null) return;
+        instance.swimSource.Pause();
+    }
+
+    public static void ResumeSwim() {
+        if (instance == null) return;
+        instance.swimSource.UnPause();
+    }
+
+    public static bool IsSwimPlaying() {
+        if (instance == null) return false;
+        return instance.swimSource.isPlaying;
     }
 }

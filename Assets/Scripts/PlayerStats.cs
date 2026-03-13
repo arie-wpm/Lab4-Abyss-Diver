@@ -47,6 +47,7 @@ public class PlayerStats : MonoBehaviour {
     [Header("Score")]
     [SerializeField] private TMP_Text scoreboard;
     private bool isUILinked = false;
+    private bool hasOxyLowPlayed = false;
 
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -200,18 +201,25 @@ public class PlayerStats : MonoBehaviour {
             Mathf.MoveTowards(currentOxygenLevel, 0, oxygenDrainRate * Time.deltaTime)
         );
         oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
-        if (GetCurrentOxygenPercent() >= 0.2f)
+        if (GetCurrentOxygenPercent() >= 0.3f)
         {
             oxygenBarGraphic.color = Color.white;
+            hasOxyLowPlayed = false;
         }
-        if (GetCurrentOxygenPercent() < 0.2f)
+
+        if (GetCurrentOxygenPercent() < 0.3f)
         {
+            if (!hasOxyLowPlayed) {
+                AudioManager.Play(SoundID.OxyWarning);
+                hasOxyLowPlayed = true;
+            }
             oxygenBarGraphic.color = Color.red;
         }
     }
 
     public void ResetPlayerStats() {
         isDrowning = false;
+        hasOxyLowPlayed = false;
         currentOxygenLevel = maxOxygenLevel;
         currentHearts = maxHearts;
         oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
