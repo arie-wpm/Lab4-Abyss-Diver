@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -65,6 +65,32 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private TMP_Text scoreboard;
 
+    private bool isUILinked = false;
+
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        isUILinked = false;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (scene.name == "UI") {
+            GameObject canvasObj = GameObject.Find("Canvas");
+            if (canvasObj != null) {
+                healthBarGraphic = canvasObj.GetComponentInChildren<UICameraSetter>().healthFill;
+                oxygenBarGraphic = canvasObj.GetComponentInChildren<UICameraSetter>().oxygenFill;
+            }
+            currentOxygenLevel = maxOxygenLevel;
+            currentHearts = maxHearts;
+            oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
+            oxygenBarGraphic.color = Color.white;
+            isUILinked = true;
+        }
+    }
+
     void Awake()
     {
         if (GlobalPlayerStats != null && GlobalPlayerStats != this)
@@ -80,10 +106,10 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        currentOxygenLevel = maxOxygenLevel;
-        currentHearts = maxHearts;
-        oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
-        oxygenBarGraphic.color = Color.white;
+        // currentOxygenLevel = maxOxygenLevel;
+        // currentHearts = maxHearts;
+        // oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
+        // oxygenBarGraphic.color = Color.white;
     }
 
     // Update is called once per frame
@@ -95,6 +121,14 @@ public class PlayerStats : MonoBehaviour
             isDrowning = true;
             StartCoroutine(HandleDrown());
             HandleDrown();
+        if (isUILinked) {
+            HandleOxygenDrain();
+            if (currentOxygenLevel <= 0 && !isDrowning)
+            {
+                isDrowning = true;
+                StartCoroutine(HandleLoseHealth());
+                HandleLoseHealth();
+            }
         }
     }
 

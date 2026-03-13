@@ -53,7 +53,7 @@ public class CameraFollow : MonoBehaviour
         targetPos.z = transform.position.z;
 
         targetPos.x = Mathf.Clamp(targetPos.x, minBounds.x, maxBounds.x);
-        targetPos.y = Mathf.Clamp(targetPos.y, minBounds.y, maxBounds.y);
+        // targetPos.y = Mathf.Clamp(targetPos.y, minBounds.y, maxBounds.y);
 
         transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
     }
@@ -61,7 +61,7 @@ public class CameraFollow : MonoBehaviour
     void ClampPlayer() {
         Vector3 playerPos = pRb.position;
         playerPos.x = Mathf.Clamp(playerPos.x, minBounds.x, maxBounds.x);
-        playerPos.y = Mathf.Clamp(playerPos.y, minBounds.y, maxBounds.y);
+        // playerPos.y = Mathf.Clamp(playerPos.y, minBounds.y, maxBounds.y);
         pRb.position = playerPos;
     }
 
