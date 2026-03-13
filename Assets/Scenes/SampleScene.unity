@@ -1742,6 +1742,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2081380366059106949, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
+      propertyPath: m_padding
+      value: 6.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081380366059106949, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 0faee8a03ee48454bae8fdde40b7e057, type: 2}
+    - target: {fileID: 2081380366059106949, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
+      propertyPath: m_isPreferredWidthDirty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081380366059106949, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
+      propertyPath: m_isPreferredHeightDirty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3594309579708351888, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
