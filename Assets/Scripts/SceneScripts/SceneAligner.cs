@@ -52,7 +52,8 @@ public class SceneAligner : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         if (!other.CompareTag("Player")) return;
-            
+        BoxCollider2D col = GetComponent<BoxCollider2D>();
+        col.enabled = false;            
 
         if (sceneToLoad.SceneName == "Rest") {
             StartCoroutine(ReloadRestScene());
