@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,15 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         GameStateManager.Instance.OnStateChange -= HandleOnStateChange;
+    }
+
+    void Update()
+    {
+        // test reset to title
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("Opening");
+        }
     }
     
     void HandleOnStateChange(GameState state)
