@@ -13,7 +13,7 @@ public enum GameState
 
 public class GameStateManager : MonoBehaviour
 {
-    public static GameStateManager Instance;
+    public static GameStateManager Instance { get; private set; }
     public GameState CurrentGameState { get; private set; }
     public event Action<GameState> OnStateChange;
 
