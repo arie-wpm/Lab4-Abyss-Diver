@@ -3,7 +3,10 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    
+
+    public GameObject PauseScreen { get; private set; }
+    public GameObject GameOverScreen { get; private set; }
+
     void Awake()
     {
         if (instance == null)
@@ -15,5 +18,15 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetPauseScreen(GameObject pauseScreen)
+    {
+        PauseScreen = pauseScreen;
+    }
+
+    public void SetGameOverScreen(GameObject gameOverScreen)
+    {
+        GameOverScreen = gameOverScreen;
     }
 }

@@ -7,6 +7,11 @@ public class PauseBtnManager : MonoBehaviour
     [SerializeField] private Button continueBtn;
     [SerializeField] private Button resetLvlBtn;
     [SerializeField] private Button returnToTitleBtn;
+
+    void Awake()
+    {
+        UIManager.instance.SetPauseScreen(gameObject);
+    }
     private void OnEnable()
     {
         continueBtn.onClick.AddListener(ContinueBtnPress);

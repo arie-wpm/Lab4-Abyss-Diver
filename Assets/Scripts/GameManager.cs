@@ -16,9 +16,6 @@ public class GameManager : MonoBehaviour
 
     public Transform currentSpawnPoint;
 
-
-    private GameObject pauseMenuUi;
-
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -60,6 +57,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case GameState.StartMenu:
+                ReturnToStartMenu();
                 break;
             case GameState.Play:
                 OnPlay();
@@ -75,18 +73,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void ReturnToStartMenu()
+    {
+        //disable player controls
+    }
+
     void OnPlay()
     {
+        if (UIManager.instance.PauseScreen.activeSelf)
+        {
+            UIManager.instance.PauseScreen.SetActive(false);
+        }
         Time.timeScale = 1f;
     }
     
     void OnPause()
     {
-        //get ui canvas and enable pause panel
         Time.timeScale = 0f;
+        UIManager.instance.PauseScreen.SetActive(true);
     }
 
     public void RestartToTitle() {
+        GameStateManager.Instance.SetGameState(GameState.StartMenu);
         SceneManager.LoadScene("Opening");
     }
 
