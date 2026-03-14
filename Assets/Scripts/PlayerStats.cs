@@ -206,6 +206,7 @@ public class PlayerStats : MonoBehaviour {
     {
         score += value;
         scoreboard.SetText(score.ToString("00000"));
+        UIManager.instance.GameOverScreen.SetScore(score.ToString("00000"));
     }
 
     private void HandleOxygenDrain()

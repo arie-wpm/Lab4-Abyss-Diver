@@ -5,7 +5,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     public GameObject PauseScreen { get; private set; }
-    public GameObject GameOverScreen { get; private set; }
+    public GameOverMenuManager GameOverScreen { get; private set; }
 
     void Awake()
     {
@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
         PauseScreen = pauseScreen;
     }
 
-    public void SetGameOverScreen(GameObject gameOverScreen)
+    public void SetGameOverScreen(GameOverMenuManager gameOverScreen)
     {
         GameOverScreen = gameOverScreen;
     }
