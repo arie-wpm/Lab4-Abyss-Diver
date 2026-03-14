@@ -4383,18 +4383,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: JellyfishStatic
       objectReference: {fileID: 0}
-    - target: {fileID: 1672489409008169242, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
-      propertyPath: m_Color.a
-      value: 0.36862746
-      objectReference: {fileID: 0}
-    - target: {fileID: 5581350441474022048, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5581350441474022048, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6834772920801007382, guid: acf7789e47d8b4d86a25e3ca94279d25, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.1
