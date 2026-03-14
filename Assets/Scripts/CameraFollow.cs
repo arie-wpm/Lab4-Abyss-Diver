@@ -1,60 +1,74 @@
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
-{
-    [Header("Player Reference")]
-    [SerializeField] private Transform pTrans;
+public class CameraFollow : MonoBehaviour {
+    [SerializeField] private Transform player;
+    [SerializeField] private Rigidbody2D playerRb;
 
-    [Header("Camera Settings")]
-    [SerializeField] private float followSpeed = 5f;
+    [Header("Offsets")]
+    [SerializeField] private float horizontalOffset = 2f;
+    [SerializeField] private float verticalOffset = 2f;
 
-    [Header("Deadzone / Bounds")]
-    [SerializeField] private Vector2 deadzoneSize = new Vector2(2f, 2f);
+    [Header("Smoothing")]
+    [SerializeField] private float followSpeed = 6f;
+    [SerializeField] private float offsetSmoothSpeed = 4f;
 
-    [Header("World Bounds")]
-    [SerializeField] private Vector2 minBounds;
-    [SerializeField] private Vector2 maxBounds;
+    [Header("Direction Confirm Time")]
+    [SerializeField] private float confirmTime = 0.5f;
 
-    private Rigidbody2D pRb;
+    private float currentOffsetX;
+    private float currentOffsetY;
 
-    void Start() {
-        if (pTrans != null)
-            pRb = pTrans.GetComponent<Rigidbody2D>();
-    }
+    private float targetOffsetX;
+    private float targetOffsetY;
+
+    private float xDirectionTimer;
+    private float yDirectionTimer;
+
+    private int lastXDirection;
+    private int lastYDirection;
 
     void LateUpdate() {
-        if (pTrans == null) return;
-        FollowPlayer();
+        if (player == null || playerRb == null) return;
+
+        UpdateDirectionTimers();
+
+        currentOffsetX = Mathf.Lerp(currentOffsetX, targetOffsetX, offsetSmoothSpeed * Time.deltaTime);
+        currentOffsetY = Mathf.Lerp(currentOffsetY, targetOffsetY, offsetSmoothSpeed * Time.deltaTime);
+
+        Vector3 targetPos = new Vector3(
+            player.position.x + currentOffsetX,
+            player.position.y + currentOffsetY,
+            transform.position.z
+        );
+
+        transform.position = Vector3.Lerp(transform.position, targetPos, followSpeed * Time.deltaTime);
     }
 
-    void FollowPlayer() {
-        Vector3 camPos = transform.position;
+    void UpdateDirectionTimers() {
+        float vx = playerRb.linearVelocity.x;
+        float vy = playerRb.linearVelocity.y;
 
-        float left = camPos.x - deadzoneSize.x / 2;
-        float right = camPos.x + deadzoneSize.x / 2;
+        int xDir = Mathf.Abs(vx) > 0.1f ? (vx > 0 ? 1 : -1) : 0;
+        int yDir = Mathf.Abs(vy) > 0.1f ? (vy > 0 ? 1 : -1) : 0;
 
-        if (pRb.position.x > right)
-            camPos.x += pRb.position.x - right;
-        else if (pRb.position.x < left)
-            camPos.x += pRb.position.x - left;
+        if (xDir != 0) {
+            if (xDir == lastXDirection) xDirectionTimer += Time.deltaTime;
+            else {
+                xDirectionTimer = 0f;
+                lastXDirection = xDir;
+            }
 
-        camPos.y = pRb.position.y;
-        camPos.x = Mathf.Clamp(camPos.x, minBounds.x, maxBounds.x);
+            if (xDirectionTimer >= confirmTime) targetOffsetX = xDir * horizontalOffset;
+        }
 
-        transform.position = Vector3.Lerp(transform.position, camPos, followSpeed * Time.deltaTime);
-    }
+        if (yDir != 0) {
+            if (yDir == lastYDirection) yDirectionTimer += Time.deltaTime;
+            else {
+                yDirectionTimer = 0f;
+                lastYDirection = yDir;
+            }
 
-    void OnDrawGizmos() {
-        if (pTrans == null) return;
-
-        Gizmos.color = Color.yellow;
-        Vector3 worldCenter = new Vector3((minBounds.x + maxBounds.x) / 2, (minBounds.y + maxBounds.y) / 2, 0);
-        Vector3 worldSize = new Vector3(maxBounds.x - minBounds.x, maxBounds.y - minBounds.y, 0);
-        Gizmos.DrawWireCube(worldCenter, worldSize);
-
-        Gizmos.color = Color.cyan;
-        Vector3 deadzoneCenter = transform.position;
-        Vector3 deadzoneRect = new Vector3(deadzoneSize.x, deadzoneSize.y, 0);
-        Gizmos.DrawWireCube(deadzoneCenter, deadzoneRect);
+            if (yDirectionTimer >= confirmTime) targetOffsetY = yDir * verticalOffset;
+        }
     }
 }

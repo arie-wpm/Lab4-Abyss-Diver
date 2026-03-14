@@ -217,6 +217,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
   m_PrefabInstance: {fileID: 1499460006}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &912180150 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8011095419885254214, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+  m_PrefabInstance: {fileID: 1499460006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &914295599
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,11 +653,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb58c21fba992cb4691f3668dfcb3907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  pTrans: {fileID: 912180143}
+  player: {fileID: 912180143}
+  playerRb: {fileID: 912180150}
+  horizontalOffset: 1
+  verticalOffset: 0.5
   followSpeed: 5
-  deadzoneSize: {x: 2, y: 1}
-  minBounds: {x: -7, y: -4}
-  maxBounds: {x: 7, y: 5}
+  offsetSmoothSpeed: 1
+  confirmTime: 1
 --- !u!114 &1981795382
 MonoBehaviour:
   m_ObjectHideFlags: 0
