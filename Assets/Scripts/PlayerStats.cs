@@ -32,10 +32,17 @@ public class PlayerStats : MonoBehaviour {
     private bool isDrowning = false;
     private int currentHearts;
 
-    [HideInInspector]
-    public float CurrentHearts
+    [HideInInspector] public float CurrentHearts
     {
         get => currentHearts;
+    }
+
+    private bool isInvincible;
+
+    public bool IsInvincible
+    {
+        get => isInvincible;
+        set => isInvincible = value;
     }
 
     [SerializeField] private Image healthBarGraphic;
@@ -91,6 +98,7 @@ public class PlayerStats : MonoBehaviour {
 
         playerController = GetComponent<PlayerController>();
         damageFlash = GetComponent<DamageFlash>();
+        isInvincible = false;
     }
 
     void Start()
@@ -141,7 +149,7 @@ public class PlayerStats : MonoBehaviour {
 
     public void TakeDamage(int amount, Vector2 dir)
     {
-        // if (isInvincible) return;
+        if (isInvincible) return;
 
         if (currentHearts <= 0) {
             return;
