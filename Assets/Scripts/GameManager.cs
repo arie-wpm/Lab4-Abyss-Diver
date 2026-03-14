@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private float respawnDelay = 8f;
+    
     [Header("Test Flags")]
     public bool enableGodMode = false;
 
@@ -20,6 +22,10 @@ public class GameManager : MonoBehaviour
 
     public Transform currentSpawnPoint;
 
+    // UI check
+    private bool isGameOverObjRdy = false;
+    private bool isPauseObjRdy = false;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -29,16 +35,20 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         GameStateManager.Instance.OnStateChange += HandleOnStateChange;
+        GameOverMenuManager.OnGameOverMenuReady += HandleGameOverMenuReady;
+        PauseBtnManager.OnPauseScreenReady += HandlePauseScreenReady;
     }
 
     void OnDisable()
     {
         GameStateManager.Instance.OnStateChange -= HandleOnStateChange;
+        GameOverMenuManager.OnGameOverMenuReady -= HandleGameOverMenuReady;
+        PauseBtnManager.OnPauseScreenReady -= HandlePauseScreenReady;
     }
 
     void Start()
     {
-        // temp set to Play
+        // temp set to Play (GameManager is loaded in level)
         GameStateManager.Instance.SetGameState(GameState.Play);
     }
 
@@ -61,10 +71,13 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case GameState.StartMenu:
+                ReturnToStartMenu();
                 break;
             case GameState.Play:
+                OnPlay();
                 break;
             case GameState.Pause:
+                OnPause();
                 break;
             case GameState.Fail:
                 if (!enableGodMode) StartCoroutine(FailLoop());
@@ -98,17 +111,25 @@ public class GameManager : MonoBehaviour
     public void RestartToTitle() {
         isGameOverObjRdy = false;
         isPauseObjRdy = false;
-        if (Camera.main.backgroundColor != level1Color) Camera.main.backgroundColor = level1Color;
         SceneManager.LoadScene("Opening");
+        AudioManager.PlayMusic(SoundID.TitleScreen);
     }
 
     IEnumerator FailLoop() {
         // play animation via coroutine etc etc
         yield return new WaitForSeconds(1f);
+        
+        UIManager.instance.GameOverScreen.Show();
+        float timer = 0f;
+        while (timer < respawnDelay && !Input.GetMouseButtonDown(0))
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
         RestartCurrentLevel();
     }
 
-    void RestartCurrentLevel() {
+    public void RestartCurrentLevel() {
         // reset enemy positions, player stats
         // pickups should not reset since we're not resetting score
 
@@ -116,6 +137,7 @@ public class GameManager : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         PlayerStats pStats = player.GetComponent<PlayerStats>();
         pStats.ResetPlayerStats();
+        if (currentSpawnPoint == null) currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
         player.transform.position = currentSpawnPoint.position;
 
         //music
@@ -125,5 +147,26 @@ public class GameManager : MonoBehaviour
             if (o != null) o.Reset();
         }
 
+    }
+
+    void HandleGameOverMenuReady(GameOverMenuManager menu)
+    {
+        isGameOverObjRdy = true;
+        Debug.Log(UIManager.instance.GameOverScreen);
+        if (UIManager.instance.GameOverScreen.gameObject.activeSelf)
+        {
+            UIManager.instance.GameOverScreen.gameObject.SetActive(false);
+        }
+    }
+
+    void HandlePauseScreenReady(GameObject pause)
+    {
+        isPauseObjRdy = true;
+        Debug.Log(UIManager.instance.PauseScreen);
+        if (UIManager.instance.PauseScreen.activeSelf)
+        {
+            UIManager.instance.PauseScreen.SetActive(false);
+        }
+        Time.timeScale = 1f;
     }
 }
