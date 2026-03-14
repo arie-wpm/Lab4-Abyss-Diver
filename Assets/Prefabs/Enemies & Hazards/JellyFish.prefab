@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 754299984460647348}
   - component: {fileID: 7719674815403568276}
   - component: {fileID: 4663099937172257453}
+  - component: {fileID: 3957653501796513224}
   m_Layer: 0
   m_Name: Jellyfish
   m_TagString: Enemy
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 561051039462289139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.42527, y: 2.23, z: 0}
+  m_LocalPosition: {x: -12.64, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63,7 +64,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 3cf544aea31d0c545b8d63e11c9c9a83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -164,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JellyfishAttackTrigger
   animator: {fileID: 5492671734352471067}
+  canZap: 0
+  timeBetweenZaps: 3
 --- !u!61 &4663099937172257453
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,6 +213,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4, y: 0.8}
   m_EdgeRadius: 0
+--- !u!114 &3957653501796513224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561051039462289139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc3140903fe054ab3a76353e0269a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectColor
+  color: {r: 0, g: 1.0205284, b: 2.1185474, a: 1}
 --- !u!1 &1089272376997228335
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 3104244121605565868}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.08, y: 2.28, z: 0}
+  m_LocalPosition: {x: -18.12, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -361,7 +377,7 @@ Transform:
   m_GameObject: {fileID: 5041358685987789219}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.08, y: 2.28, z: 0}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 527d746b2a15807489471f7fdcfda513
+guid: ff0ce0e6fdd5de14ea81e60b61aea2db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7727728413502593842
-    second: JellyFish attack_0
+      213: 1907851481965648765
+    second: JellyFish attack Emission_0
   - first:
-      213: -8642911552386442332
-    second: JellyFish attack_1
+      213: -1559287091985132013
+    second: JellyFish attack Emission_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -104,7 +104,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,7 +117,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,45 +129,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JellyFish attack_0
+      name: JellyFish attack Emission_0
       rect:
         serializedVersion: 2
         x: 11
         y: 0
         width: 42
         height: 45
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3555}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23bd38f7c086e3b60800000000000000
-      internalID: 7727728413502593842
+      spriteID: d7bd3ca80dc0a7a10800000000000000
+      internalID: 1907851481965648765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JellyFish attack_1
+      name: JellyFish attack Emission_1
       rect:
         serializedVersion: 2
         x: 75
         y: 0
         width: 42
         height: 45
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3555}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4abd2e63cb53e0880800000000000000
-      internalID: -8642911552386442332
+      spriteID: 316df5bb6ac4c5ae0800000000000000
+      internalID: -1559287091985132013
       vertices: []
       indices: 
       edges: []
@@ -176,20 +176,18 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0b7380cab2e2f564a92a39bbec9e0802
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: ff0ce0e6fdd5de14ea81e60b61aea2db, type: 3}
-      name: _Emission
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      JellyFish attack_0: 7727728413502593842
-      JellyFish attack_1: -8642911552386442332
+      JellyFish attack Emission_0: 1907851481965648765
+      JellyFish attack Emission_1: -1559287091985132013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
