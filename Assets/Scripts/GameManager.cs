@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private float respawnDelay = 8f;
+    
     [Header("Test Flags")]
     public bool enableGodMode = false;
 
@@ -102,6 +104,14 @@ public class GameManager : MonoBehaviour
     IEnumerator FailLoop() {
         // play animation via coroutine etc etc
         yield return new WaitForSeconds(1f);
+        
+        UIManager.instance.GameOverScreen.Show();
+        float timer = 0f;
+        while (timer < respawnDelay && !Input.GetMouseButtonDown(0))
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
         RestartCurrentLevel();
     }
 
