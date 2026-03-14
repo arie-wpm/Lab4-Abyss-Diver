@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 45f8cca12c333574692a539b892c244d
+guid: 707aad436fd8bf844955d97f2b17b9ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1619798245232440285
-    second: ParticleBubble_0
-  - first:
-      213: 7855260529850795303
-    second: ParticleBubble_1
-  - first:
-      213: -5099601355001088583
-    second: ParticleBubble_2
+      213: -8091872152799070349
+    second: ParticleBubbleEmission_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -132,67 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ParticleBubble_0
+      name: ParticleBubbleEmission_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
+        width: 24
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32c8e19f3125589e0800000000000000
-      internalID: -1619798245232440285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ParticleBubble_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 72547eb35dd730d60800000000000000
-      internalID: 7855260529850795303
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ParticleBubble_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b53f0326939a39b0800000000000000
-      internalID: -5099601355001088583
+      spriteID: 377398c4625e3bf80800000000000000
+      internalID: -8091872152799070349
       vertices: []
       indices: 
       edges: []
@@ -201,23 +151,17 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 592b5a3c9a213774a8c12fefe5812cf7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 707aad436fd8bf844955d97f2b17b9ed, type: 3}
-      name: _Emission
+    secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":8.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      ParticleBubble_0: -1619798245232440285
-      ParticleBubble_1: 7855260529850795303
-      ParticleBubble_2: -5099601355001088583
+      ParticleBubbleEmission_0: -8091872152799070349
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

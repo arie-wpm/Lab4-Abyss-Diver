@@ -279,18 +279,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7666747879342242276}
     m_Modifications:
-    - target: {fileID: 996112295781348933, guid: 652094009876c0a41b2268079972e20a, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 996112295781348933, guid: 652094009876c0a41b2268079972e20a, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.9167996
-      objectReference: {fileID: 0}
-    - target: {fileID: 996112295781348933, guid: 652094009876c0a41b2268079972e20a, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4610469246737485363, guid: 652094009876c0a41b2268079972e20a, type: 3}
       propertyPath: m_Name
       value: SparkleEffect

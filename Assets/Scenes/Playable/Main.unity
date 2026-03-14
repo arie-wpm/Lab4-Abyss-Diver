@@ -684,8 +684,8 @@ MonoBehaviour:
   level1LightIntensity: 0.4
   level2LightIntensity: 0.3
   level3LightIntensity: 0.2
-  level1BloomIntensity: 10
-  level2BloomIntensity: 12.5
+  level1BloomIntensity: 8
+  level2BloomIntensity: 11
   level3BloomIntensity: 15
   currentSpawnPoint: {fileID: 0}
 --- !u!114 &1516163145
