@@ -19,7 +19,10 @@ public enum SoundID {
     OxyWarning,
     LanternHit,
     SpikeHit,
-    JellyHit
+    JellyHit,
+    Volcano,
+    JellyCharge,
+    JellyZap
 }
 
 [System.Serializable]

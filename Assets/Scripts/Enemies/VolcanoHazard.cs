@@ -114,4 +114,9 @@ public class VolcanoHazard : MonoBehaviour
             damageHitbox.enabled = isActive;
         }
     }
+
+    public void PlaySFX()
+    {
+        AudioManager.Play(SoundID.Volcano);
+    }
 }
