@@ -4,13 +4,15 @@ using UnityEngine.UI;
 
 public class PauseBtnManager : MonoBehaviour
 {
+    public static event Action<GameObject> OnPauseScreenReady;
     [SerializeField] private Button continueBtn;
     [SerializeField] private Button resetLvlBtn;
     [SerializeField] private Button returnToTitleBtn;
 
     void Awake()
     {
-        UIManager.instance.SetPauseScreen(gameObject);
+        UIManager.instance.PauseScreen = this.gameObject;
+        OnPauseScreenReady?.Invoke(this.gameObject);
     }
     private void OnEnable()
     {

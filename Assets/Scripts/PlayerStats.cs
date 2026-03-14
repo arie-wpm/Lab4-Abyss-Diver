@@ -70,7 +70,7 @@ public class PlayerStats : MonoBehaviour {
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (scene.name == "UI") {
-            GameObject canvasObj = GameObject.Find("Canvas");
+            GameObject canvasObj = GameObject.Find("UIManager");
             if (canvasObj != null) {
                 healthBarGraphic = canvasObj.GetComponentInChildren<UICameraSetter>().healthFill;
                 oxygenBarGraphic = canvasObj.GetComponentInChildren<UICameraSetter>().oxygenFill;
@@ -137,6 +137,10 @@ public class PlayerStats : MonoBehaviour {
 
     public void LoseHealth(int healthToLose)
     {
+        if (currentHearts <= 0) {
+            return;
+        }
+
         AudioManager.Play(SoundID.Hurt);
         if (GameManager.instance.enableGodMode) return;
         healthToLose = Mathf.Min(3, healthToLose);
@@ -151,10 +155,6 @@ public class PlayerStats : MonoBehaviour {
     {
         if (isInvincible) return;
 
-        if (currentHearts <= 0) {
-            return;
-        }
-
         LoseHealth(amount);
         damageFlash.CallDamageFlash();
         Debug.Log("Lost Health. Current Hearts: " + currentHearts);
@@ -167,17 +167,6 @@ public class PlayerStats : MonoBehaviour {
             DebugTool.Log($"Died. Current Hearts: {currentHearts}");
             return;
         }
-        
-        
-        // commenting out this will never run
-        // if (currentHearts <= 0)
-        // {
-        //     currentHearts = 0;
-        //     DebugTool.Log($"Died. Current Hearts: {currentHearts}");      
-        //     return;
-        // }
-
-        // iframe?
     }
 
     public void AddHealth(int healthToAdd)

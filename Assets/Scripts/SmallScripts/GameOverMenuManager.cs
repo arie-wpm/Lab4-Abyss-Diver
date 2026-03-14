@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameOverMenuManager : MonoBehaviour
 {
-
+    public static event Action<GameOverMenuManager> OnGameOverMenuReady;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text deathText;
+
     void Awake()
     {
-        UIManager.instance.SetGameOverScreen(this);
+        UIManager.instance.GameOverScreen = this;
+        OnGameOverMenuReady?.Invoke(this);
     }
 
     public void SetScore(string score)

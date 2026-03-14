@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
 
     public Transform currentSpawnPoint;
 
+    // UI check
+    private bool isGameOverObjRdy = false;
+    private bool isPauseObjRdy = false;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -27,16 +31,20 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         GameStateManager.Instance.OnStateChange += HandleOnStateChange;
+        GameOverMenuManager.OnGameOverMenuReady += HandleGameOverMenuReady;
+        PauseBtnManager.OnPauseScreenReady += HandlePauseScreenReady;
     }
 
     void OnDisable()
     {
         GameStateManager.Instance.OnStateChange -= HandleOnStateChange;
+        GameOverMenuManager.OnGameOverMenuReady -= HandleGameOverMenuReady;
+        PauseBtnManager.OnPauseScreenReady -= HandlePauseScreenReady;
     }
 
     void Start()
     {
-        // temp set to Play
+        // temp set to Play (GameManager is loaded in level)
         GameStateManager.Instance.SetGameState(GameState.Play);
     }
 
@@ -82,8 +90,8 @@ public class GameManager : MonoBehaviour
     }
 
     void OnPlay()
-    {
-        if (UIManager.instance.PauseScreen.activeSelf)
+    {        
+        if (isPauseObjRdy && UIManager.instance.PauseScreen.activeSelf)
         {
             UIManager.instance.PauseScreen.SetActive(false);
         }
@@ -97,6 +105,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void RestartToTitle() {
+        isGameOverObjRdy = false;
+        isPauseObjRdy = false;
         SceneManager.LoadScene("Opening");
         AudioManager.PlayMusic(SoundID.TitleScreen);
     }
@@ -133,5 +143,26 @@ public class GameManager : MonoBehaviour
             if (o != null) o.Reset();
         }
 
+    }
+
+    void HandleGameOverMenuReady(GameOverMenuManager menu)
+    {
+        isGameOverObjRdy = true;
+        Debug.Log(UIManager.instance.GameOverScreen);
+        if (UIManager.instance.GameOverScreen.gameObject.activeSelf)
+        {
+            UIManager.instance.GameOverScreen.gameObject.SetActive(false);
+        }
+    }
+
+    void HandlePauseScreenReady(GameObject pause)
+    {
+        isPauseObjRdy = true;
+        Debug.Log(UIManager.instance.PauseScreen);
+        if (UIManager.instance.PauseScreen.activeSelf)
+        {
+            UIManager.instance.PauseScreen.SetActive(false);
+        }
+        Time.timeScale = 1f;
     }
 }
