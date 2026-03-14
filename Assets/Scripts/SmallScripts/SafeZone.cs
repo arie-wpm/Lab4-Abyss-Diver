@@ -8,8 +8,8 @@ public class SafeZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            pStats = other.gameObject.GetComponent<PlayerStats>();
-            pStats.isSafeZone = true;
+            if (pStats == null) pStats = other.gameObject.GetComponent<PlayerStats>();
+            if (!pStats.isSafeZone) pStats.isSafeZone = true;
         }
     }
 

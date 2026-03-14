@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour {
 
     [Header("Health")]
     [SerializeField] private int maxHearts = 3;
-    private bool isDrowning = false;
+    public bool isDrowning = false;
     private int currentHearts;
 
     [HideInInspector] public float CurrentHearts
@@ -56,6 +56,7 @@ public class PlayerStats : MonoBehaviour {
     [SerializeField] private TMP_Text scoreboard;
     private bool isUILinked = false;
     private bool hasOxyLowPlayed = false;
+    private Coroutine oxyWarningRoutine;
 
     public bool isSafeZone = false;
 
@@ -125,7 +126,7 @@ public class PlayerStats : MonoBehaviour {
     private IEnumerator HandleDrown()
     {
         yield return new WaitForSeconds(gracePeriod);
-        while (currentHearts > 0)
+        while (currentHearts > 0 && isDrowning)
         {
             yield return new WaitForSeconds(timeBetweenHeartLoss);
             LoseHealth(1);
@@ -189,6 +190,11 @@ public class PlayerStats : MonoBehaviour {
         currentOxygenLevel = Mathf.Min(maxOxygenLevel, currentOxygenLevel += value);
         oxygenBarGraphic.fillAmount = GetCurrentOxygenPercent();
         isDrowning = false;
+        if (GetCurrentOxygenPercent() >= 0.3f)
+        {
+            oxygenBarGraphic.color = Color.white;
+            hasOxyLowPlayed = false;
+        }
     }
 
     public void AddScore(float value)
@@ -215,10 +221,19 @@ public class PlayerStats : MonoBehaviour {
         {
             if (!hasOxyLowPlayed) {
                 AudioManager.Play(SoundID.OxyWarning);
+                oxyWarningRoutine = StartCoroutine(HandleOxygenWarning());
                 hasOxyLowPlayed = true;
             }
-            oxygenBarGraphic.color = Color.red;
         }
+    }
+
+    IEnumerator HandleOxygenWarning(int flashes = 5, float flashDuration = 0.1f) {
+        for (int i = 0; i < flashes; i++) {
+            oxygenBarGraphic.color = (i % 2 == 0) ? Color.red : Color.white;
+            yield return new WaitForSeconds(flashDuration);
+        }
+        oxygenBarGraphic.color = Color.red;
+        oxyWarningRoutine = null;
     }
 
     public void ResetPlayerStats() {

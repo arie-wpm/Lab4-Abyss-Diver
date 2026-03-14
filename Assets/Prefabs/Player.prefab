@@ -205,15 +205,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   enableDebug: 1
   maxOxygenLevel: 10
-  oxygenDrainRate: 1
+  oxygenDrainRate: 0.5
   oxygenBarGraphic: {fileID: 0}
   baseOxygenToAdd: 5
   maxHearts: 3
+  isDrowning: 0
   healthBarGraphic: {fileID: 0}
   gracePeriod: 0.75
   timeBetweenHeartLoss: 2
   score: 0
   scoreboard: {fileID: 0}
+  isSafeZone: 0
 --- !u!114 &420163220769066722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +282,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DamageFlash
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   flashTime: 0.25
+  flashSpeedCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5410228383283088206
 GameObject:
   m_ObjectHideFlags: 0
