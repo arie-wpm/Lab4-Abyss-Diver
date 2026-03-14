@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +18,17 @@ public class GameManager : MonoBehaviour
     public Color level2Color = new Color32(41, 64, 98, 255);
     public Color level3Color = new Color32(60, 52, 94, 255);
 
+    [Header("Lighting")] 
+    [HideInInspector] public Light2D globalLight;
+    [HideInInspector] private Volume globalVolume;
+    [HideInInspector] public Bloom globalBloom;
+    public float level1LightIntensity = 0.4f;
+    public float level2LightIntensity = 0.3f;
+    public float level3LightIntensity = 0.2f;
+    public float level1BloomIntensity = 10f;
+    public float level2BloomIntensity = 12.5f;
+    public float level3BloomIntensity = 15f;
+    
     // Scene check
     public static string currentScene;
     public static string previousScene;
@@ -50,6 +63,9 @@ public class GameManager : MonoBehaviour
     {
         // temp set to Play (GameManager is loaded in level)
         GameStateManager.Instance.SetGameState(GameState.Play);
+        globalLight = FindAnyObjectByType<Light2D>();
+        globalVolume = FindAnyObjectByType<Volume>();
+        globalVolume.profile.TryGet<Bloom>(out globalBloom);
     }
 
     void Update()
