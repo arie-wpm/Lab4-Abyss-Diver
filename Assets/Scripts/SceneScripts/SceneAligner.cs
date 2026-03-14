@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 public class SceneAligner : MonoBehaviour {
     private SceneReference sceneToLoad;
@@ -59,6 +60,9 @@ public class SceneAligner : MonoBehaviour {
         if (sceneToLoad.SceneName == "Rest") {
             StartCoroutine(ReloadRestScene());
             return;
+        } else {
+            BoxCollider2D blocker = GameObject.Find("Blocker").GetComponent<BoxCollider2D>();
+            blocker.isTrigger = false;
         }
 
         switch (newSceneAnchorName) {
