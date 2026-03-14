@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     void ReturnToStartMenu()
     {
         //disable player controls
+        RestartToTitle();
     }
 
     void OnPlay()
@@ -94,7 +95,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void RestartToTitle() {
-        GameStateManager.Instance.SetGameState(GameState.StartMenu);
         SceneManager.LoadScene("Opening");
     }
 
