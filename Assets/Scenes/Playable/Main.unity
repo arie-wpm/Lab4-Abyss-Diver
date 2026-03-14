@@ -319,6 +319,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashTime
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashColor.b
       value: 1.4008719
       objectReference: {fileID: 0}
@@ -332,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.size
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[1].time
@@ -348,7 +352,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[4].time
+      value: 0.249
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[5].time
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[6].time
+      value: 0.349
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[7].time
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[8].time
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[0].value
@@ -357,6 +377,26 @@ PrefabInstance:
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[3].value
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[4].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[5].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[6].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[7].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[8].value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[0].inSlope
@@ -376,7 +416,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[4].inSlope
-      value: -5.0000005
+      value: -0.019912126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[5].inSlope
+      value: 0.176372
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[6].inSlope
+      value: 0.11675642
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[7].inSlope
+      value: -0.044480585
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[0].outSlope
@@ -412,7 +464,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[4].outSlope
-      value: -5.0000005
+      value: -0.019912126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[5].inWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[5].outSlope
+      value: 0.176372
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[6].inWeight
+      value: 0.2770812
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[6].outSlope
+      value: 0.11675642
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[7].inWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[7].outSlope
+      value: -0.044480585
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[0].outWeight
@@ -431,12 +507,36 @@ PrefabInstance:
       value: 0.119378276
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[4].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[5].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[6].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[7].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[0].tangentMode
       value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[4].tangentMode
-      value: 34
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[5].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[6].tangentMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -488,7 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a0b52aedccdaa45abbb3e2ba9b8455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  enableGodMode: 1
+  enableGodMode: 0
   currentSpawnPoint: {fileID: 0}
 --- !u!114 &1516163145
 MonoBehaviour:

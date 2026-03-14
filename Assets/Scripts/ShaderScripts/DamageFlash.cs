@@ -10,11 +10,12 @@ public class DamageFlash : MonoBehaviour
     
     private SpriteRenderer[] spriteRenderers;
     private Material[] materials;
-
     private Coroutine damageFlashCoroutine;
+    private PlayerStats pStats;
     void Awake()
     {
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        pStats = GetComponent<PlayerStats>();
         Init();
     }
 
@@ -38,7 +39,7 @@ public class DamageFlash : MonoBehaviour
 
         float currentFlashAmount = 0f;
         float elapsedTime = 0f;
-
+        pStats.IsInvincible = true;
         while (elapsedTime < flashTime)
         {
             elapsedTime += Time.deltaTime;
@@ -47,6 +48,8 @@ public class DamageFlash : MonoBehaviour
             SetFlashAmount(currentFlashAmount);
             yield return null;
         }
+
+        pStats.IsInvincible = false;
     }
 
     private void SetFlashColor()
