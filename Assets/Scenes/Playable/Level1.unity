@@ -497,6 +497,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 366140943}
     m_Modifications:
+    - target: {fileID: 61526908915092355, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.72
+      objectReference: {fileID: 0}
     - target: {fileID: 355354871689861541, guid: 782da919458981749b2fd4c541219eed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.344806
@@ -541,9 +545,29 @@ PrefabInstance:
       propertyPath: patrolLoop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 947417567008666231, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: patrolSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2063257403364458245, guid: 782da919458981749b2fd4c541219eed, type: 3}
       propertyPath: m_Name
       value: ScatterFish 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879252564966924445, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778036197138360279, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: pointA
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778036197138360279, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: pointB
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778036197138360279, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: patrolLoop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1387,6 +1411,18 @@ PrefabInstance:
     - target: {fileID: 5403672126507221624, guid: 782da919458981749b2fd4c541219eed, type: 3}
       propertyPath: m_Color.r
       value: 0.4056604
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778036197138360279, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: pointA
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778036197138360279, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: pointB
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778036197138360279, guid: 782da919458981749b2fd4c541219eed, type: 3}
+      propertyPath: patrolLoop
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8567759833905082249, guid: 782da919458981749b2fd4c541219eed, type: 3}
       propertyPath: m_Color.b
@@ -2706,7 +2742,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4269,10 +4305,10 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1266869992, guid: 10b3c289f8abbda47bbd3e54d8baff4f, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1266869992, guid: 10b3c289f8abbda47bbd3e54d8baff4f, type: 3}
   - m_RefCount: 30
     m_Data: {fileID: 1105776247, guid: 10b3c289f8abbda47bbd3e54d8baff4f, type: 3}
   - m_RefCount: 1
@@ -4733,7 +4769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 61526908915092355, guid: 782da919458981749b2fd4c541219eed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.41
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 355354871689861541, guid: 782da919458981749b2fd4c541219eed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4805,7 +4841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2879252564966924445, guid: 782da919458981749b2fd4c541219eed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.32
+      value: -7.23
       objectReference: {fileID: 0}
     - target: {fileID: 4915701563883013482, guid: 782da919458981749b2fd4c541219eed, type: 3}
       propertyPath: m_Color.b

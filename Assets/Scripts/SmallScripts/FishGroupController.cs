@@ -66,6 +66,17 @@ public class FishGroupController : MonoBehaviour
 
     private IEnumerator PatrolRoutine() {
         Transform target = pointB;
+        
+        bool needFlip = false;
+        if (pointA.position.x < pointB.position.x) needFlip = true;
+
+        if (fishes.Length == 0)
+            fishes = GetComponentsInChildren<FishBehavior>();
+
+        foreach (var fish in fishes) {
+            SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
+            if (sr != null) sr.flipX = needFlip;
+        }
 
         while (true) {
             while (Vector3.Distance(transform.position, target.position) > 0.01f)
@@ -76,13 +87,10 @@ public class FishGroupController : MonoBehaviour
             yield return new WaitForSeconds(patrolPause);
             target = (target == pointA) ? pointB : pointA;
 
-            if (fishes.Length == 0)
-                fishes = GetComponentsInChildren<FishBehavior>();
-
             foreach (var fish in fishes) {
                 SpriteRenderer sr = fish.GetComponent<SpriteRenderer>();
-                if (sr != null && target == pointB) sr.flipX = true;
-                else sr.flipX = false;
+                if (sr != null && target == pointB) sr.flipX = needFlip;
+                else sr.flipX = !needFlip;
             }
 
             if (!patrolLoop) break;

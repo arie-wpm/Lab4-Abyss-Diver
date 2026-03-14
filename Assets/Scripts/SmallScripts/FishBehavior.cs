@@ -9,12 +9,11 @@ public class FishBehavior : MonoBehaviour
     [HideInInspector] public Vector3 originalLocalPos;
 
     [Header("Bop Settings")]
-    public float bopAmplitude = 0.2f;     // How much they move up/down
-    public float bopSpeed = 2f;           // How fast they bob
+    public float bopAmplitude = 0.2f;
+    public float bopSpeed = 2f;
 
     private void Start()
     {
-        // Start bobbing with random phase
         float randomOffset = Random.Range(0f, Mathf.PI * 2f);
         bopRoutine = StartCoroutine(Bop(randomOffset));
     }
