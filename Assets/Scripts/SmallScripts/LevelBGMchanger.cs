@@ -28,6 +28,8 @@ public class LevelBGMchanger : MonoBehaviour
 
         // not happy but setting spawn here for consistency
         if (other.gameObject.tag == "Player") {
+            string sceneName = gameObject.scene.name;
+            if (sceneName == "Rest") return;
             GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
         }
     }

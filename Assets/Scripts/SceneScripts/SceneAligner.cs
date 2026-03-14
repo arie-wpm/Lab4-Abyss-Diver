@@ -18,6 +18,7 @@ public class SceneAligner : MonoBehaviour {
     private static HashSet<string> loadedScenes = new HashSet<string>();
 
     void Awake() {
+        if (SceneManager.GetActiveScene().name == "Main") loadedScenes.Clear();
         Level1 = new SceneReference();
         Level2 = new SceneReference();
         Level3 = new SceneReference();

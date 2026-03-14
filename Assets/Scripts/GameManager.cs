@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartToTitle() {
         SceneManager.LoadScene("Opening");
+        AudioManager.PlayMusic(SoundID.TitleScreen);
     }
 
     IEnumerator FailLoop() {
@@ -112,6 +113,7 @@ public class GameManager : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         PlayerStats pStats = player.GetComponent<PlayerStats>();
         pStats.ResetPlayerStats();
+        if (currentSpawnPoint == null) currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
         player.transform.position = currentSpawnPoint.position;
 
         //music
