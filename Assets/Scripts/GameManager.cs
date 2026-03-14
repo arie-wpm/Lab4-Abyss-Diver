@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     public Transform currentSpawnPoint;
 
+
+    private GameObject pauseMenuUi;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -59,8 +62,10 @@ public class GameManager : MonoBehaviour
             case GameState.StartMenu:
                 break;
             case GameState.Play:
+                OnPlay();
                 break;
             case GameState.Pause:
+                OnPause();
                 break;
             case GameState.Fail:
                 if (!enableGodMode) StartCoroutine(FailLoop());
@@ -70,7 +75,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void RestartToTitle() {
+    void OnPlay()
+    {
+        Time.timeScale = 1f;
+    }
+    
+    void OnPause()
+    {
+        //get ui canvas and enable pause panel
+        Time.timeScale = 0f;
+    }
+
+    public void RestartToTitle() {
         SceneManager.LoadScene("Opening");
     }
 
@@ -80,7 +96,7 @@ public class GameManager : MonoBehaviour
         RestartCurrentLevel();
     }
 
-    void RestartCurrentLevel() {
+    public void RestartCurrentLevel() {
         // reset enemy positions, player stats
         // pickups should not reset since we're not resetting score
 
