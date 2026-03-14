@@ -94,9 +94,11 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     void PlaySoundBasedOnEnemyType(Collider2D collision)
     {
-        if (collision.name.ToLower().Contains("lantern")) AudioManager.Play(SoundID.LanternHit);
-        if (collision.name.ToLower().Contains("seaurchin")) AudioManager.Play(SoundID.SpikeHit);
-        if (collision.name.ToLower().Contains("spike")) AudioManager.Play(SoundID.SpikeHit);
-        if (collision.name.ToLower().Contains("jelly")) AudioManager.Play(SoundID.JellyHit);
+        if (CameraHelper.IsInCameraBounds(collision.transform)) {
+            if (collision.name.ToLower().Contains("lantern")) AudioManager.Play(SoundID.LanternHit);
+            if (collision.name.ToLower().Contains("seaurchin")) AudioManager.Play(SoundID.SpikeHit);
+            if (collision.name.ToLower().Contains("spike")) AudioManager.Play(SoundID.SpikeHit);
+            if (collision.name.ToLower().Contains("jelly")) AudioManager.Play(SoundID.JellyHit);
+        }
     }
 }

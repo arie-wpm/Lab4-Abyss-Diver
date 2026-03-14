@@ -38,14 +38,20 @@ public class JellyfishAttackTrigger : MonoBehaviour
         while (canZap)
         {
             yield return new WaitForSeconds(timeBetweenZaps);
+
             animator.SetBool("isCharging", true);
-            AudioManager.Play(SoundID.JellyCharge);
+            if (CameraHelper.IsInCameraBounds(transform)) AudioManager.Play(SoundID.JellyCharge);
+
             yield return new WaitForSeconds(2.5f);
+
             animator.SetBool("isCharging", false);
             animator.SetBool("isZapping", true);
             isZapping = true;
-            AudioManager.Play(SoundID.JellyZap);
+        
+            if (CameraHelper.IsInCameraBounds(transform)) AudioManager.Play(SoundID.JellyZap);
+
             yield return new WaitForSeconds(1.1f);
+
             animator.SetBool("isZapping", false);
             isZapping = false;
             animator.SetBool("IsAttacking", false);

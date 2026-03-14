@@ -117,6 +117,6 @@ public class VolcanoHazard : MonoBehaviour
 
     public void PlaySFX()
     {
-        AudioManager.Play(SoundID.Volcano);
+        if (CameraHelper.IsInCameraBounds(transform, 2f)) AudioManager.Play(SoundID.Volcano);
     }
 }
