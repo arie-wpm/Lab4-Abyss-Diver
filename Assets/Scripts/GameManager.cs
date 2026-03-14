@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
         // play animation via coroutine etc etc
         yield return new WaitForSeconds(1f);
         RestartCurrentLevel();
-
     }
 
     void RestartCurrentLevel() {
