@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5443580482535107055}
   - component: {fileID: 1650537620706337749}
   - component: {fileID: 781731593241332315}
-  - component: {fileID: 3282657779770313140}
   - component: {fileID: 6652529738632734499}
+  - component: {fileID: 5581350441474022048}
   m_Layer: 0
   m_Name: JellyFishStatic
   m_TagString: Enemy
@@ -131,8 +131,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   damageSourceType: 0
---- !u!61 &3282657779770313140
-BoxCollider2D:
+--- !u!114 &6652529738632734499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91555343463095768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b04a1b22674298b03a30d67bf5d92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JellyfishAttackTrigger
+  animator: {fileID: 1650537620706337749}
+  canZap: 1
+  timeBetweenZaps: 3
+--- !u!58 &5581350441474022048
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -166,32 +181,7 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1.04}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.4, y: 0.8}
-  m_EdgeRadius: 0
---- !u!114 &6652529738632734499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91555343463095768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07b04a1b22674298b03a30d67bf5d92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JellyfishAttackTrigger
-  animator: {fileID: 1650537620706337749}
-  canZap: 0
-  timeBetweenZaps: 3
+  m_Radius: 1
 --- !u!1 &7007626821277734075
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +264,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: db595c21cf7458540abf664ade907dca, type: 3}
-  m_Color: {r: 0.89988154, g: 0.9716981, b: 0.64627093, a: 0.25490198}
+  m_Color: {r: 0.89988154, g: 0.9716981, b: 0.64627093, a: 0.36862746}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
