@@ -96,4 +96,12 @@ public class FishGroupController : MonoBehaviour
             if (!patrolLoop) break;
         }
     }
+
+    public void RebaseFisPositions() {
+        foreach (var fish in fishes)
+            fish.originalLocalPos = fish.transform.localPosition;
+
+        if (pointA != null && pointB != null)
+            transform.position = pointA.position;
+    }
 }
