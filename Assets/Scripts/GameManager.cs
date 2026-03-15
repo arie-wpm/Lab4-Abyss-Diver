@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         
+        AudioManager.PlayMusic(SoundID.GameOver);
         UIManager.instance.GameOverScreen.Show();
         float timer = 0f;
         while (timer < respawnDelay && !Input.GetMouseButtonDown(0))
@@ -157,6 +158,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         AudioListener.pause = false;
+        ResetLevelMusic();
 
         //player
         GameObject player = GameObject.Find("Player");
@@ -197,6 +199,26 @@ public class GameManager : MonoBehaviour
             if (o != null) o.Reset();
         }
         GameStateManager.Instance.SetGameState(GameState.Play);
+    }
+
+    void ResetLevelMusic()
+    {
+        string sceneName = gameObject.scene.name;
+        switch (sceneName)
+        {
+            case "Level1":
+                AudioManager.PlayMusic(SoundID.LevelTheme);
+                break;
+            case "Level2":
+                AudioManager.PlayMusic(SoundID.Level2Theme);
+                break;
+            case "Level3":
+                AudioManager.PlayMusic(SoundID.Level3Theme);
+                break;
+            case "Rest":
+                AudioManager.PlayMusic(SoundID.RestTheme);
+                break;
+        }
     }
 
     void HandleGameOverMenuReady(GameOverMenuManager menu)
