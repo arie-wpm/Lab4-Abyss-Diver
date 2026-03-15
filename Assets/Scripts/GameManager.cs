@@ -143,7 +143,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         
-        AudioManager.PlayMusic(SoundID.GameOver);
+        AudioManager.Play(SoundID.GameOver);
+        AudioManager.StopMusic();
         UIManager.instance.GameOverScreen.Show();
         float timer = 0f;
         while (timer < respawnDelay && !Input.GetMouseButtonDown(0))

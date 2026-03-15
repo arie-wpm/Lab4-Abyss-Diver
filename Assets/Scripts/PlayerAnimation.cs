@@ -210,6 +210,9 @@ public class PlayerAnimation : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         SetAnimAllFalse();
         animator.SetBool("isDead", true);
+        GameStateManager.Instance.SetGameState(GameState.Fail);
+        GameOverMenuManager text = UIManager.instance.GameOverScreen.GetComponent<GameOverMenuManager>();
+        text.SetDeathText("You Died!");
     }
 
     public IEnumerator RunRespawnAnim()
@@ -226,6 +229,7 @@ public class PlayerAnimation : MonoBehaviour
 
         animator.SetBool("isRespawn", false);
         rb.simulated = true;
+        GameOverMenuManager text = UIManager.instance.GameOverScreen.GetComponent<GameOverMenuManager>();
+        text.SetDeathText("You Drowned!");
     }
-
 }
