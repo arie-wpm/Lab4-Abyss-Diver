@@ -1598,11 +1598,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8400002
+      value: -1.43
       objectReference: {fileID: 0}
     - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.61
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 256627931975264022, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1991,6 +1991,10 @@ PrefabInstance:
     - target: {fileID: 928107817893826323, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 928107817893826323, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3594309579708351888, guid: f00de49cb6debfe47ba5589c1eb5d8f3, type: 3}
       propertyPath: m_Pivot.x
