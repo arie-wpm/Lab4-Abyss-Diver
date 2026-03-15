@@ -21,11 +21,11 @@ public class SceneStreamer : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(startScene, LoadSceneMode.Additive);
     }
 
-    public void LoadSceneByName(string sceneName)
+    public void LoadSceneByName(string sceneName, System.Action<Scene> onLoaded = null)
     {
         GameManager.previousScene = GameManager.currentScene;
         GameManager.currentScene = sceneName;
-        StartCoroutine(LoadSceneRoutine(sceneName));
+        StartCoroutine(LoadSceneRoutine(sceneName, onLoaded));
     }
 
     public void UnloadSceneByName(string sceneName)
@@ -33,10 +33,18 @@ public class SceneStreamer : MonoBehaviour
         StartCoroutine(UnloadSceneRoutine(sceneName));
     }
 
-    private IEnumerator LoadSceneRoutine(string sceneName)
-    {
+    private IEnumerator LoadSceneRoutine(string sceneName, System.Action<Scene> onLoaded) {
         AsyncOperation op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-        while (!op.isDone) yield return null;
+        op.allowSceneActivation = false;
+
+        while (op.progress < 0.9f)
+            yield return null;
+
+        Scene loadedScene = SceneManager.GetSceneByName(sceneName);
+        onLoaded?.Invoke(loadedScene);
+
+        op.allowSceneActivation = true;
+        yield return null;
     }
 
     private IEnumerator UnloadSceneRoutine(string sceneName)
