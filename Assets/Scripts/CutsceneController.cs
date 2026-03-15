@@ -23,12 +23,14 @@ public class CutsceneController : MonoBehaviour
 
         if (scoreUI != null && PlayerStats.GlobalPlayerStats != null)
         {
-            scoreUI.text = "Final Score: " + PlayerStats.GlobalPlayerStats.score.ToString("00000");
+            scoreUI.SetText("Final Score: " + PlayerStats.GlobalPlayerStats.score.ToString());
         }
         else
         {
-            if (scoreUI == null) Debug.LogWarning("CutsceneController: scoreUI is not assigned!");
-            if (PlayerStats.GlobalPlayerStats == null) Debug.LogWarning("CutsceneController: GlobalPlayerStats is null!");
+            if (scoreUI == null)
+                Debug.LogWarning("CutsceneController: scoreUI is not assigned!");
+            if (PlayerStats.GlobalPlayerStats == null)
+                Debug.LogWarning("CutsceneController: GlobalPlayerStats is null!");
         }
     }
 
