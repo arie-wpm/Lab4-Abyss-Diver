@@ -142,8 +142,6 @@ public class GameManager : MonoBehaviour
     IEnumerator FailLoop()
     {
         yield return new WaitForSeconds(1f);
-
-        Time.timeScale = 0f;
         AudioManager.Play(SoundID.GameOver);
         AudioManager.StopMusic();
         UIManager.instance.GameOverScreen.Show();
