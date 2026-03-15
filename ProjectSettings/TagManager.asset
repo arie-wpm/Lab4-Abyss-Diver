@@ -50,5 +50,8 @@ TagManager:
   - name: Hazards
     uniqueID: 380933411
     locked: 0
+  - name: SecretWalls
+    uniqueID: 3047985981
+    locked: 0
   m_RenderingLayers:
   - Default
