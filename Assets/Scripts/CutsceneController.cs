@@ -17,13 +17,18 @@ public class CutsceneController : MonoBehaviour
     [SerializeField]
     private TMP_Text scoreUI;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         director = GetComponent<PlayableDirector>();
-        if (scoreUI != null)
+
+        if (scoreUI != null && PlayerStats.GlobalPlayerStats != null)
         {
             scoreUI.text = "Final Score: " + PlayerStats.GlobalPlayerStats.score.ToString("00000");
+        }
+        else
+        {
+            if (scoreUI == null) Debug.LogWarning("CutsceneController: scoreUI is not assigned!");
+            if (PlayerStats.GlobalPlayerStats == null) Debug.LogWarning("CutsceneController: GlobalPlayerStats is null!");
         }
     }
 
