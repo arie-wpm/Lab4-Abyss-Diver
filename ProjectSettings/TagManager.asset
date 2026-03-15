@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Volcano
   - Trigger
+  - HighScore
   layers:
   - Default
   - TransparentFX
