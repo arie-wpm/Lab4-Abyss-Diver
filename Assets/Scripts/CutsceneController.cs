@@ -21,7 +21,10 @@ public class CutsceneController : MonoBehaviour
     void Start()
     {
         director = GetComponent<PlayableDirector>();
-        scoreUI.text = "Final Score: " + PlayerStats.GlobalPlayerStats.score.ToString("00000");
+        if (scoreUI != null)
+        {
+            scoreUI.text = "Final Score: " + PlayerStats.GlobalPlayerStats.score.ToString("00000");
+        }
     }
 
     public void CheckLoop()
