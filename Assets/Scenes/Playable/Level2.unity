@@ -4148,6 +4148,10 @@ PrefabInstance:
       propertyPath: eruptingTime
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3196510406922844760, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5425523485951200158, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4302251
@@ -4898,6 +4902,10 @@ PrefabInstance:
       propertyPath: eruptingTime
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3196510406922844760, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5425523485951200158, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.3
@@ -5199,6 +5207,10 @@ PrefabInstance:
     - target: {fileID: 2123031055568994735, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: eruptingTime
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196510406922844760, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5425523485951200158, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8058,6 +8070,10 @@ PrefabInstance:
       propertyPath: eruptingTime
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3196510406922844760, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5425523485951200158, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.32
@@ -8346,6 +8362,10 @@ PrefabInstance:
     - target: {fileID: 2123031055568994735, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: eruptingTime
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196510406922844760, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5425523485951200158, guid: b442a26eb2fda41ecbcc2c4f4cde1efc, type: 3}
       propertyPath: m_LocalPosition.x
