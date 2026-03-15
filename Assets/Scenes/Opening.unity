@@ -4460,7 +4460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4618148317093563493, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100.34
+      value: 127.4
       objectReference: {fileID: 0}
     - target: {fileID: 5744290438948365982, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
       propertyPath: m_Camera
@@ -4471,8 +4471,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5930732024227365458, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
+      propertyPath: m_text
+      value: 'Treasure Hunt
+
+        in the Abyss'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930732024227365458, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
       propertyPath: m_fontSize
-      value: 80
+      value: 56.3
       objectReference: {fileID: 0}
     - target: {fileID: 5930732024227365458, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
       propertyPath: m_fontColor.b
@@ -4487,12 +4493,24 @@ PrefabInstance:
       value: 0.075093724
       objectReference: {fileID: 0}
     - target: {fileID: 5930732024227365458, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
+      propertyPath: m_lineSpacing
+      value: -35.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930732024227365458, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
       propertyPath: m_fontSizeBase
-      value: 80
+      value: 56.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930732024227365458, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
+      propertyPath: m_verticalMapping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5930732024227365458, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4282582547
+      objectReference: {fileID: 0}
+    - target: {fileID: 5930732024227365458, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
+      propertyPath: m_horizontalMapping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7083908170635308714, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
       propertyPath: m_Pivot.x
