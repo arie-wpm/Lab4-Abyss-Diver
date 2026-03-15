@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
     
     [Header("Test Flags")]
     public bool enableGodMode = false;
+    public bool startAtLevel1 = true;
+    public bool startAtLevel2 = false;
+    public bool startAtLevel3 = false;
+
+    [HideInInspector] public string startLevel;
 
     [Header("Level Backgrounds Color")]
     public Color level1Color = new Color32(49, 77, 120, 255);
@@ -43,6 +48,14 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
+
+        if (startLevel == null) startLevel = "Level1";
+        else
+        {
+            if (startAtLevel1) startLevel = "Level1";
+            else if (startAtLevel2) startLevel = "Level2";
+            else if (startAtLevel3) startLevel = "Level3";
+        }
     }
     
     void OnEnable()

@@ -15,9 +15,11 @@ public class SceneStreamer : MonoBehaviour
     }
 
     IEnumerator Startup() {
-        GameManager.currentScene = "Level1";
+        string startScene = GameManager.instance.startLevel;
+        Debug.Log(startScene);
+        GameManager.currentScene = startScene;
         yield return SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
-        yield return SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Additive);
+        yield return SceneManager.LoadSceneAsync(startScene, LoadSceneMode.Additive);
     }
 
     public void LoadSceneByName(string sceneName)
