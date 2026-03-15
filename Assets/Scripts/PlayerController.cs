@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         set => currentDirection = value;
     }
 
-    private bool canMove;
+    [SerializeField] private bool canMove;
     public bool CanMove
     {
         get => canMove;
@@ -94,7 +94,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         pStats = PlayerStats.GlobalPlayerStats;
         rb.gravityScale = gravity;
-        canMove = true;
         moveAction = InputSystem.actions.FindAction("Move");
         dashAction = InputSystem.actions.FindAction("Dash");
     }

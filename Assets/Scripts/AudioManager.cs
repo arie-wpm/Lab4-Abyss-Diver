@@ -40,7 +40,7 @@ public class Sound {
 
 public class AudioManager : MonoBehaviour {
 
-    private static AudioManager instance;
+    public static AudioManager instance;
 
     [Header("Debug")]
     [SerializeField] private bool enableDebug = false;    

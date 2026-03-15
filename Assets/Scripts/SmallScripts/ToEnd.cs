@@ -8,6 +8,7 @@ public class ToEnd : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.StopMusic();
             SceneManager.LoadScene("Ending");
         }
     }
