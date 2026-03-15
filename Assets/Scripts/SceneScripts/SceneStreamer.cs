@@ -16,8 +16,8 @@ public class SceneStreamer : MonoBehaviour
 
     IEnumerator Startup() {
         string startScene = GameManager.instance.startLevel;
-        Debug.Log(startScene);
         GameManager.currentScene = startScene;
+        GameManager.previousScene = startScene;
         yield return SceneManager.LoadSceneAsync("UI", LoadSceneMode.Additive);
         yield return SceneManager.LoadSceneAsync(startScene, LoadSceneMode.Additive);
     }
