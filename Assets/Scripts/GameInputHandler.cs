@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class GameInputHandler : MonoBehaviour
 {
-    InputAction restart;
-    InputAction pause;
-    InputAction reset;
+    private InputAction restart;
+    private InputAction pause;
+    private InputAction reset;
 
     void Start()
     {
@@ -19,32 +18,32 @@ public class GameInputHandler : MonoBehaviour
     {
         if (restart != null && restart.WasPressedThisFrame())
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1f;
             AudioListener.pause = false;
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.instance.RestartToTitle();
         }
 
         if (pause != null && pause.WasPressedThisFrame())
         {
-            if (Time.timeScale == 0)
+            if (Time.timeScale == 0f)
             {
-                Time.timeScale = 1;
+                Time.timeScale = 1f;
                 AudioListener.pause = false;
             }
             else
             {
-                Time.timeScale = 0;
+                Time.timeScale = 0f;
                 AudioListener.pause = true;
             }
         }
 
         if (reset != null && reset.WasPressedThisFrame())
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1f;
             AudioListener.pause = false;
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameManager.instance.RestartCurrentLevel();
         }
     }
 }
