@@ -128,15 +128,33 @@ public class PlayerStats : MonoBehaviour {
 
     private IEnumerator HandleDrown()
     {
-        yield return new WaitForSeconds(gracePeriod);
+        float timer = 0f;
+        while (timer < gracePeriod)
+        {
+            if (!isDrowning) yield break;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
         while (currentHearts > 0 && isDrowning)
         {
-            yield return new WaitForSeconds(timeBetweenHeartLoss);
+            float heartTimer = 0f;
+            while (heartTimer < timeBetweenHeartLoss)
+            {
+                if (!isDrowning) yield break;
+                heartTimer += Time.deltaTime;
+                yield return null;
+            }
+
             LoseHealth(1);
             DebugTool.Log($"Lost Health. Current Hearts: {currentHearts}");
         }
-        DebugTool.Log($"Died. Current Hearts: {currentHearts}");
-        GameStateManager.Instance.SetGameState(GameState.Fail);
+
+        if (currentHearts <= 0)
+        {
+            DebugTool.Log($"Died. Current Hearts: {currentHearts}");
+            GameStateManager.Instance.SetGameState(GameState.Fail);
+        }
     }
 
     public void LoseHealth(int healthToLose)

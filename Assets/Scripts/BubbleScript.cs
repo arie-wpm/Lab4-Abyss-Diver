@@ -22,6 +22,7 @@ public class BubbleScript : MonoBehaviour, IPickup {
 
     public void PlayerContact(PlayerStats player) {
         player.AddOxygen(oxygenGiven);
+        player.isDrowning = false;
 
         if (anim != null) anim.SetBool("isEmpty", true);
 
