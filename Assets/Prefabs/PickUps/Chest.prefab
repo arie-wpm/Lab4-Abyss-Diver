@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448b861fc5f0c14439668c572b25629a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreasureScript
-  scoreGiven: 500
+  scoreGiven: 1000
 --- !u!61 &142028606436671654
 BoxCollider2D:
   m_ObjectHideFlags: 0
