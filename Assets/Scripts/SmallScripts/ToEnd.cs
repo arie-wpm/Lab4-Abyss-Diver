@@ -9,6 +9,9 @@ public class ToEnd : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AudioManager.StopMusic();
+            HighScoreSaver highScoreSaver = FindAnyObjectByType<HighScoreSaver>();
+            highScoreSaver.currentScore = FindAnyObjectByType<PlayerStats>().score;
+            highScoreSaver.SetHighScore();
             SceneManager.LoadScene("Ending");
         }
     }

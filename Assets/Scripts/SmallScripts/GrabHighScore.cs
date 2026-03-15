@@ -5,11 +5,10 @@ using UnityEngine;
 public class GrabHighScore : MonoBehaviour
 {
     private TextMeshProUGUI highScoreText;
-    private void Awake()
+    private void OnEnable()
     {
         highScoreText = GetComponent<TextMeshProUGUI>();
         HighScoreSaver highScoreSaver = FindAnyObjectByType<HighScoreSaver>();
-        highScoreSaver.SetHighScore();
         highScoreText.text = "High Score: " + highScoreSaver.GetHighScore().ToString();
     }
 }

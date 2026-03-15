@@ -4592,6 +4592,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8256258346095289778, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
+      propertyPath: m_TagString
+      value: HighScore
+      objectReference: {fileID: 0}
     - target: {fileID: 8556973957355994125, guid: 9f3f81847be5fcb45a3d6da96821d626, type: 3}
       propertyPath: m_SizeDelta.x
       value: 70

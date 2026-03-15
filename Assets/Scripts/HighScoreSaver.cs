@@ -6,12 +6,12 @@ using UnityEngine;
 public class HighScoreSaver : MonoBehaviour
 {
     public float highScore = 0;
-
+    public float currentScore = 0f;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         TextMeshProUGUI highScoreText = GameObject.FindWithTag("HighScore").GetComponent<TextMeshProUGUI>();
-        highScoreText.text = GetHighScore().ToString();
+        highScoreText.SetText(GetHighScore().ToString());
     }
 
     public void SetHighScore()
@@ -27,4 +27,6 @@ public class HighScoreSaver : MonoBehaviour
     {
         return PlayerPrefs.GetFloat("HighScore");
     }
+    
+    
 }
