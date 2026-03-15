@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class MenuScore : MonoBehaviour
 {
-    private int highscore;
+    private float highscore;
     void Start()
     {
-        PlayerPrefs.GetFloat("HighScore", 0);
+        highscore = PlayerPrefs.GetFloat("HighScore", 0);
         var textBox = gameObject.GetComponent<TMP_Text>();
         textBox.text = "HighScore:\n" + highscore.ToString("00000");
 
