@@ -83,6 +83,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // input handled by GameInputHandler now
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameStateManager.Instance.CurrentGameState == GameState.Play)
+            {
+                GameStateManager.Instance.SetGameState(GameState.Pause);
+            } else if (GameStateManager.Instance.CurrentGameState == GameState.Pause)
+            {
+                GameStateManager.Instance.SetGameState(GameState.Play);
+            }
+        }
     }
     
     void HandleOnStateChange(GameState state)
@@ -108,6 +118,7 @@ public class GameManager : MonoBehaviour
 
     void ReturnToStartMenu()
     {
+        //disable player controls
         RestartToTitle();
     }
 
@@ -119,12 +130,17 @@ public class GameManager : MonoBehaviour
         }
         Time.timeScale = 1f;
         AudioListener.pause = false;
+        AudioManager.ResumeMusic();
+        AudioManager.ResumeSwim();
     }
     
     void OnPause()
     {
         Time.timeScale = 0f;
-        AudioListener.pause = true;
+        //AudioListener.pause = true;
+        AudioManager.PauseSwim();
+        AudioManager.PauseMusic();
+        AudioManager.Play(SoundID.PauseSelect);
         UIManager.instance.PauseScreen.SetActive(true);
     }
 
@@ -157,6 +173,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         AudioListener.pause = false;
 
+        //player
         GameObject player = GameObject.Find("Player");
         if (player == null) return;
 
@@ -194,6 +211,7 @@ public class GameManager : MonoBehaviour
             LevelBGMchanger o = trigger.GetComponent<LevelBGMchanger>();
             if (o != null) o.Reset();
         }
+        GameStateManager.Instance.SetGameState(GameState.Play);
     }
 
     void HandleGameOverMenuReady(GameOverMenuManager menu)

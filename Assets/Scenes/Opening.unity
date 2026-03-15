@@ -257,6 +257,18 @@ MonoBehaviour:
     volume: 0.5
     randomPitch: 0
     pitch: 1
+  - id: 20
+    clips:
+    - {fileID: 8300000, guid: d52c8d84f2b6ec34ca70c55f34c6512e, type: 3}
+    volume: 1
+    randomPitch: 0
+    pitch: 1
+  - id: 21
+    clips:
+    - {fileID: 8300000, guid: 04ccfaaca0c60634bb016ad2581982cd, type: 3}
+    volume: 1
+    randomPitch: 0
+    pitch: 1
   musicSource: {fileID: 0}
   uiSource: {fileID: 0}
   swimSource: {fileID: 0}
