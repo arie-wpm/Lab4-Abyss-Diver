@@ -243,7 +243,7 @@ MonoBehaviour:
   - id: 17
     clips:
     - {fileID: 8300000, guid: 7c2c307122f45834f9b73783945b9475, type: 3}
-    volume: 0.3
+    volume: 0.15
     randomPitch: 1
     pitch: 1
   - id: 18
