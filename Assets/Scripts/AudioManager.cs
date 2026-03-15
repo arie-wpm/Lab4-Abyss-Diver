@@ -24,7 +24,8 @@ public enum SoundID {
     JellyCharge,
     JellyZap,
     PauseSelect,
-    PauseButtonClick
+    PauseButtonClick,
+    VictoryLoop
 }
 
 [System.Serializable]

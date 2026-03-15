@@ -19,6 +19,11 @@ public class GameOverMenuManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    public void SetDeathText(string text)
+    {
+        deathText.text = text;
+    }
+
     public void Show()
     {
         gameObject.SetActive(true);

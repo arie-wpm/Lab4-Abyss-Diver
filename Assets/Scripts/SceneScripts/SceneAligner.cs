@@ -79,8 +79,9 @@ public class SceneAligner : MonoBehaviour {
 
         if (!loadedScenes.Contains(sceneToLoad.SceneName)) {
             loadedScenes.Add(sceneToLoad.SceneName);
-            SceneStreamer.Instance.LoadSceneByName(sceneToLoad.SceneName);
-            StartCoroutine(AlignAfterLoad());
+            SceneStreamer.Instance.LoadSceneByName(sceneToLoad.SceneName, (scene) => {
+                StartCoroutine(AlignAfterLoad(scene));
+            });;
         }
     }
 
@@ -91,17 +92,18 @@ public class SceneAligner : MonoBehaviour {
             while (!unloadOp.isDone) yield return null;
         }
 
-        SceneStreamer.Instance.LoadSceneByName("Rest");
-        yield return StartCoroutine(AlignAfterLoad());
+            SceneStreamer.Instance.LoadSceneByName("Rest", (scene) => {
+                StartCoroutine(AlignAfterLoad(scene));
+            });;
     }
 
-    private IEnumerator AlignAfterLoad() {
-        Scene loadedScene = SceneManager.GetSceneByName(sceneToLoad.SceneName);
-        while (!loadedScene.isLoaded) yield return null;
-        yield return null;
+    public IEnumerator AlignAfterLoad(Scene loadedScene) {
+        while (!loadedScene.isLoaded)
+            yield return null;
 
         GameObject newSceneAnchor = GameObject.Find(newSceneAnchorName);
-        if (newSceneAnchor == null || previousSceneAnchor == null) {
+        if (newSceneAnchor == null || previousSceneAnchor == null)
+        {
             Debug.LogWarning("Scene alignment failed: missing anchors.");
             Debug.Log("new Anchor: " + newSceneAnchorName);
             yield break;
@@ -110,21 +112,8 @@ public class SceneAligner : MonoBehaviour {
         Vector3 offset = previousSceneAnchor.position - newSceneAnchor.transform.position;
         foreach (GameObject rootObj in loadedScene.GetRootGameObjects()) rootObj.transform.position += offset;
 
-        // rebase moving enemies
-        foreach (EnemyMovement enemy in loadedScene.GetRootGameObjects()
-            .SelectMany(go => go.GetComponentsInChildren<EnemyMovement>()))
-        {
-            enemy.RebasePosition();
-        }
+        GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint")?.transform;
 
-        // rebase fish
-        foreach (FishGroupController fishGroup in loadedScene.GetRootGameObjects()
-            .SelectMany(go => go.GetComponentsInChildren<FishGroupController>()))
-        {
-            fishGroup.RebaseFisPositions();
-        }
-
-        // set spawn
-        GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
+        yield return null;
     }
 }
