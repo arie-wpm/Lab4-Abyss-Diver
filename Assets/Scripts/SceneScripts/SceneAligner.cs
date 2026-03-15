@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
+using System.Linq;
 
 public class SceneAligner : MonoBehaviour {
     private SceneReference sceneToLoad;
@@ -108,6 +109,13 @@ public class SceneAligner : MonoBehaviour {
 
         Vector3 offset = previousSceneAnchor.position - newSceneAnchor.transform.position;
         foreach (GameObject rootObj in loadedScene.GetRootGameObjects()) rootObj.transform.position += offset;
+
+        // rebase moving enemies
+        foreach (EnemyMovement enemy in loadedScene.GetRootGameObjects()
+            .SelectMany(go => go.GetComponentsInChildren<EnemyMovement>()))
+        {
+            enemy.RebasePosition();
+        }
 
         // set spawn
         GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;

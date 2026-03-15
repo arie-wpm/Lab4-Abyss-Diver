@@ -112,4 +112,10 @@ public class EnemyMovement : MonoBehaviour
         scale.x *= -1f;
         transform.localScale = scale;
     }
+
+    public void RebasePosition()
+    {
+        basePosition = transform.position;
+        waveTime = 0f;
+    }
 }
