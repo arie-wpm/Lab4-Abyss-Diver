@@ -501,23 +501,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashTime
-      value: 0.45
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashColor.a
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashColor.b
-      value: 1.4008719
+      value: 0.84842414
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashColor.g
-      value: 1.4008719
+      value: 0.83381426
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashColor.r
-      value: 2.828427
+      value: 2.9960783
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.size
-      value: 9
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[1].time
@@ -549,11 +553,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[8].time
+      value: 0.449
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[9].time
       value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[0].value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[10].time
+      value: 0.549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[11].time
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[12].time
+      value: 0.649
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[13].time
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[14].time
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[3].value
@@ -577,6 +605,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[8].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[9].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[10].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[11].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[12].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[13].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[14].value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
@@ -612,8 +664,36 @@ PrefabInstance:
       value: -0.044480585
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[8].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[9].inSlope
+      value: 0.12692124
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[0].outSlope
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[10].inSlope
+      value: 0.05604751
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[11].inSlope
+      value: 0.0076288395
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[12].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[13].inSlope
+      value: -0.02583218
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[14].inSlope
+      value: 0.07295303
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[1].inWeight
@@ -672,8 +752,64 @@ PrefabInstance:
       value: -0.044480585
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[8].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[8].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[9].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[9].outSlope
+      value: 0.12692124
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[0].outWeight
       value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[10].inWeight
+      value: 0.24749887
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[10].outSlope
+      value: 0.05604751
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[11].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[11].outSlope
+      value: 0.0076288395
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[12].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[12].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[13].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[13].outSlope
+      value: -0.02583218
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[14].inWeight
+      value: 0.37964872
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[14].outSlope
+      value: 0.07295303
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[1].outWeight
@@ -701,6 +837,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashSpeedCurve.m_Curve.Array.data[7].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[8].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[9].outWeight
+      value: 0.15135962
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[10].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[11].outWeight
+      value: 0.1974576
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[12].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[13].outWeight
+      value: 0.47535467
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: flashSpeedCurve.m_Curve.Array.data[14].outWeight
       value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
