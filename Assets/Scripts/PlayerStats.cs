@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour {
     private PlayerController playerController;
     private DamageFlash damageFlash;
 
-    public event Action OnPlayerDeath;
+    public event Action<string> OnPlayerDeath;
     
     [Header("DebugTool.Log")]
     [SerializeField] private bool enableDebug = false;
@@ -153,7 +153,7 @@ public class PlayerStats : MonoBehaviour {
         if (currentHearts <= 0)
         {
             DebugTool.Log($"Died. Current Hearts: {currentHearts}");
-            GameStateManager.Instance.SetGameState(GameState.Fail);
+            OnPlayerDeath?.Invoke("You Drowned!");
         }
     }
 
@@ -187,7 +187,7 @@ public class PlayerStats : MonoBehaviour {
             currentHearts = 0;
             playerController.CanMove = false;
             DebugTool.Log($"Died. Current Hearts: {currentHearts}");
-            OnPlayerDeath?.Invoke();
+            OnPlayerDeath?.Invoke("You Died!");
             return;
         }
     }

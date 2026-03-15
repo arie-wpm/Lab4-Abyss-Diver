@@ -202,9 +202,9 @@ public class PlayerAnimation : MonoBehaviour
             playerBubbleRoutine = StartCoroutine(PlayerBubbleRoutine());
     }
 
-    void HandlePlayerDeath() => RunDeathAnim();
+    void HandlePlayerDeath(string msg) => RunDeathAnim(msg);
 
-    void RunDeathAnim()
+    public void RunDeathAnim(string msg)
     {
         rb.simulated = false;
         rb.linearVelocity = Vector2.zero;
@@ -212,7 +212,7 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("isDead", true);
         GameStateManager.Instance.SetGameState(GameState.Fail);
         GameOverMenuManager text = UIManager.instance.GameOverScreen.GetComponent<GameOverMenuManager>();
-        text.SetDeathText("You Died!");
+        text.SetDeathText(msg);
     }
 
     public IEnumerator RunRespawnAnim()
@@ -229,7 +229,5 @@ public class PlayerAnimation : MonoBehaviour
 
         animator.SetBool("isRespawn", false);
         rb.simulated = true;
-        GameOverMenuManager text = UIManager.instance.GameOverScreen.GetComponent<GameOverMenuManager>();
-        text.SetDeathText("You Drowned!");
     }
 }

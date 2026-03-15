@@ -764,8 +764,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   respawnDelay: 3
   enableGodMode: 0
-  startAtLevel1: 1
-  startAtLevel2: 0
+  startAtLevel1: 0
+  startAtLevel2: 1
   startAtLevel3: 0
   startLevel: 
   level1Color: {r: 0.08207501, g: 0.12897502, b: 0.201, a: 1}
