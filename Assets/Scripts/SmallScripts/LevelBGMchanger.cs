@@ -45,18 +45,18 @@ public class LevelBGMchanger : MonoBehaviour
         float t = 0f;
         Color startColor = Camera.main.backgroundColor;
         float startLightIntensity = GameManager.instance.globalLight.intensity;
-        float startBloomIntensity = GameManager.instance.globalBloom.intensity.value;
+        float startBloomIntensity = GameManager.instance.globalBloom.threshold.value;
         
         while (t < fadeTime) {
             t += Time.deltaTime;
             Camera.main.backgroundColor = Color.Lerp(startColor, color, t / fadeTime);
             GameManager.instance.globalLight.intensity = Mathf.Lerp(startLightIntensity, lightIntensity, t);
-            GameManager.instance.globalBloom.intensity.value = Mathf.Lerp(startBloomIntensity, bloomIntensity, t);
+            GameManager.instance.globalBloom.threshold.value = Mathf.Lerp(startBloomIntensity, bloomIntensity, t);
             yield return null;
         }
         Camera.main.backgroundColor = color;
         GameManager.instance.globalLight.intensity = lightIntensity;
-        GameManager.instance.globalBloom.intensity.value = bloomIntensity;
+        GameManager.instance.globalBloom.threshold.value = bloomIntensity;
     }
 
     public void Reset()
