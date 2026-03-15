@@ -5,31 +5,57 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Debug")]
-    [SerializeField] private bool enableDebug = false;
+    [SerializeField]
+    private bool enableDebug = false;
 
     [Header("Movement")]
-    [SerializeField] private float gravity;
-    [SerializeField] private float ascendAcceleration;
-    [SerializeField] private float descendAcceleration;
-    [SerializeField] private float horizontalAcceleration;
-    [SerializeField] private float maxHorizontalVelocity;
-    [SerializeField] private float maxAscendVelocity;
-    [SerializeField] private float maxDescendVelocity;
-    [SerializeField] private float maxGravityVelocity;
-    [SerializeField] private float postDescendSlowDownRate;
+    [SerializeField]
+    private float gravity;
+
+    [SerializeField]
+    private float ascendAcceleration;
+
+    [SerializeField]
+    private float descendAcceleration;
+
+    [SerializeField]
+    private float horizontalAcceleration;
+
+    [SerializeField]
+    private float maxHorizontalVelocity;
+
+    [SerializeField]
+    private float maxAscendVelocity;
+
+    [SerializeField]
+    private float maxDescendVelocity;
+
+    [SerializeField]
+    private float maxGravityVelocity;
+
+    [SerializeField]
+    private float postDescendSlowDownRate;
 
     [Header("Dash")]
-    [SerializeField] private float dashVelocity;
-    [SerializeField] private float dashTime;
-    [SerializeField] private float dashOxygenCost;
+    [SerializeField]
+    private float dashVelocity;
+
+    [SerializeField]
+    private float dashTime;
+
+    [SerializeField]
+    private float dashOxygenCost;
     private float dashTimer;
     private bool isDashing;
 
-    [Header("Knockback")] 
-    [SerializeField] private float knockbackForce;
-    [SerializeField] private float stunTime;
+    [Header("Knockback")]
+    [SerializeField]
+    private float knockbackForce;
+
+    [SerializeField]
+    private float stunTime;
     private float stunTimer;
-    
+
     private Rigidbody2D rb;
     private PlayerStats pStats;
     private InputAction moveAction;
@@ -48,6 +74,13 @@ public class PlayerController : MonoBehaviour
     {
         get => canMove;
         set => canMove = value;
+    }
+
+    private bool inCurrent;
+    public bool InCurrent
+    {
+        get => inCurrent;
+        set => inCurrent = value;
     }
 
     void Awake()
@@ -95,7 +128,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (!canMove)
+        if (!canMove && !InCurrent)
         {
             stunTimer -= Time.deltaTime;
             if (stunTimer <= 0 && pStats.CurrentHearts > 0)
@@ -108,7 +141,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //Force Application
-        if (moveValue != Vector2.zero && canMove)
+        if (moveValue != Vector2.zero && canMove && !inCurrent)
         {
             if (Mathf.Abs(moveValue.x) > 0)
             {
@@ -147,7 +180,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Limits
-        if (!isDashing && canMove)
+        if (!isDashing && canMove && !inCurrent)
         {
             if (Mathf.Abs(rb.linearVelocityX) >= maxHorizontalVelocity)
             {
