@@ -32,6 +32,8 @@ public class PlayerAnimation : MonoBehaviour {
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
+        
         Vector2 velocity = rb.linearVelocity;
         Vector2 moveInput = moveAction.ReadValue<Vector2>();
 

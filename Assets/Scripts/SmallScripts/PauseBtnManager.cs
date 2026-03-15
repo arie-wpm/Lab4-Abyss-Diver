@@ -23,17 +23,19 @@ public class PauseBtnManager : MonoBehaviour
 
     private void ContinueBtnPress()
     {
+        AudioManager.Play(SoundID.PauseButtonClick);
         GameStateManager.Instance.SetGameState(GameState.Play);
     }
 
     private void ResetLevelBtnPress()
     {
-        //reset level
+        AudioManager.Play(SoundID.PauseButtonClick);
         GameManager.instance.RestartCurrentLevel();
     }
 
     private void ReturnToTitleBtnPress()
     {
+        AudioManager.Play(SoundID.PauseButtonClick);
         GameManager.instance.RestartToTitle();
     }
 }

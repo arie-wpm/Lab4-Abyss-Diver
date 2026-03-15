@@ -22,7 +22,9 @@ public enum SoundID {
     JellyHit,
     Volcano,
     JellyCharge,
-    JellyZap
+    JellyZap,
+    PauseSelect,
+    PauseButtonClick
 }
 
 [System.Serializable]

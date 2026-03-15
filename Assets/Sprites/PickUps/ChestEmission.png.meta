@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c2b45e49f12a543429665c99eeb3fb4b
+guid: c5e906c336dd9634ba78faf7ecbb31c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8809068661587962865
-    second: pearlSprite_0
+      213: -3415420683542136638
+    second: ChestEmission_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pearlSprite_0
+      name: ChestEmission_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 224
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f04160889b6efb580800000000000000
-      internalID: -8809068661587962865
+      spriteID: 2c8f2f6ebfcf990d0800000000000000
+      internalID: -3415420683542136638
       vertices: []
       indices: 
       edges: []
@@ -151,19 +151,17 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: a6c701df06040d646beb4dfea276b067, type: 3}
-      name: _Emission
+    secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pearlSprite_0: -8809068661587962865
+      ChestEmission_0: -3415420683542136638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
