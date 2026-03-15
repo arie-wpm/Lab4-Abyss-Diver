@@ -176,6 +176,14 @@ public class GameManager : MonoBehaviour
             if (o != null) o.Reset();
         }
 
+        // reset only bubble not treasure
+        GameObject[] pickups = GameObject.FindGameObjectsWithTag("Pickup");
+        foreach (GameObject pickup in pickups) {
+            if (pickup.name.ToLower().Contains("bubble")) {
+                pickup.GetComponent<BubbleScript>().Reset();
+            }
+        }
+
     }
 
     void HandleGameOverMenuReady(GameOverMenuManager menu)
