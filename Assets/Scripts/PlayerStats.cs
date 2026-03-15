@@ -1,41 +1,51 @@
-using System.Collections;
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class PlayerStats : MonoBehaviour {
+public class PlayerStats : MonoBehaviour
+{
     public static PlayerStats GlobalPlayerStats { get; private set; }
     private PlayerController playerController;
     private DamageFlash damageFlash;
 
     public event Action<string> OnPlayerDeath;
-    
+
     [Header("DebugTool.Log")]
-    [SerializeField] private bool enableDebug = false;
+    [SerializeField]
+    private bool enableDebug = false;
 
     [Header("Oxygen")]
-    [SerializeField] private float maxOxygenLevel;
+    [SerializeField]
+    private float maxOxygenLevel;
     private float currentOxygenLevel;
 
-    [HideInInspector] public float CurrentOxygenLevel
+    [HideInInspector]
+    public float CurrentOxygenLevel
     {
         get => currentOxygenLevel;
     }
 
-    [SerializeField] private float oxygenDrainRate;
+    [SerializeField]
+    private float oxygenDrainRate;
 
     //Just for testing Purposes can be changed later
-    [SerializeField] private Image oxygenBarGraphic;
-    [SerializeField] public float baseOxygenToAdd;
+    [SerializeField]
+    private Image oxygenBarGraphic;
+
+    [SerializeField]
+    public float baseOxygenToAdd;
 
     [Header("Health")]
-    [SerializeField] private int maxHearts = 3;
+    [SerializeField]
+    private int maxHearts = 3;
     public bool isDrowning = false;
     private int currentHearts;
 
-    [HideInInspector] public float CurrentHearts
+    [HideInInspector]
+    public float CurrentHearts
     {
         get => currentHearts;
     }
@@ -48,34 +58,47 @@ public class PlayerStats : MonoBehaviour {
         set => isInvincible = value;
     }
 
-    [SerializeField] private Image healthBarGraphic;
+    [SerializeField]
+    private Image healthBarGraphic;
+
     //Before losing the first heart while drowning, waits slighly longer (additive to the regular timebetweenheartloss).
-    [SerializeField] private float gracePeriod;
+    [SerializeField]
+    private float gracePeriod;
+
     //Time between losing a heart while drowning.
-    [SerializeField] private float timeBetweenHeartLoss;
-    [HideInInspector] public float score = 0f;
+    [SerializeField]
+    private float timeBetweenHeartLoss;
+
+    [HideInInspector]
+    public float score = 0;
 
     [Header("Score")]
-    [SerializeField] private TMP_Text scoreboard;
+    [SerializeField]
+    private TMP_Text scoreboard;
     private bool isUILinked = false;
     private bool hasOxyLowPlayed = false;
     private Coroutine oxyWarningRoutine;
 
     public bool isSafeZone = false;
 
-    void OnEnable() {
+    void OnEnable()
+    {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnDisable() {
+    void OnDisable()
+    {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         isUILinked = false;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name == "UI") {
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "UI")
+        {
             GameObject canvasObj = GameObject.Find("UIManager");
-            if (canvasObj != null) {
+            if (canvasObj != null)
+            {
                 healthBarGraphic = canvasObj.GetComponentInChildren<UICameraSetter>().healthFill;
                 oxygenBarGraphic = canvasObj.GetComponentInChildren<UICameraSetter>().oxygenFill;
                 scoreboard = canvasObj.GetComponentInChildren<UICameraSetter>().score;
@@ -116,8 +139,10 @@ public class PlayerStats : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (isUILinked) {
-            if (!isSafeZone) HandleOxygenDrain();
+        if (isUILinked)
+        {
+            if (!isSafeZone)
+                HandleOxygenDrain();
             if (currentOxygenLevel <= 0 && !isDrowning)
             {
                 isDrowning = true;
@@ -131,7 +156,8 @@ public class PlayerStats : MonoBehaviour {
         float timer = 0f;
         while (timer < gracePeriod)
         {
-            if (!isDrowning) yield break;
+            if (!isDrowning)
+                yield break;
             timer += Time.deltaTime;
             yield return null;
         }
@@ -141,7 +167,8 @@ public class PlayerStats : MonoBehaviour {
             float heartTimer = 0f;
             while (heartTimer < timeBetweenHeartLoss)
             {
-                if (!isDrowning) yield break;
+                if (!isDrowning)
+                    yield break;
                 heartTimer += Time.deltaTime;
                 yield return null;
             }
@@ -159,12 +186,14 @@ public class PlayerStats : MonoBehaviour {
 
     public void LoseHealth(int healthToLose)
     {
-        if (currentHearts <= 0) {
+        if (currentHearts <= 0)
+        {
             return;
         }
 
         AudioManager.Play(SoundID.Hurt);
-        if (GameManager.instance.enableGodMode) return;
+        if (GameManager.instance.enableGodMode)
+            return;
         healthToLose = Mathf.Min(3, healthToLose);
         for (int i = 0; i < healthToLose; i++)
         {
@@ -175,7 +204,8 @@ public class PlayerStats : MonoBehaviour {
 
     public void TakeDamage(int amount, Vector2 dir)
     {
-        if (isInvincible) return;
+        if (isInvincible)
+            return;
 
         LoseHealth(amount);
         damageFlash.CallDamageFlash();
@@ -241,7 +271,8 @@ public class PlayerStats : MonoBehaviour {
 
         if (GetCurrentOxygenPercent() < 0.3f)
         {
-            if (!hasOxyLowPlayed) {
+            if (!hasOxyLowPlayed)
+            {
                 AudioManager.Play(SoundID.OxyWarning);
                 oxyWarningRoutine = StartCoroutine(HandleOxygenWarning());
                 hasOxyLowPlayed = true;
@@ -249,8 +280,10 @@ public class PlayerStats : MonoBehaviour {
         }
     }
 
-    IEnumerator HandleOxygenWarning(int flashes = 5, float flashDuration = 0.1f) {
-        for (int i = 0; i < flashes; i++) {
+    IEnumerator HandleOxygenWarning(int flashes = 5, float flashDuration = 0.1f)
+    {
+        for (int i = 0; i < flashes; i++)
+        {
             oxygenBarGraphic.color = (i % 2 == 0) ? Color.red : Color.white;
             yield return new WaitForSeconds(flashDuration);
         }
@@ -258,7 +291,8 @@ public class PlayerStats : MonoBehaviour {
         oxyWarningRoutine = null;
     }
 
-    public void ResetPlayerStats() {
+    public void ResetPlayerStats()
+    {
         isDrowning = false;
         hasOxyLowPlayed = false;
         currentOxygenLevel = maxOxygenLevel;
