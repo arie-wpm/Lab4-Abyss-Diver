@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // temp set to Play (GameManager is loaded in level)
         GameStateManager.Instance.SetGameState(GameState.Play);
         globalLight = FindAnyObjectByType<Light2D>();
         globalVolume = FindAnyObjectByType<Volume>();
@@ -83,16 +82,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // test reset to title
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartToTitle();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            RestartCurrentLevel();
-        }
+        // input handled by GameInputHandler now
     }
     
     void HandleOnStateChange(GameState state)
@@ -118,7 +108,6 @@ public class GameManager : MonoBehaviour
 
     void ReturnToStartMenu()
     {
-        //disable player controls
         RestartToTitle();
     }
 
@@ -129,23 +118,28 @@ public class GameManager : MonoBehaviour
             UIManager.instance.PauseScreen.SetActive(false);
         }
         Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
     
     void OnPause()
     {
         Time.timeScale = 0f;
+        AudioListener.pause = true;
         UIManager.instance.PauseScreen.SetActive(true);
     }
 
-    public void RestartToTitle() {
+    public void RestartToTitle()
+    {
         isGameOverObjRdy = false;
         isPauseObjRdy = false;
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
         SceneManager.LoadScene("Opening");
         AudioManager.PlayMusic(SoundID.TitleScreen);
     }
 
-    IEnumerator FailLoop() {
-        // play animation via coroutine etc etc
+    IEnumerator FailLoop()
+    {
         yield return new WaitForSeconds(1f);
         
         UIManager.instance.GameOverScreen.Show();
@@ -158,24 +152,48 @@ public class GameManager : MonoBehaviour
         RestartCurrentLevel();
     }
 
-    public void RestartCurrentLevel() {
-        // reset enemy positions, player stats
-        // pickups should not reset since we're not resetting score
+    public void RestartCurrentLevel()
+    {
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
 
-        //player
         GameObject player = GameObject.Find("Player");
-        PlayerStats pStats = player.GetComponent<PlayerStats>();
-        pStats.ResetPlayerStats();
-        if (currentSpawnPoint == null) currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
-        player.transform.position = currentSpawnPoint.position;
+        if (player == null) return;
 
-        //music
-        GameObject[] Triggers = GameObject.FindGameObjectsWithTag("Trigger");
-        foreach (GameObject trigger in Triggers) {
+        PlayerStats pStats = player.GetComponent<PlayerStats>();
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+
+        if (pStats != null)
+        {
+            pStats.ResetPlayerStats();
+        }
+
+        if (currentSpawnPoint == null)
+        {
+            GameObject foundSpawn = GameObject.Find("SpawnPoint");
+            if (foundSpawn != null)
+            {
+                currentSpawnPoint = foundSpawn.transform;
+            }
+        }
+
+        if (currentSpawnPoint != null)
+        {
+            player.transform.position = currentSpawnPoint.position;
+        }
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
+
+        GameObject[] triggers = GameObject.FindGameObjectsWithTag("Trigger");
+        foreach (GameObject trigger in triggers)
+        {
             LevelBGMchanger o = trigger.GetComponent<LevelBGMchanger>();
             if (o != null) o.Reset();
         }
-
     }
 
     void HandleGameOverMenuReady(GameOverMenuManager menu)
@@ -197,5 +215,6 @@ public class GameManager : MonoBehaviour
             UIManager.instance.PauseScreen.SetActive(false);
         }
         Time.timeScale = 1f;
+        AudioListener.pause = false;
     }
 }
