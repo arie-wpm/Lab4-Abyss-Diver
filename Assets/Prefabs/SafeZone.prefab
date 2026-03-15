@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b277f62af603447aaeb081e1fb6145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SafeZone
+  bubblePrefab: {fileID: 6454732348933624325, guid: d5a35ed4e5c64c5459b836bfe68e9aad, type: 3}
+  respawnTime: 10
 --- !u!58 &1147300761506149579
 CircleCollider2D:
   m_ObjectHideFlags: 0
