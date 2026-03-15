@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3836184808867682563}
   - component: {fileID: 9042091033860620529}
   - component: {fileID: 3999429009242427980}
+  - component: {fileID: 2499922149100630611}
   m_Layer: 0
   m_Name: Pearl
   m_TagString: Pickup
@@ -61,7 +62,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 3cf544aea31d0c545b8d63e11c9c9a83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,6 +144,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreasureScript
   scoreGiven: 500
+--- !u!114 &2499922149100630611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241811003958279306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc3140903fe054ab3a76353e0269a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectColor
+  color: {r: 1.4702225, g: 1.8443027, b: 1.8009969, a: 0.7019608}
 --- !u!1 &3300582516430062418
 GameObject:
   m_ObjectHideFlags: 0
