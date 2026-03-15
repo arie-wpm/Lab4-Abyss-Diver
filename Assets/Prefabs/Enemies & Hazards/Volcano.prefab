@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c46ba0cf4654c2b9873f9ac8f1be21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VolcanoDamageOverTime
-  damageInterval: 0.5
+  damageInterval: 0.76
   damageAmount: 1
 --- !u!61 &7447337975327586899
 BoxCollider2D:
