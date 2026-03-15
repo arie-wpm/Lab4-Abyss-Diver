@@ -237,7 +237,6 @@ public class GameManager : MonoBehaviour
     void HandleGameOverMenuReady(GameOverMenuManager menu)
     {
         isGameOverObjRdy = true;
-        Debug.Log(UIManager.instance.GameOverScreen);
         if (UIManager.instance.GameOverScreen.gameObject.activeSelf)
         {
             UIManager.instance.GameOverScreen.gameObject.SetActive(false);
@@ -247,7 +246,6 @@ public class GameManager : MonoBehaviour
     void HandlePauseScreenReady(GameObject pause)
     {
         isPauseObjRdy = true;
-        Debug.Log(UIManager.instance.PauseScreen);
         if (UIManager.instance.PauseScreen.activeSelf)
         {
             UIManager.instance.PauseScreen.SetActive(false);

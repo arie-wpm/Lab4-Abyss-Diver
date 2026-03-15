@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FissurePullZone
   fissureCenter: {fileID: 3544033452640816434}
-  pullForce: 3
-  maxExtraPullSpeed: 2.5
+  pullForce: 1
+  maxExtraPullSpeed: 2
 --- !u!1 &1078353868336300270
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1970573684942135274, guid: 96431b8cdad954e75acfb78605c98ec4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.18431373}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -324,7 +324,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1970573684942135274, guid: 96431b8cdad954e75acfb78605c98ec4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.105882354}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

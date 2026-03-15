@@ -111,7 +111,20 @@ public class SceneAligner : MonoBehaviour {
 
         Vector3 offset = previousSceneAnchor.position - newSceneAnchor.transform.position;
         foreach (GameObject rootObj in loadedScene.GetRootGameObjects()) rootObj.transform.position += offset;
+        
+        // rebase moving enemies
+        foreach (EnemyMovement enemy in loadedScene.GetRootGameObjects()
+            .SelectMany(go => go.GetComponentsInChildren<EnemyMovement>()))
+        {
+            enemy.RebasePosition();
+        }
 
+        // rebase fish
+        foreach (FishGroupController fishGroup in loadedScene.GetRootGameObjects()
+            .SelectMany(go => go.GetComponentsInChildren<FishGroupController>()))
+        {
+            fishGroup.RebaseFisPositions();
+        }
         GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint")?.transform;
 
         yield return null;
