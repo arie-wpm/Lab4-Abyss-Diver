@@ -164,6 +164,8 @@ public class GameManager : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         if (player == null) return;
 
+        StartCoroutine(player.GetComponent<PlayerAnimation>().RunRespawnAnim());
+
         PlayerStats pStats = player.GetComponent<PlayerStats>();
         Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
 

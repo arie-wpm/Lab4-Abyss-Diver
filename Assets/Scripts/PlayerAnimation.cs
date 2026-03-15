@@ -31,9 +31,12 @@ public class PlayerAnimation : MonoBehaviour
     private float noInputTimer;
     private bool wasDown = false;
     private Coroutine playerBubbleRoutine;
+    private PlayerStats pStats;
 
     void Awake()
     {
+        pStats = GetComponent<PlayerStats>();
+        pStats.OnPlayerDeath += HandlePlayerDeath;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         collider = GetComponent<CapsuleCollider2D>();
@@ -45,6 +48,11 @@ public class PlayerAnimation : MonoBehaviour
             particlePos
         );
         playerBubbleRoutine = StartCoroutine(PlayerBubbleRoutine());
+    }
+
+    void OnDestroy()
+    {
+        pStats.OnPlayerDeath -= HandlePlayerDeath;
     }
 
     void Update()
@@ -153,6 +161,13 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("isDown", isDown);
     }
 
+    void SetAnimAllFalse() {
+        animator.SetBool("isRight", false);
+        animator.SetBool("isLeft", false);
+        animator.SetBool("isUp", false);
+        animator.SetBool("isDown", false);
+    }
+
     IEnumerator PlayerBubbleRoutine()
     {
         while (true)
@@ -183,4 +198,31 @@ public class PlayerAnimation : MonoBehaviour
         if (playerBubbleRoutine == null)
             playerBubbleRoutine = StartCoroutine(PlayerBubbleRoutine());
     }
+
+    void HandlePlayerDeath() => RunDeathAnim();
+
+    void RunDeathAnim()
+    {
+        rb.simulated = false;
+        rb.linearVelocity = Vector2.zero;
+        SetAnimAllFalse();
+        animator.SetBool("isDead", true);
+    }
+
+    public IEnumerator RunRespawnAnim()
+    {
+        SetAnimAllFalse();
+        animator.Rebind();
+        rb.simulated = false;
+        animator.SetBool("isRespawn", true);
+
+        yield return null;
+
+        float animLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animLength);
+
+        animator.SetBool("isRespawn", false);
+        rb.simulated = true;
+    }
+
 }

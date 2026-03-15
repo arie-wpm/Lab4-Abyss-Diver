@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   respawnDelay: 8
-  enableGodMode: 1
+  enableGodMode: 0
   startAtLevel1: 1
   startAtLevel2: 0
   startAtLevel3: 0

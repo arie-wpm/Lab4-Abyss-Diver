@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ public class PlayerStats : MonoBehaviour {
     public static PlayerStats GlobalPlayerStats { get; private set; }
     private PlayerController playerController;
     private DamageFlash damageFlash;
+
+    public event Action OnPlayerDeath;
     
     [Header("DebugTool.Log")]
     [SerializeField] private bool enableDebug = false;
@@ -166,6 +169,7 @@ public class PlayerStats : MonoBehaviour {
             currentHearts = 0;
             playerController.CanMove = false;
             DebugTool.Log($"Died. Current Hearts: {currentHearts}");
+            OnPlayerDeath?.Invoke();
             return;
         }
     }
