@@ -152,6 +152,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         RestartCurrentLevel();
+        UIManager.instance.GameOverScreen.Hide();
     }
 
     public void RestartCurrentLevel()
