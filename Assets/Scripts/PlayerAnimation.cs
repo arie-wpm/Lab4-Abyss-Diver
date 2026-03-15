@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
+    public bool useColliderChangeFunction = false;
     [Header("Settings")]
     [SerializeField]
     private float horizontalDeadzone = 0.1f;
@@ -120,11 +121,13 @@ public class PlayerAnimation : MonoBehaviour
 
         if (isRight || isLeft)
         {
-            collider.direction = CapsuleDirection2D.Horizontal;
+            if (useColliderChangeFunction) collider.direction = CapsuleDirection2D.Horizontal;
+            else collider.size = new Vector2(1.9f, 1.9f);
         }
         else
         {
-            collider.direction = CapsuleDirection2D.Vertical;
+            if (useColliderChangeFunction) collider.direction = CapsuleDirection2D.Vertical;
+            else collider.size = new Vector2(1.9f, 1.9f);
         }
 
         if (isDown && !wasDown)

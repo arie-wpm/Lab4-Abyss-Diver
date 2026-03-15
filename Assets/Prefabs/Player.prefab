@@ -164,7 +164,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6c052d956391afa40a60d440fa9a8502, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabfb49533130244086c0f062398b286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimation
+  useColliderChangeFunction: 0
   horizontalDeadzone: 0.1
   verticalHoldThreshold: 0.5
   noInputThreshold: 0.5

@@ -487,6 +487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8175568125990066552, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8479841509933150768, guid: 2c74ddecb8659be4e8b4276498eaa5be, type: 3}
       propertyPath: flashTime
       value: 0.45
@@ -759,9 +763,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   respawnDelay: 8
-  enableGodMode: 0
-  startAtLevel1: 1
-  startAtLevel2: 0
+  enableGodMode: 1
+  startAtLevel1: 0
+  startAtLevel2: 1
   startAtLevel3: 0
   startLevel: 
   level1Color: {r: 0.08207501, g: 0.12897502, b: 0.201, a: 1}
