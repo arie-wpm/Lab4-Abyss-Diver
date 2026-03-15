@@ -117,6 +117,13 @@ public class SceneAligner : MonoBehaviour {
             enemy.RebasePosition();
         }
 
+        // rebase fish
+        foreach (FishGroupController fishGroup in loadedScene.GetRootGameObjects()
+            .SelectMany(go => go.GetComponentsInChildren<FishGroupController>()))
+        {
+            fishGroup.RebaseFisPositions();
+        }
+
         // set spawn
         GameManager.instance.currentSpawnPoint = GameObject.Find("SpawnPoint").transform;
     }
