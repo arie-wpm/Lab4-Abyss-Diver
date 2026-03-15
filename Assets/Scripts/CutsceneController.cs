@@ -16,14 +16,17 @@ public class CutsceneController : MonoBehaviour
 
     [SerializeField]
     private TMP_Text scoreUI;
+    [SerializeField] private TMP_Text highScoreUI;
 
     void Start()
     {
         director = GetComponent<PlayableDirector>();
-
-        if (scoreUI != null && PlayerStats.GlobalPlayerStats != null)
+        HighScoreSaver highScoreSaver = FindAnyObjectByType<HighScoreSaver>();
+        if (scoreUI != null && highScoreSaver != null)
         {
-            scoreUI.SetText("Final Score: " + PlayerStats.GlobalPlayerStats.score.ToString());
+            scoreUI.SetText("Final Score: " + highScoreSaver.currentScore );
+            highScoreUI.SetText("High Score: " + highScoreSaver.GetHighScore().ToString() );
+            
         }
         else
         {
