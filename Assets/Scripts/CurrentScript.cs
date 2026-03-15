@@ -39,7 +39,7 @@ public class CurrentScript : MonoBehaviour
     void Start()
     {
         //Gets vector of movement between the front and back markers.
-        moveDirection = front.position - back.position;
+        moveDirection = (front.position - back.position).normalized;
         DebugTool.Log(moveDirection);
         currentCollider = GetComponent<Collider2D>();
     }

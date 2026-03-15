@@ -33,13 +33,20 @@ public class PlayerCollisionHandler : MonoBehaviour
             case "Current":
                 //Activates the Water Current Movement.
                 collision.GetComponent<CurrentScript>().StartMoveObject(pRigidBody);
+                pController.InCurrent = true;
                 break;
             case "Enemy":
                 //Ememy collisions
                 PlaySoundBasedOnEnemyType(collision);
-                Debug.Log("Enemy Collided: " + collision.GetComponent<EnemyDamageDealer>().damageSourceType);
+                Debug.Log(
+                    "Enemy Collided: "
+                        + collision.GetComponent<EnemyDamageDealer>().damageSourceType
+                );
                 Vector2 heading = transform.position - collision.transform.position;
-                pStats.TakeDamage(collision.GetComponent<EnemyDamageDealer>().GetDamageFromType(), heading.normalized);
+                pStats.TakeDamage(
+                    collision.GetComponent<EnemyDamageDealer>().GetDamageFromType(),
+                    heading.normalized
+                );
                 break;
             default:
                 DebugTool.Log($"No case set for tag: {collision.tag}.");
@@ -56,7 +63,7 @@ public class PlayerCollisionHandler : MonoBehaviour
             case "Current":
                 //Stops the Water Current Movement.
                 collision.GetComponent<CurrentScript>().StopMoveObject(pRigidBody);
-                pController.CanMove = true;
+                pController.InCurrent = false;
                 break;
             default:
                 DebugTool.Log($"No case set for tag: {collision.tag}.");
@@ -84,7 +91,7 @@ public class PlayerCollisionHandler : MonoBehaviour
         {
             case "Current":
                 //Stops player moving while in the current; in stay to avoid player clipping the current and losing control.
-                pController.CanMove = false;
+                pController.InCurrent = true;
                 break;
             default:
                 DebugTool.Log($"No stay case set for tag: {collision.tag}.");
@@ -94,11 +101,16 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     void PlaySoundBasedOnEnemyType(Collider2D collision)
     {
-        if (CameraHelper.IsInCameraBounds(collision.transform)) {
-            if (collision.name.ToLower().Contains("lantern")) AudioManager.Play(SoundID.LanternHit);
-            if (collision.name.ToLower().Contains("seaurchin")) AudioManager.Play(SoundID.SpikeHit);
-            if (collision.name.ToLower().Contains("spike")) AudioManager.Play(SoundID.SpikeHit);
-            if (collision.name.ToLower().Contains("jelly")) AudioManager.Play(SoundID.JellyHit);
+        if (CameraHelper.IsInCameraBounds(collision.transform))
+        {
+            if (collision.name.ToLower().Contains("lantern"))
+                AudioManager.Play(SoundID.LanternHit);
+            if (collision.name.ToLower().Contains("seaurchin"))
+                AudioManager.Play(SoundID.SpikeHit);
+            if (collision.name.ToLower().Contains("spike"))
+                AudioManager.Play(SoundID.SpikeHit);
+            if (collision.name.ToLower().Contains("jelly"))
+                AudioManager.Play(SoundID.JellyHit);
         }
     }
 }
