@@ -79,21 +79,6 @@ public class GameManager : MonoBehaviour
         globalVolume = FindAnyObjectByType<Volume>();
         globalVolume.profile.TryGet<Bloom>(out globalBloom);
     }
-
-    void Update()
-    {
-        // input handled by GameInputHandler now
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameStateManager.Instance.CurrentGameState == GameState.Play)
-            {
-                GameStateManager.Instance.SetGameState(GameState.Pause);
-            } else if (GameStateManager.Instance.CurrentGameState == GameState.Pause)
-            {
-                GameStateManager.Instance.SetGameState(GameState.Play);
-            }
-        }
-    }
     
     void HandleOnStateChange(GameState state)
     {

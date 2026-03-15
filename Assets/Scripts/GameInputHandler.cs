@@ -26,15 +26,12 @@ public class GameInputHandler : MonoBehaviour
 
         if (pause != null && pause.WasPressedThisFrame())
         {
-            if (Time.timeScale == 0f)
+            if (GameStateManager.Instance.CurrentGameState == GameState.Play)
             {
-                Time.timeScale = 1f;
-                AudioListener.pause = false;
-            }
-            else
+                GameStateManager.Instance.SetGameState(GameState.Pause);
+            } else if (GameStateManager.Instance.CurrentGameState == GameState.Pause)
             {
-                Time.timeScale = 0f;
-                AudioListener.pause = true;
+                GameStateManager.Instance.SetGameState(GameState.Play);
             }
         }
 
